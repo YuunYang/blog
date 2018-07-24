@@ -1,0 +1,14 @@
+# Sample Authors
+# Remove file or replace with your own
+
+yyk:
+  name: Yukun Yang
+  picture: /images/yyk.jpeg
+  email: ylcj1314@gmail.com
+  links:
+    - title: GitHub
+      url: https://github.com/yuunyang
+      icon: fab fa-github-square
+    - title: quora
+      url: https://www.quora.com/profile/Yoke-Yang-1
+      icon: fab fa-quora

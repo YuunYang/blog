@@ -24,7 +24,7 @@ logo: "/images/logo.jpeg"
 date_format: "%B %-d, %Y"
 read_time: true
 words_per_minute: # 200
-mathjax: # MathJax equations, e.g. true
+mathjax: true
 google_fonts:
   - name: "Source Sans Pro"
     weights: "400,400i,700,700i"
@@ -102,3 +102,6 @@ footer_links:
   - title: medium
     url: https://medium.com/@372510435
     icon: fab fa-medium
+  - title: linkedin
+    url: 'https://www.linkedin.com/in/%E5%AE%87%E5%9D%A4-%E6%9D%A8-1a395a13a/'
+    icon: fab fa-linkedin

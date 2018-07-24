@@ -50,6 +50,7 @@ a img.align-right {
   margin-bottom: 1rem;
   margin-left: 1rem;
   float: right;
+  max-width: 300px;
 }
 
 .align-left,
@@ -57,4 +58,16 @@ a img.align-left {
   margin-right: 1rem;
   margin-bottom: 1rem;
   float: left;
+  max-width: 300px;
+}
+
+@media screen and (max-width: '500px') {
+  .align-left,
+  a img.align-left {
+    max-width: 100%;
+  }
+  .align-right,
+  a img.align-right {
+    max-width: 100%;
+  }
 }

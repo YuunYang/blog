@@ -6,7 +6,7 @@
     return url.split('/')[3]
   }
   var gitalk = new Gitalk({
-    id: cutUrl('{{ page.baseurl }}'),
+    id: cutUrl('{{ page.url }}'),
     clientID: '{{ site.gitalk.clientID }}',
     clientSecret: '{{ site.gitalk.clientSecret }}',
     repo: '{{ site.gitalk.repo }}',

@@ -118,4 +118,16 @@ Dynamic programming algorithm has a wide range of application, and in the next f
 
 - - -
 
+## References
+
+Some essay, blog or question referred above.
+- [Modification of CSC 364S Notes University of Toronto](http://www.cs.mun.ca/~kol/courses/2711-w08/dynprog-2711.pdf)
+- [hackerearth - dynamic programming](https://www.hackerearth.com/zh/practice/algorithms/dynamic-programming/introduction-to-dynamic-programming-1/tutorial/)
+- [wikipadia - Dynamic Programming](https://zh.wikipedia.org/zh-hans/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92)
+- [01背包问题](https://blog.csdn.net/xp731574722/article/details/70766804)
+- [Leetcode No.368](https://leetcode.com/problems/largest-divisible-subset/discuss/84006/Classic-DP-solution-similar-to-LIS-O(n2))
+- [The Partition Problem DP Solution](https://www8.cs.umu.se/kurser/TDBA77/VT06/algorithms/BOOK/BOOK2/NODE45.HTM)
+- [线性分割问题](http://www.cnblogs.com/ccvcgds/archive/2013/06/03/3114481.html)
+- [Leetcode No.120](https://leetcode.com/problems/triangle/discuss/38730/DP-Solution-for-Triangle)
+
 $$\mathcal{Yukun Yang}$$ at Beijing

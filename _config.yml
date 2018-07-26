@@ -36,7 +36,7 @@ disqus:
 
 gitalk: 
   owner: YuunYang
-  repo: uunyang.github.io
+  repo: yuunyang.github.io
   clientID: b70d65e7cd565f78a900
   clientSecret: 5502c8ebcf09db55996b87d67fa993f60829e1a2
   id: 'window.location.pathname'

@@ -2,8 +2,11 @@
 <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 <script>
+  var cutUrl = function(url) {
+    return url.split('/')[3]
+  }
   var gitalk = new Gitalk({
-    id: '{{ page.url }}',
+    id: cutUrl('{{ page.baseurl }}'),
     clientID: '{{ site.gitalk.clientID }}',
     clientSecret: '{{ site.gitalk.clientSecret }}',
     repo: '{{ site.gitalk.repo }}',

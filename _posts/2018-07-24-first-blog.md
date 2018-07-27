@@ -3,7 +3,6 @@ layout: post
 title:  "Hello world"
 date:   2018-07-24
 categories:
-  - life
   - record
 tags: 
   - hello world

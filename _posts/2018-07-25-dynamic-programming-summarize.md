@@ -3,10 +3,10 @@ layout: post
 title:  "Dynamic Programming Summarize"
 date:   2018-07-24
 categories:
-  - algorithm
   - summarize
 tags: 
   - dynamic programming
+  - algorithm
 author: yyk
 taxonomy: articles
 entries_layout: grid

@@ -12,9 +12,9 @@ tags:
 author: yyk
 taxonomy: articles
 entries_layout: grid
-last_modified_at: 2018-07-28T13:44:00
+last_modified_at: 2018-07-29T11:19:00
 ---
-I computer science, a binary tree is type of data structure, in which each node has at most two children, and it is also a very common testing centre in postgraduate examinations. A binary tree has many characters and derive many ways of traversing a binary tree e.g. It not easy to understand a binary in a short time, and I will write down some about **Tree Traversal** through two algorithms in leetcode.
+In computer science, a binary tree is type of data structure, in which each node has at most two children, and it is also a very common testing centre in postgraduate examinations. A binary tree has many characters and derive many ways of traversing a binary tree e.g. It not easy to understand a binary in a short time, and I will write down some about **Tree Traversal** through two algorithms in leetcode.
 
 ## Problem Description(1)
 
@@ -115,7 +115,49 @@ Return the following binary tree:
 
 ## Thinking(2)
 
-Waiting...
+It looks like the previous question, but the only difference is that the postorder has changed to preorder, so actually, it is more better to understand which for preorder, the first element is the root, and the following are the left and right, so the solution is also a recurring problem. I will show my javascript code.
+
+```javascript
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {number[]} preorder
+ * @param {number[]} inorder
+ * @return {TreeNode}
+ */
+var buildTree = function(preorder, inorder) {
+    if(inorder.length){
+        var sign = inorder.indexOf(preorder.shift())
+        let root = new TreeNode(inorder[sign])
+        root.left = buildTree(preorder,inorder.slice(0,sign))
+        root.right = buildTree(preorder,inorder.slice(sign + 1))
+        return root
+    }
+    return null
+};
+```
+
+## Summarize
+
+In tree traversal problem, the key is to find the recurring function, it always build in the vast experiences, in fact it is very easy to find the relationships among preorder, inorder and postorder but it always complex us on how we compute the right or left subtree in a recurring function. So keep coding
+
+_ _ _
+
+## References
+
+Some essay, blog or question referred above.
+
+- [105. Construct Binary Tree from Preorder and Inorder Traversal][No-105]
+- [106. Construct Binary Tree from Inorder and Postorder Traversal][No-106]
+- [No.106 on discuss][1st-discuss]
+- [Tree (data structure)](https://en.wikipedia.org/wiki/Tree_(data_structure))
+
+$$\mathcal{Yukun Yang}$$ at Beijing
 
 [No-105]: https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/description/
 [No-106]: https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/description/

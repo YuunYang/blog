@@ -38,9 +38,9 @@ Like divide-and-conquer algorithm, they will both break down the problem first; 
 
 $$A(i, j) \equiv
 \begin{cases}
-C(i, j) + min\{A(i − 1, j − 1), A(i − 1, j)\},  & \text{if $j$ = $m$} \\[2ex]
-C(i, j) + min\{A(i − 1, j), A(i − 1, j + 1)\},  & \text{if $j$ = $1$} \\[2ex]
-C(i, j) + min\{A(i − 1, j − 1), A(i − 1, j), A(i − 1, j + 1)\},  & \text{if ${j}\neq{1}$ and ${j}\neq{m}$}
+C(i, j) + min\{A(i − 1, j − 1), A(i − 1, j)\},& \text{if $j$ = $m$} \\[2ex]
+C(i, j) + min\{A(i − 1, j), A(i − 1, j + 1)\},& \text{if $j$ = $1$} \\[2ex]
+C(i, j) + min\{A(i − 1, j − 1), A(i − 1, j), A(i − 1, j + 1)\},& \text{if ${j}\neq{1}$ and ${j}\neq{m}$}
 \end{cases}$$
 
 Because we add `some extra row and col` to the table, so we can immediately eliminate the cases, and the recurrence becomes. for $$1 ≤ i ≤ n, 1 ≤ j ≤ m$$

@@ -1,0 +1,63 @@
+<div class="side-catalog">
+  <hr class="hidden-sm hidden-xs">
+  <h5 id="catalog">
+    <a class="catalog-toggle" href="#">CATALOG</a>
+  </h5>
+  <script>
+    document.body.onload = () =>{
+      var selectList = document.querySelectorAll('.page-content h2');
+      var catalog_top = document.getElementsByClassName('side-catalog')[0].offsetTop;
+      var scroll_top = document.documentElement.scrollTop;
+      var onClick = (title, e) => {
+        e.preventDefault();
+        var title_top = $(`.page-content #${title}`).offset().top;
+        window.scroll({
+          top: title_top,
+          left: 0,
+          behavior: 'smooth'
+        });
+      }
+      if (scroll_top >= catalog_top) {
+        $('.side-catalog').addClass('fixed');
+      } else {
+        $('.side-catalog').removeClass('fixed');
+      }
+      selectList.forEach(e => {
+        var title = e.getAttribute('id');
+        var text = document.createTextNode(title);
+        var li = document.createElement('li');
+        var a = document.createElement('a');
+        li.setAttribute('class', 'h2_nav');
+        li.addEventListener("click", onClick.bind(null,title));
+        a.setAttribute('href', `#${title}`);
+        a.setAttribute('ref', 'nofollow');
+        a.appendChild(text);
+        li.appendChild(a);
+        document.getElementsByClassName('catalog-body')[0].appendChild(li);
+      })
+      var sign = [];
+      window.onscroll = () => {
+        scroll_top = document.documentElement.scrollTop;
+        if (scroll_top >= catalog_top) {
+          $('.side-catalog').addClass('fixed');
+          var preTitle, fall = Infinity;
+          selectList.forEach((e, i) => {
+            var title = e.getAttribute('id');
+            var title_top = $(`.page-content #${title}`).offset().top;
+            $(`li:has(a[href="#${title}"])`).removeClass('active');
+            if(scroll_top + 5 >= title_top) {
+              sign[i] = title;
+            } else {
+              sign.splice(i, i+1);
+            }
+            $(`li:has(a[href="#${sign.slice(-1)[0]}"])`).addClass('active');         
+          })
+        }else{
+          $('.side-catalog').removeClass('fixed');
+        }
+      }
+    }
+  </script>
+  <ul class="catalog-body">
+  </ul>
+</div>

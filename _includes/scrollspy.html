@@ -45,7 +45,7 @@
             var title = e.getAttribute('id');
             var title_top = $(`.page-content #${title}`).offset().top;
             $(`li:has(a[href="#${title}"])`).removeClass('active');
-            if(scroll_top + 5 >= title_top) {
+            if(scroll_top >= title_top) {
               sign[i] = title;
             } else {
               sign.splice(i, i+1);

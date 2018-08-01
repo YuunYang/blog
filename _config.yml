@@ -23,7 +23,7 @@ url: "https://yuunyang.github.io"
 logo: "/images/logo.jpeg"
 date_format: "%B %-d, %Y"
 read_time: true
-words_per_minute: 150
+words_per_minute: 100
 mathjax: true
 google_fonts:
   - name: "Source Sans Pro"

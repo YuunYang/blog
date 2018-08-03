@@ -4,7 +4,7 @@
     <a class="catalog-toggle" href="#">CATALOG</a>
   </h5>
   <script>
-    document.body.onload = () =>{
+    addEvent(window, 'load', () =>{
       var selectList = document.querySelectorAll('.page-content h2');
       var catalog_top = document.getElementsByClassName('side-catalog')[0].offsetTop;
       var scroll_top = document.documentElement.scrollTop;
@@ -36,7 +36,7 @@
         document.getElementsByClassName('catalog-body')[0].appendChild(li);
       })
       var sign = [];
-      window.onscroll = () => {
+      addEvent(window, 'scroll',function(){
         scroll_top = document.documentElement.scrollTop;
         if (scroll_top >= catalog_top) {
           $('.side-catalog').addClass('fixed');
@@ -55,8 +55,8 @@
         }else{
           $('.side-catalog').removeClass('fixed');
         }
-      }
-    }
+      })
+    })
   </script>
   <ul class="catalog-body">
   </ul>

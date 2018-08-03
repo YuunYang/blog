@@ -14,15 +14,25 @@ layout: default
           <h1 id="page-title" class="page-title p-name">{{ title }}</h1>
         {% endif %}
       </header>
-
+      <script>
+        function addEvent(obj, type, fn) {
+          if (obj.attachEvent) { //ie
+            obj.attachEvent('on' + type, function () {
+              fn.call(obj);
+            })
+          } else {
+            obj.addEventListener(type, fn, false);
+          }
+        }
+      </script>
       <div class="page-sidebar">
         {% include page-author.html %}
         {% include page-categories.html %}
         {% include page-tags.html %}
         {% include scrollspy.html %}        
       </div>
-
       <div class="page-content">
+        {% include posts-progress.html %}
         <div class="e-content">
           {{ content }}
         </div>

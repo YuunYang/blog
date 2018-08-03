@@ -11,7 +11,7 @@ tags:
 author: yyk
 taxonomy: articles
 entries_layout: grid
-last_modified_at: 2018-08-02T13:00:00
+last_modified_at: 2018-08-03T15:49:00
 ---
 
 **In computer major postgraduate entrance examination 408**, `Principles of computer composition` plays a decisive position and account 30% of total scores. So, I'd like to spend a little bit time to record some frequent used concepts.
@@ -107,7 +107,7 @@ Read Tianqin or Wangdao in detail.
 ### Function and mechanism
 
 - ALU is mainly used to compute various arithmetic and logical operations.
-- General register(`通用寄存器`): general register is a set of memory with fastest access speeds, used to save the operand and intermediate result that participate the operation. Access register do not require cache or bus cycles to run, so instructions executing quickly. Almost every instructions need to specify a register as an operand, and some require that the operand be stored in special register.
+- General register(`通用寄存器`): general register is a set of memory with fastest access speeds, used to save the operand and intermediate result that participate the operation. Access register do not require Cache or bus cycles to run, so instructions executing quickly. Almost every instructions need to specify a register as an operand, and some require that the operand be stored in special register.
 - **Special register** usually used to represent a system state in which CPU is in, ALU has to important state register: PC and FLAGS.
 
 ## Memory classification
@@ -148,6 +148,16 @@ The capacity of a memory is limited, it's quilt different from the actual memory
 - **Word extension**: word extension refers to the expansion of word count. We connected each chips' lower address line by parallel, and then connected to the lower address bus; Connected each **data line** by parallel, and then connected to the data bus; System higher address line, used for transcode, and the output connected to two chips' chip selection(CS) side.
 
 ## Cache
+
+- **Cache operation principle**: Cache constituted by Translation Lookaside Buffer(TLB`快表`) and rapid memory(`快速存储器`). Processor accesses the memory at the main memory address, the high segment of memory determines wether the Cache is in by look up the table though the address mapping mechanism of Memory-Cache, if in, Cache hit and access Cache by Cache address. Or Cache not hit need to access main memory, and transfer the corresponding data block to the Cache, if Cache is full, we should replace a blog out of Cache by using an algorithm, and modify the relevant mapping relation.
+
+  According to the operation principle, it refer to two question: determine and then replace.
+
+  The existence of Cache is **transparent** for the programmer. `The algorithm about address mapping and replace are all realized by hardware`. Cache usually integrate to CPU for speed increasing.
+
+- **Mapping mode between Cache and Main memory**: because processor always accesses main memory by it's address, but the space of Cache much less than main memory, so need address mapping to recognize whether this access is in the Cache or in the main memory, and the `address mapping` is map the address which in main memory to the Cache. Make a memory block or space in Cache correspond to a number of blocks in main memory, hence when access a main memory address, can get the corresponding address in Cache. For the mapping mode ,there has three modes: Direct Mapping, Full Associative Mapping and Set Associative Mapping.
+
+### Direct mapping
 
 
 

@@ -111,7 +111,9 @@ Z_{n} & = L_{2n}\text{ - 2n} = \frac{2n(2n + 1)}{2} + 1 − 2n  \\
 
 ### Magic2
 
+**Thinking small is important** we got the answer quickly by doing some tricks? maybe sometimes we are true, but along with the complication of problems the answer always wrong, more thing we should do is to find the relationships between one case and two case, and then find the recurrent function, and this is why told those problem a recurrent problem.
 
+## THE JOSEPHUS PROBLEM
 
 [01 pic]: /images/2018-08-02-ConcreteMath-reading-notes(01)/01.png
 [02 pic]: /images/2018-08-02-ConcreteMath-reading-notes(01)/02.png

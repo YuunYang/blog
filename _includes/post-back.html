@@ -59,12 +59,13 @@
     }
   }
   var bubbles = [];
+  var number = parseInt(document.body.offsetWidth/10)
   function setup() {
     noCursor(); //Hides the cursor from view.
     createCanvas(windowWidth, windowHeight);
     background(255);
     frameRate(10);
-    for (var i = 0; i < 100; i++) {
+    for (var i = 0; i < number; i++) {
       var randomX = random(0, windowWidth);
       var randomY = random(0, windowHeight);
       var randomR = random(0, 15);
@@ -79,7 +80,7 @@
   }
   function draw() {
     background(255);
-    for (var i = 0; i < 100; i++) {
+    for (var i = 0; i < number; i++) {
       bubbles[i].move();
       bubbles[i].display();
     }

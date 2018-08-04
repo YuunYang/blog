@@ -22,7 +22,9 @@
     <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
     <link rel="canonical" href="{{ page.url | replace:'index.html', '' | absolute_url }}">
   {% endif %}
-
+  <script src="https://cdn.bootcss.com/p5.js/0.6.1/p5.min.js"></script>  
+  <script src="https://cdn.bootcss.com/p5.js/0.6.1/addons/p5.dom.min.js"></script>
+  <script src="https://cdn.bootcss.com/sketch.js/1.1/sketch.js"></script>
   <script>
     /* Cut the mustard */
     if ( 'querySelector' in document && 'addEventListener' in window ) {

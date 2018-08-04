@@ -457,6 +457,13 @@
   top: -21px;
 }
 
+.p5Canvas{
+  z-index : -1;
+  position : fixed;
+  left: 0;
+  top: 0;
+}
+
 @media screen and (max-width: $large) {
   .side-catalog {
     display: none;

@@ -11,7 +11,7 @@ tags:
 author: yyk
 taxonomy: articles
 entries_layout: grid
-last_modified_at: 2018-08-03T15:49:00
+last_modified_at: 2018-08-06T15:50:00
 ---
 
 **In computer major postgraduate entrance examination 408**, `Principles of computer composition` plays a decisive position and account 30% of total scores. So, I'd like to spend a little bit time to record some frequent used concepts.

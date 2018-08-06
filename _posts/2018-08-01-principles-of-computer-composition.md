@@ -159,7 +159,51 @@ The capacity of a memory is limited, it's quilt different from the actual memory
 
 ### Direct mapping
 
+That direct mapping assigned each memory block to a specific line in cache. If a line is all already taken up by a memory block when a new memory needs to be loaded, the old trashed. `This line is the only line that each of these blocks can be sent to. In the case of this figure, there are 8 bits in the block identification portion of the memory address`.
+![direct map][direct map]{: .align-center}
 
+### Full associative mapping
+
+In full associative, any block can go into any line of the cache. This means that the word id bits are used to identify which word in the block is needed, but the tag becomes all of the remaining bits.
+
+### Set associative mapping
+
+Set associative mapping is divides the memory into some groups, and for each group, and direct mapping betweens groups, but full associative mapping in each group. It does this by saying that instead of having exactly one line that a block can map to in the cache, we will group a few lines together creating a `set`. Then a block in memory can map to any one of the lines of a specific set. There is still only one set that the block can map to.
+![set assoc map][set assoc map]{: .align-center}
+
+### The algorithms of mapping
+
+|  | Thinking | Advantage | Disadvantage |
+| ---------------- | ----------------- | ----------------- | --------------- |
+| RAND | random generate the page number which need to be replaced | easy | low hit rate |
+| FIFO | the first in page first out(replace)  | easy and utilized the historical information | can not reflect the principle of program locality |
+| LRU | select the least recently used page to replace | hight hit rate, utilized the historical information and reflect the principle of program locality | complex to realize |
+| OPT | select the page that will not use in future | the standard | ideal condition |
+
+### Cache write strategy
+
+Because when writing to the cache, there is no write to the cache, therefor, the cache and memory data is inconsistent.
+
+The solutions are called cache update strategies.
+
+| Update strategies | Thinking | Advantage | Disadvantage |
+| ---------------- | ----------------- | ----------------- | --------------- |
+| Write back | when CPU execute write operation, the message only write to the cache; the written cache block sent back to the memory only the replacement is needed, and set a `dirty bit` to indicate whether the cache line has been modified  | saves many unnecessary spending on writing intermediate result to memory | should make dirty bit which perplex the cache |
+| write through | when writing, write the data both to the cache and main memory | easy and coast less | lost lot of time on writing intermediate result |
+
+When there doesn't hit, we need to get this block back to cache, and there has two solutions:
+
+- Write allocate policy: updates the block in main memory and brings the block to the cache.
+- No write allocate policy: updates the block in main memory not bringing that block to the cache.
+
+## References
+
+Some essay, blog or question referred above.
+
+- [文都考研计算机]('http://www.kyjxy.com/zhuanyeke/jisuanji/list_64_3.html')
+- [Interaction Policies with Main Memory (IASTATE)]('http://web.cs.iastate.edu/~prabhu/Tutorial/CACHE/interac.html')
 
 [example]: https://en.wikipedia.org/wiki/Cycles_per_instruction#Definition
 [schematic diagram]: /images/2018-08-01-principles-of-computer-composition/200947103528147.jpg
+[direct map]: /images/2018-08-01-principles-of-computer-composition/direct.gif
+[set assoc map]: /images/2018-08-01-principles-of-computer-composition/setassoc.gif

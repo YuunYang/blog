@@ -1,0 +1,29 @@
+{% if page.lang_change %}
+  <div class="can-toggle">
+    <input id="check" type="checkbox">
+    <label for="check">
+      <div class="can-toggle__switch" data-checked="en" data-unchecked="cn"></div>
+    </label>
+  </div>
+{% endif %}
+{% if page.lang == "en" %} 
+  <script>
+    document.getElementById('check').setAttribute("checked",'');
+  </script>
+{% endif %} 
+{% if page.lang == "cn" %} 
+  <script>
+    document.getElementById('check').removeAttribute("checked");
+  </script>
+{% endif %}
+<script>
+  window.addEvent(this, 'load',()=>{
+    $('#check').change((e)=>{
+      if(!e.target.checked) {
+        window.location.href = '{{ page.url }}'.slice(0, -1) + "-cn/"
+      }else{
+        window.location.href = '{{ page.url }}'.slice(0, -4)
+      }
+    })
+  })
+</script>

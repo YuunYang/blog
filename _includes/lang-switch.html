@@ -17,10 +17,11 @@
 {% endif %}
 <script>
   window.addEvent(document.getElementById('check'), 'change', (e) => {
-    if (!e.target.checked) {
-      window.location.href = '{{ page.url }}'.slice(0, -1) + "-cn/"
-    } else {
-      window.location.href = '{{ page.url }}'.slice(0, -4)
+    let is_contain = window.location.href.indexOf('-cn') === -1;
+    if (!e.target.checked && is_contain) {
+      window.location.href = '{{ page.url }}'.replace('-cn', '').slice(0, -1) + "-cn/"
+    } else if(e.target.checked && !is_contain) {
+      window.location.href = '{{ page.url }}'.replace('-cn/', '')
     }
   })
 </script>

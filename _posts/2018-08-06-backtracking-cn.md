@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Backtracking"
-date:   2018-08-06
+date:   1997-02-18
 categories:
   - summarize
 tags: 

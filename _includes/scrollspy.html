@@ -5,7 +5,13 @@
   </h5>
   <script>
     addEvent(window, 'load', () =>{
-      var selectList = document.querySelectorAll('.page-content h2');
+      var selectList = [];
+      $('.page-content h2').each(function () {
+        var self = $(this),
+          contents = self.nextUntil('h2', 'h3');
+        selectList.push(...self.get());
+        selectList.push(...contents.get());
+      });
       var catalog_top = document.getElementsByClassName('side-catalog')[0].offsetTop;
       var scroll_top = document.documentElement.scrollTop;
       var onClick = (title, e) => {
@@ -23,11 +29,16 @@
         $('.side-catalog').removeClass('fixed');
       }
       selectList.forEach(e => {
+        console.log(e);
         var title = e.getAttribute('id');
         var text = document.createTextNode(title);
         var li = document.createElement('li');
         var a = document.createElement('a');
-        li.setAttribute('class', 'h2_nav');
+        if(e.nodeName == 'H2'){
+          li.setAttribute('class', 'h2_nav');
+        }else if(e.nodeName == 'H3'){
+          li.setAttribute('class', 'h3_nav');
+        }
         li.addEventListener("click", onClick.bind(null,title));
         a.setAttribute('href', `#${title}`);
         a.setAttribute('ref', 'nofollow');
@@ -44,7 +55,7 @@
           selectList.forEach((e, i) => {
             var title = e.getAttribute('id');
             var title_top = $(`.page-content #${title}`).offset().top;
-            $(`li:has(a[href="#${title}"])`).removeClass('active');
+            $(`li:has(a[href="#${sign.slice(-1)[0]}"])`).removeClass('active');
             if(scroll_top + 10 >= title_top) {
               sign[i] = title;
             } else {

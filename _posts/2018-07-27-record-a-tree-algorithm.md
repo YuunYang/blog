@@ -1,6 +1,5 @@
 ---
 title:  "Record A Tree Algorithm"
-date:   2018-07-26
 categories:
   - summarize
 tags: 
@@ -8,12 +7,10 @@ tags:
   - algorithm
   - depth-first-search
   - leetcode
-author: yyk
-taxonomy: articles
-entries_layout: grid
 last_modified_at: 2018-07-29T11:19:00
 toc: true
 toc_label: "Tree Algorithm"
+author_profile: true
 ---
 In computer science, a binary tree is type of data structure, in which each node has at most two children, and it is also a very common testing centre in postgraduate examinations. A binary tree has many characters and derive many ways of traversing a binary tree e.g. It not easy to understand a binary in a short time, and I will write down some about **Tree Traversal** through two algorithms in leetcode.
 

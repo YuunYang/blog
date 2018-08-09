@@ -26,7 +26,7 @@ We have $$N\times{N}$$ unattacked cells where we need $$N$$ queues. and every ti
 - The number of unattacked cells is not $$0$$.
 - The number of queens to be placed is not $$0$$.
 
-That is our terminal conditions is when the unattacked cells comes zero or the queues all placed; and for the queue, if all placed, then it's over, we found the solution; while the unattacked cells comes zero, means we need to backtrack,i.e. remove the last placed queen from its current cell, and place it at some other cell. We do this recursively.
+So our terminal conditions are that when the unattacked cells comes zero or the queues all placed; and for the queue, if all placed, then it's over, we found the solution; while the unattacked cells comes zero, means we need to backtrack,i.e. remove the last placed queen from its current cell, and place it at some other cell. We do this recursively.
 
 ### The pseudocode from [`hackerearth`][hackerearth Recursion and Backtracking]
 
@@ -65,12 +65,12 @@ N-Queens( board[][], N )
 
 And the pic is clear:
 
-![n-queue](/images/2018-08-06-backtracking/n-queue.png)
+![n-queue](/assets/images/2018-08-06-backtracking/n-queue.png)
 
 At the end it reaches the following solution:
 
-![n-queue-end](/images/2018-08-06-backtracking/n-queue-end.png){: .align-left}
-Generally, when we dealing with backtracking problem, the key is `Recursion` and difficulty is to **find the recursive rule and find the terminal conditions**, and one should notice is that we should make a sign to show which cell we have placed `board[i][j] = 1` and when one recurrence starts, we need remember to change this sign to origin cell `board[i][j] = 0` when the recurrence ends. When writing program, we also need to think about how to compute if the queues are in a safe place. And the follow code is show this magic.
+![n-queue-end](/assets/images/2018-08-06-backtracking/n-queue-end.png){: .align-left}
+Generally, when we dealing with backtracking problem, the key is `Recursion` and difficulty is to **find the recursive rule and find the terminal conditions**, and one should notice is that we should make a sign to show which cell we have placed `board[i][j] = 1` when one recurrence starts, we need remember to change this sign to origin cell `board[i][j] = 0` when the recurrence ends. When writing program, we also need to think about how to compute if the queues are in a safe place. And the follow code is show this magic.
 
 ### Code from [算法竞赛入门经典][算法竞赛入门经典]
 
@@ -88,7 +88,7 @@ void search(int cur) {
   }
 }
 ```
-[Cpp code file](/files/nqueue.cpp)
+[Cpp code file](/assets/files/nqueue.cpp)
 
 ## References
 

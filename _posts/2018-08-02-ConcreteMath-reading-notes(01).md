@@ -111,7 +111,7 @@ Z_{n} & = L_{2n}\text{ - 2n} = \frac{2n(2n + 1)}{2} + 1 − 2n  \\
 
 ## THE JOSEPHUS PROBLEM
 
-[01 pic]: /images/2018-08-02-ConcreteMath-reading-notes(01)/01.png
-[02 pic]: /images/2018-08-02-ConcreteMath-reading-notes(01)/02.png
-[03 pic]: /images/2018-08-02-ConcreteMath-reading-notes(01)/03.png
-[04 pic]: /images/2018-08-02-ConcreteMath-reading-notes(01)/04.png
+[01 pic]: /assets/images/2018-08-02-ConcreteMath-reading-notes(01)/01.png
+[02 pic]: /assets/images/2018-08-02-ConcreteMath-reading-notes(01)/02.png
+[03 pic]: /assets/images/2018-08-02-ConcreteMath-reading-notes(01)/03.png
+[04 pic]: /assets/images/2018-08-02-ConcreteMath-reading-notes(01)/04.png

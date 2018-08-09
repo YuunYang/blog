@@ -201,6 +201,6 @@ Some essay, blog or question referred above.
 - [Interaction Policies with Main Memory (IASTATE)]('http://web.cs.iastate.edu/~prabhu/Tutorial/CACHE/interac.html')
 
 [example]: https://en.wikipedia.org/wiki/Cycles_per_instruction#Definition
-[schematic diagram]: /images/2018-08-01-principles-of-computer-composition/200947103528147.jpg
-[direct map]: /images/2018-08-01-principles-of-computer-composition/direct.gif
-[set assoc map]: /images/2018-08-01-principles-of-computer-composition/setassoc.gif
+[schematic diagram]: /assets/images/2018-08-01-principles-of-computer-composition/200947103528147.jpg
+[direct map]: /assets/images/2018-08-01-principles-of-computer-composition/direct.gif
+[set assoc map]: /assets/images/2018-08-01-principles-of-computer-composition/setassoc.gif

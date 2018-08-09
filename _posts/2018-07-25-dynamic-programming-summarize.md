@@ -6,7 +6,7 @@ tags:
   - dynamic programming
   - algorithm
 header:
-  image: /images/2018-07-24-dynamic-programming-summarize/6b68f98.png
+  image: /assets/images/2018-07-24-dynamic-programming-summarize/6b68f98.png
   caption: "Photo from [hackerearth](https://www.hackerearth.com/zh/practice/algorithms/dynamic-programming/introduction-to-dynamic-programming-1/tutorial/)"
   cta_url: "https://www.hackerearth.com/zh/practice/algorithms/dynamic-programming/introduction-to-dynamic-programming-1/tutorial/"
 last_modified_at: 2018-07-26T15:21:00

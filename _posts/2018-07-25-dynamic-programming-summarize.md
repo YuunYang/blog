@@ -1,14 +1,10 @@
 ---
 title:  "Dynamic Programming Summarize"
-date:   2018-07-24
 categories:
   - summarize
 tags: 
   - dynamic programming
   - algorithm
-author: yyk
-taxonomy: articles
-entries_layout: grid
 header:
   image: /images/2018-07-24-dynamic-programming-summarize/6b68f98.png
   caption: "Photo from [hackerearth](https://www.hackerearth.com/zh/practice/algorithms/dynamic-programming/introduction-to-dynamic-programming-1/tutorial/)"
@@ -16,6 +12,7 @@ header:
 last_modified_at: 2018-07-26T15:21:00
 toc: true
 toc_label: "Dynamic Programming"
+
 ---
 
 Dynamic programming algorithms is a way to break down the problem into smaller and simpler pieces, that is [we wish to find a solustion to given problem which optimizes some quantity Q of interest](http://www.cs.mun.ca/~kol/courses/2711-w08/dynprog-2711.pdf); like we like to maximize profit or minimize cost.

@@ -72,7 +72,7 @@ At the end it reaches the following solution:
 ![n-queue-end](/assets/images/2018-08-06-backtracking/n-queue-end.png){: .align-left}
 Generally, when we dealing with backtracking problem, the key is `Recursion` and difficulty is to **find the recursive rule and find the terminal conditions**, and one should notice is that we should make a sign to show which cell we have placed `board[i][j] = 1` when one recurrence starts, we need remember to change this sign to origin cell `board[i][j] = 0` when the recurrence ends. When writing program, we also need to think about how to compute if the queues are in a safe place. And the follow code is show this magic.
 
-### Code from [算法竞赛入门经典][算法竞赛入门经典]
+### Code from [Introduction to algorithm competition][算法竞赛入门经典]
 
 ```cpp
 void search(int cur) {

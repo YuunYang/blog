@@ -18,7 +18,7 @@ mathjax: true
 locale                   : "en-US"
 title                    : "Yukwan Yeung"
 title_separator          : "-"
-name                     : "Yuun Yang"
+name                     : &name "Yukwan Yeung"
 description              : "Try"
 url                      : "https://yuunyang.github.io"
 baseurl                  : /

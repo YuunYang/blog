@@ -1,0 +1,1 @@
+blog thanks [so-simple-theme](https://mmistakes.github.io/so-simple-theme/)

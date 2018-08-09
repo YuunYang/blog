@@ -1,0 +1,91 @@
+<script>
+  var colors = [
+      {
+        "r": 255,
+        "g": 193,
+        "b": 37
+      },
+      {
+        "r": 139,
+        "g": 101,
+        "b": 8
+      },
+      {
+        "r": 144,
+        "g": 238,
+        "b": 144
+      },
+      {
+        "r": 34,
+        "g": 139,
+        "b": 34
+      },
+      {
+        "r": 255,
+        "g": 215,
+        "b": 0
+      }
+    ];
+  function bubble(x, y, r, speedX, speedY, red, green, blue) {
+    this.x = x;
+    this.y = y;
+    this.r = r;
+    this.overflow = 0;
+    this.speedX = speedX;
+    this.speedY = speedY;
+    this.red = red;
+    this.green = green;
+    this.blue = blue;
+    this.move = function () {
+      this.x += this.speedX;
+      if (this.x < 0.001 || this.x > windowWidth)
+        this.speedX = -this.speedX;
+      this.y += this.speedY;
+      if (this.y < 0.001 || this.y > windowHeight)
+        this.speedY = -this.speedY;
+
+      if (Math.abs(mouseX - this.x) <= 30 && Math.abs(mouseY - this.y) <= 30) {
+        this.overflow = this.r * 4;
+        this.x = mouseX + random(-20, 20);
+        this.y = mouseY + random(-20, 20);
+      } else {
+        this.overflow = 0;
+      }
+    }
+    this.display = function () {
+      noStroke();
+      fill(this.red, this.green, this.blue, 160);
+      ellipse(this.x, this.y, this.r + this.overflow, this.r + this.overflow);
+    }
+  }
+  var bubbles = [];
+  var number = parseInt(document.body.offsetWidth/10)
+  function setup() {
+    noCursor(); //Hides the cursor from view.
+    createCanvas(windowWidth, windowHeight);
+    background(255);
+    frameRate(10);
+    for (var i = 0; i < number; i++) {
+      var randomX = random(0, windowWidth);
+      var randomY = random(0, windowHeight);
+      var randomR = random(0, 15);
+      var randomSpeedX = random(-2, 2);
+      var randomSpeedY = random(-2, 2);
+      var r = colors[i % 5].r;
+      var g = colors[i % 5].g;
+      var b = colors[i % 5].b;
+      bubbles[i] = new bubble(randomX, randomY, randomR, randomSpeedX, randomSpeedY, r, g, b);
+      bubbles[i].display();
+    }
+  }
+  function draw() {
+    background(255);
+    for (var i = 0; i < number; i++) {
+      bubbles[i].move();
+      bubbles[i].display();
+    }
+  }
+  function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
+  }
+</script>

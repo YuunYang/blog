@@ -1,0 +1,28 @@
+{% if page.lang_change %}
+  <div class="can-toggle">
+    <input id="check" type="checkbox">
+    <label for="check">
+      <div class="can-toggle__switch" data-checked="en" data-unchecked="cn"></div>
+    </label>
+  </div>
+{% if page.lang == "en" %} 
+  <script>
+    document.getElementById('check').setAttribute("checked",'');
+  </script>
+{% endif %} 
+{% if page.lang == "cn" %} 
+  <script>
+    document.getElementById('check').removeAttribute("checked");
+  </script>
+{% endif %}
+<script>
+  window.addEvent(document.getElementById('check'), 'change', (e) => {
+    let is_contain = window.location.href.indexOf('-cn') === -1;
+    if (!e.target.checked && is_contain) {
+      window.location.href = '{{ page.url }}'.replace('-cn', '').slice(0, -1) + "-cn/"
+    } else if(e.target.checked && !is_contain) {
+      window.location.href = '{{ page.url }}'.replace('-cn/', '')
+    }
+  })
+</script>
+{% endif %}

@@ -9,5 +9,5 @@ group :jekyll_plugins do
   gem "jekyll-feed"
   gem "jemoji"
   gem "jekyll-redirect-from"
-  gem "minimal-mistakes-jekyll"
+
 end

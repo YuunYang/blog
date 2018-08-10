@@ -22,7 +22,7 @@ name                     : &name "Yukwan Yeung"
 description              : "Try"
 url                      : "https://yuunyang.github.io"
 baseurl                  : /
-repository               : "yuunyang/minimal-mistakes"
+repository               : "yuunyang/yuunyang.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/assets/images/500x300.png"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
@@ -55,7 +55,7 @@ staticman:
         format           : # "iso8601" (default), "timestamp-seconds", "timestamp-milliseconds"
 reCaptcha:
   siteKey                :
-  secret                 :
+  secret                 : "Ez4FE8SMD7PTuqhXzQVx65emKHIkAqeSN7OZ55iQEb1JYRIwkW1EHWfq+Hqpoo3nETXQ0E0xwRCSwplq/yTjyKmAi46kqcbtWZPb7VU9avn9jwxWIP3x8Rgy4NyGj9V0hfe17C5FrVhH1dyUeEaHPjWzngRE1XqPpvqpDOS+vnE="
 atom_feed:
   path                   : # blank (default) uses feed.xml
 search                   : true

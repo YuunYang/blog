@@ -53,9 +53,9 @@ staticman:
       type               : # "date"
       options:
         format           : # "iso8601" (default), "timestamp-seconds", "timestamp-milliseconds"
-reCaptcha:
-  siteKey                : "6LcKQmkUAAAAAHDanysy0eZvbDesWDtIdAhMTUFw"
-  secret                 : "J1V2h63YdN06/BT/nY6ha/dZDT7d4fh0MQWDw62S2ykr/wDNjV8/d/6h8gFl32T+AoR51CRJG4qm4J40ucQ3bS2wNov66dyPudRgM8p1eBl+HIRTdbBryM5YHB3/xCJl32j76w/nfuIljljpAjrLk15k7SbWKCQE8xBWKMH+lr0="
+# reCaptcha:
+#   siteKey                : "6LcKQmkUAAAAAHDanysy0eZvbDesWDtIdAhMTUFw"
+#   secret                 : "J1V2h63YdN06/BT/nY6ha/dZDT7d4fh0MQWDw62S2ykr/wDNjV8/d/6h8gFl32T+AoR51CRJG4qm4J40ucQ3bS2wNov66dyPudRgM8p1eBl+HIRTdbBryM5YHB3/xCJl32j76w/nfuIljljpAjrLk15k7SbWKCQE8xBWKMH+lr0="
 atom_feed:
   path                   : # blank (default) uses feed.xml
 search                   : true

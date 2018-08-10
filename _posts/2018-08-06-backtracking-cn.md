@@ -6,10 +6,10 @@ tags:
   - backtracking
   - algorithm
   - leetcode
+hidden: true
 lang_change: true
 lang: cn
 author_profile: true
-hide: true
 last_modified_at: 2018-08-09T15:12:19-04:00
 toc: true
 toc_label: "回溯法"

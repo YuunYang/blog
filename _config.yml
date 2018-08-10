@@ -27,7 +27,7 @@ teaser                   : # path of fallback teaser image, e.g. "/assets/assets
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
-  provider               : "staticman_v2"
+  provider               : "gitalk"
   disqus:
     shortname            : # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
   discourse:
@@ -37,14 +37,20 @@ comments:
     appid                :
     num_posts            : # 5 (default)
     colorscheme          : # "light" (default), "dark"
+gitalk: 
+  owner: YuunYang
+  repo: yuunyang.github.io
+  clientID: b70d65e7cd565f78a900
+  clientSecret: 5502c8ebcf09db55996b87d67fa993f60829e1a2
+  id: window.location.pathname
 staticman:
   allowedFields          : # ['name', 'email', 'url', 'message']
-  branch                 : "master"
-  commitMessage          : # "New comment"
+  branch                 : # "master"
+  commitMessage          : # "New comment."
   filename               : # comment-{@timestamp}
   format                 : # "yml"
   moderation             : # true
-  path                   : # "_data/comments/{options.slug}"
+  path                   : # "/_data/comments/{options.slug}" (default)
   requiredFields         : # ['name', 'email', 'message']
   transforms:
     email                : # "md5"
@@ -55,7 +61,7 @@ staticman:
         format           : # "iso8601" (default), "timestamp-seconds", "timestamp-milliseconds"
 reCaptcha:
   siteKey                : "6LcKQmkUAAAAAHDanysy0eZvbDesWDtIdAhMTUFw"
-  secret                 : "Ez4FE8SMD7PTuqhXzQVx65emKHIkAqeSN7OZ55iQEb1JYRIwkW1EHWfq+Hqpoo3nETXQ0E0xwRCSwplq/yTjyKmAi46kqcbtWZPb7VU9avn9jwxWIP3x8Rgy4NyGj9V0hfe17C5FrVhH1dyUeEaHPjWzngRE1XqPpvqpDOS+vnE="
+  secret                 : "bnLp2qVfKmK4ITfA08h05jwVL+lWvs26PNjTCYk0cVcdZ40XX03sdpARwkG/A6l8J8tDWfRLlTvBKh+ZiheXP4uJLppmYOsru1le6i/fWvpkf5VPGVvzj1wYKtbIALBRIaDTfjou9zsmIqbsRhF/ZL0jEZWZUUgR9NGCEdsQGRg="
 atom_feed:
   path                   : # blank (default) uses feed.xml
 search                   : true

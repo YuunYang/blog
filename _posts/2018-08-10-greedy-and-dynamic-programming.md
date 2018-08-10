@@ -14,6 +14,8 @@ toc: true
 toc_label: "Greedy and Dynamic Programming"
 ---
 
+This is a problem comes from stack overflow.
+
 What is the main difference between dynamic programming and greedy approach in terms of usage?
 As far as I understood, the greedy approach sometimes gives an optimal solution; in other cases, the dynamic programming approach gives an optimal solution.
 Are there any particular conditions which must be met in order to use one approach (or the other) to obtain an optimal solution?

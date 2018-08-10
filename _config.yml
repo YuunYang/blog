@@ -40,11 +40,11 @@ comments:
 staticman:
   allowedFields          : # ['name', 'email', 'url', 'message']
   branch                 : "master"
-  commitMessage          : # "New comment."
+  commitMessage          : # "New comment"
   filename               : # comment-{@timestamp}
   format                 : # "yml"
   moderation             : # true
-  path                   : # "/_data/comments/{options.slug}" (default)
+  path                   : # "_data/comments/{options.slug}"
   requiredFields         : # ['name', 'email', 'message']
   transforms:
     email                : # "md5"
@@ -55,7 +55,7 @@ staticman:
         format           : # "iso8601" (default), "timestamp-seconds", "timestamp-milliseconds"
 reCaptcha:
   siteKey                : "6LcKQmkUAAAAAHDanysy0eZvbDesWDtIdAhMTUFw"
-  secret                 : "upXmVevHMsbdYLRqDTkzQbWpirfI/uFHVOw/w+MN2FxvCfYMfwWJCf69BC05tWsH7xMu6wYLYrsqtLlI4AUqVQfRRRCZYLPLNS9n78M2HLFqPeWRCDC9t0LqX14GhfEiPlnAWAMbeKj7cf6hkiV0z+/5JesHC29rKbjxzZ4VSB4="
+  secret                 : "Ez4FE8SMD7PTuqhXzQVx65emKHIkAqeSN7OZ55iQEb1JYRIwkW1EHWfq+Hqpoo3nETXQ0E0xwRCSwplq/yTjyKmAi46kqcbtWZPb7VU9avn9jwxWIP3x8Rgy4NyGj9V0hfe17C5FrVhH1dyUeEaHPjWzngRE1XqPpvqpDOS+vnE="
 atom_feed:
   path                   : # blank (default) uses feed.xml
 search                   : true

@@ -90,16 +90,71 @@ void search(int cur) {
 ```
 [Cpp code file](/assets/files/nqueue.cpp)
 
+## Leetcode Problem
+
+`
+Given a 2D board and a word, find if the word exists in the grid. The word can be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once.`
+
+Example:
+```
+board =
+[
+  ['A','B','C','E'],
+  ['S','F','C','S'],
+  ['A','D','E','E']
+]
+
+Given word = "ABCCED", return true.
+Given word = "SEE", return true.
+Given word = "ABCB", return false.
+```
+
+### Thinking
+
+Recursively each item in the 2d board, and call backtracking for each item. In this problem, we use an `index` to represent the step we are in, so when `index` equal to the `word.size()`, we got the solution, and this is our one terminal condition; for each loop we use `(i, j)` to represent the item we are checking, so when $$board[i, j]\neq word[index]$$, we should backtracking, and this is our second terminal condition.
+
+### Cpp code
+
+```cpp
+class Solution {
+public:
+    bool exist(vector<vector<char>>& board, string word) {
+        int row = board.size();
+        int col = board[0].size();
+        for(int i = 0; i < row; i++)
+            for(int j = 0; j< col; j++)
+                if(back(board, word, i, j, 0))
+                    return true;
+        return false;
+    }
+    bool back(vector<vector<char>>& board, string& word, int i, int j, int index) {
+        if(index == word.size())
+            return true;
+        if(i < 0 || j < 0 || i > board.size()-1 || j > board[0].size()-1) // boundary of board
+            return false;
+        if(board[i][j] != word[index])
+            return false;
+        board[i][j] = '*';
+        bool furtherSearch =  back(board, word, i+1, j, index+1) ||
+                              back(board, word, i-1, j, index+1) ||
+                              back(board, word, i, j-1, index+1) ||
+                              back(board, word, i, j+1, index+1);
+        board[i][j] = word[index];
+        return furtherSearch;
+    }
+};
+```
+
 ## References
 
 Some essay, blog or question referred above.
 
-- [hackerearth Recursion and Backtracking]('https://www.hackerearth.com/zh/practice/basic-programming/recursion/recursion-and-backtracking/tutorial/')
-- [Backtracking illinois]('http://jeffe.cs.illinois.edu/teaching/algorithms/notes/03-backtracking.pdf')
-- [Leetcode No.79. Word Search]('https://leetcode.com/problems/word-search/description/')
-- [算法竞赛入门经典]('http://www.xwood.net/docs/pdf/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E5%85%A5%E9%97%A8%E7%BB%8F%E5%85%B8_%E7%AC%AC2%E7%89%88_201703071237.pdf')
+- [hackerearth Recursion and Backtracking][hackerearth Recursion and Backtracking]
+- [Backtracking illinois][Backtracking illinois]
+- [Leetcode No.79. Word Search][Leetcode No.79. Word Search]
+- [算法竞赛入门经典][算法竞赛入门经典]
 
-[hackerearth Recursion and Backtracking]:https://www.hackerearth.com/zh/practice/basic-programming/recursion/recursion-and-backtracking/tutorial/')
-[Backtracking illinois]:http://jeffe.cs.illinois.edu/teaching/algorithms/notes/03-backtracking.pdf')
-[Leetcode No.79. Word Search]:https://leetcode.com/problems/word-search/description/')
-[算法竞赛入门经典]: 'http://www.xwood.net/docs/pdf/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E5%85%A5%E9%97%A8%E7%BB%8F%E5%85%B8_%E7%AC%AC2%E7%89%88_201703071237.pdf'
+[hackerearth Recursion and Backtracking]:https://www.hackerearth.com/zh/practice/basic-programming/recursion/recursion-and-backtracking/tutorial/
+[Backtracking illinois]:http://jeffe.cs.illinois.edu/teaching/algorithms/notes/03-backtracking.pdf
+[Leetcode No.79. Word Search]:https://leetcode.com/problems/word-search/description/
+[算法竞赛入门经典]: http://www.xwood.net/docs/pdf/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E5%85%A5%E9%97%A8%E7%BB%8F%E5%85%B8_%E7%AC%AC2%E7%89%88_201703071237.pdf

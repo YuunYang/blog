@@ -197,8 +197,8 @@ When there doesn't hit, we need to get this block back to cache, and there has t
 
 Some essay, blog or question referred above.
 
-- [文都考研计算机]('http://www.kyjxy.com/zhuanyeke/jisuanji/list_64_3.html')
-- [Interaction Policies with Main Memory (IASTATE)]('http://web.cs.iastate.edu/~prabhu/Tutorial/CACHE/interac.html')
+- [文都考研计算机](http://www.kyjxy.com/zhuanyeke/jisuanji/list_64_3.html)
+- [Interaction Policies with Main Memory (IASTATE)](http://web.cs.iastate.edu/~prabhu/Tutorial/CACHE/interac.html)
 
 [example]: https://en.wikipedia.org/wiki/Cycles_per_instruction#Definition
 [schematic diagram]: /assets/images/2018-08-01-principles-of-computer-composition/200947103528147.jpg

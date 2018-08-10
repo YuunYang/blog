@@ -95,12 +95,12 @@ void search(int cur) {
 
 上面所参考的一些文章、博客、论文等.
 
-- [hackerearth Recursion and Backtracking]('https://www.hackerearth.com/zh/practice/basic-programming/recursion/recursion-and-backtracking/tutorial/')
-- [Backtracking illinois]('http://jeffe.cs.illinois.edu/teaching/algorithms/notes/03-backtracking.pdf')
-- [Leetcode No.79. Word Search]('https://leetcode.com/problems/word-search/description/')
-- [算法竞赛入门经典]('http://www.xwood.net/docs/pdf/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E5%85%A5%E9%97%A8%E7%BB%8F%E5%85%B8_%E7%AC%AC2%E7%89%88_201703071237.pdf')
+- [hackerearth Recursion and Backtracking][hackerearth Recursion and Backtracking]
+- [Backtracking illinois][Backtracking illinois]
+- [Leetcode No.79. Word Search][Leetcode No.79. Word Search]
+- [算法竞赛入门经典][算法竞赛入门经典]
 
-[hackerearth Recursion and Backtracking]:https://www.hackerearth.com/zh/practice/basic-programming/recursion/recursion-and-backtracking/tutorial/')
-[Backtracking illinois]:http://jeffe.cs.illinois.edu/teaching/algorithms/notes/03-backtracking.pdf')
-[Leetcode No.79. Word Search]:https://leetcode.com/problems/word-search/description/')
-[算法竞赛入门经典]: 'http://www.xwood.net/docs/pdf/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E5%85%A5%E9%97%A8%E7%BB%8F%E5%85%B8_%E7%AC%AC2%E7%89%88_201703071237.pdf'
+[hackerearth Recursion and Backtracking]:https://www.hackerearth.com/zh/practice/basic-programming/recursion/recursion-and-backtracking/tutorial/
+[Backtracking illinois]:http://jeffe.cs.illinois.edu/teaching/algorithms/notes/03-backtracking.pdf
+[Leetcode No.79. Word Search]:https://leetcode.com/problems/word-search/description/
+[算法竞赛入门经典]: http://www.xwood.net/docs/pdf/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E5%85%A5%E9%97%A8%E7%BB%8F%E5%85%B8_%E7%AC%AC2%E7%89%88_201703071237.pdf

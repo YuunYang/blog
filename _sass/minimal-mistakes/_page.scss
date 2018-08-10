@@ -522,3 +522,20 @@
   overflow-x: scroll;
   overflow-y: hidden;
 }
+.progress-container {
+  position: fixed;
+  width: 100%;
+  height: 4px;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  background: transparent;
+  transition: opacity ease-out 1s;
+  .progress-bar {
+    display: block;
+    width: 0;
+    height: 1px;
+    background: #f26a3d;
+    box-shadow: 0 0 1px #f26a3d, 0 0 3px #f26a3d;
+  }
+}

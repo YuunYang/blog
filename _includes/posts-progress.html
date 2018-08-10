@@ -1,0 +1,13 @@
+<div class="progress-container">
+  <span class="progress-bar"></span>
+</div>
+<script>
+  addEvent(window, 'scroll', function(){
+    let _scroll_top = $(this).scrollTop();
+    let _scroll_height = $(document).height();
+    let _window_height = $(this).height();
+    let bar = $('.progress-bar');
+    let progress = Number(_scroll_top / (_scroll_height - _window_height) * 100).toFixed(1);
+    bar.css('width', `${progress}%`);
+  })
+</script>

@@ -89,6 +89,61 @@ void search(int cur) {
   }
 }
 ```
+
+## LeetCode问题
+
+`给定一个二维网格和一个单词，找出该单词是否存在于网格中。单词必须按照字母顺序，通过相邻的单元格内的字母构成，其中“相邻”单元格是那些水平相邻或垂直相邻的单元格。同一个单元格内的字母不允许被重复使用。`
+
+示例:
+```
+board =
+[
+  ['A','B','C','E'],
+  ['S','F','C','S'],
+  ['A','D','E','E']
+]
+
+给定 word = "ABCCED", 返回 true.
+给定 word = "SEE", 返回 true.
+给定 word = "ABCB", 返回 false.
+```
+
+### 想法
+
+递归地调用2d数组中的每一项，并调用每一项的回溯。在这个问题中，我们使用index来表示我们所处的步骤，所以当index等于word.size()时，我们得到了解决方案，这是我们的一个边界条件；对于每个循环，我们使用' (i, j) '来表示要检查的项，所以当$$board[i, j]\neq word[index]$$时，我们应该回溯，这是我们的第二个终端条件。
+
+### Cpp代码
+
+```cpp
+class Solution {
+public:
+    bool exist(vector<vector<char>>& board, string word) {
+        int row = board.size();
+        int col = board[0].size();
+        for(int i = 0; i < row; i++)
+            for(int j = 0; j< col; j++)
+                if(back(board, word, i, j, 0))
+                    return true;
+        return false;
+    }
+    bool back(vector<vector<char>>& board, string& word, int i, int j, int index) {
+        if(index == word.size())
+            return true;
+        if(i < 0 || j < 0 || i > board.size()-1 || j > board[0].size()-1) // boundary of board
+            return false;
+        if(board[i][j] != word[index])
+            return false;
+        board[i][j] = '*';
+        bool furtherSearch =  back(board, word, i+1, j, index+1) ||
+                              back(board, word, i-1, j, index+1) ||
+                              back(board, word, i, j-1, index+1) ||
+                              back(board, word, i, j+1, index+1);
+        board[i][j] = word[index];
+        return furtherSearch;
+    }
+};
+```
+
 [C++文件](/assets/files/nqueue.cpp)
 
 ## 参考

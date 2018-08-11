@@ -62,7 +62,14 @@ $(document).ready(function() {
   });
 
   // init smooth scroll
-  $("a").smoothScroll({ offset: -20 });
+  $('a[href^="#"]').on('click', function (event) {
+    event.preventDefault();
+    $.smoothScroll({
+      scrollTarget: decodeURI(this.hash),
+      offset: -20,
+    });
+    return false;
+  });
 
   // add lightbox class to all image links
   $(

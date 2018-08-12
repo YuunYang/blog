@@ -3,7 +3,7 @@
 </div>
 <script>
   addEvent(window, 'load',() =>{
-    addEvent(window, 'scroll', function(){
+    $(window).scroll(function(){
       let _scroll_top = $(this).scrollTop();
       let _scroll_height = $(document).height();
       let _window_height = $(this).height();

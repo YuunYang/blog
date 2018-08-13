@@ -15,13 +15,13 @@
       selectList.forEach((e, i) => {
         var title = e.getAttribute('id');
         var title_top = $(`.page__content #${title}`).offset().top;
-        $(`li:has(a[href="#${sign.slice(-1)[0]}"])`).removeClass('active');
+        $(`li a[href="#${sign.slice(-1)[0]}"]`).removeClass('active');
         if(scroll_top + 25 >= title_top) {
           sign[i] = title;
         } else {
           sign.splice(i, i+1);
         }
-        $(`li:has(a[href="#${sign.slice(-1)[0]}"])`).addClass('active');         
+        $(`li a[href="#${sign.slice(-1)[0]}"]`).addClass('active');         
       })
     })
   })

@@ -1,0 +1,20 @@
+<script async src="//codepen.io/assets/embed/ei.js"></script>
+<script>
+  addEvent(window, 'load',()=>{
+    $('.codepen').each(
+      function () {
+        const uri = $(this).attr('title');
+        const hash = uri.split('/').slice(-1)[0];
+        const author = uri.split('/').slice(0, 4).join('/')
+        $(this).attr('data-height', '370');
+        $(this).attr('data-theme-id', '0');
+        $(this).attr('data-slug-hash', hash);
+        $(this).attr('data-default-tab', 'result');
+        const code = `<a href='${uri}'>The
+          <samp> element</a> by Daniel Imms (
+        <a href='${author}'>@${author.split('/').slice(-1)[0]}</a>) on
+        <a href='http://codepen.io'>CodePen</a>.`
+        $(this).append(code);
+      })
+  })
+</script>

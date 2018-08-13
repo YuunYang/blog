@@ -11,6 +11,7 @@ tags:
   - the josephus problem
 toc: true
 toc_label: "Concrete Math"
+toc_sticky: true
 ---
 *`A Foundation for Computer Science`*
 

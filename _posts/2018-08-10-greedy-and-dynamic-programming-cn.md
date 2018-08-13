@@ -13,6 +13,7 @@ author_profile: true
 toc: true
 toc_label: "贪心和动态规划算法"
 hidden: true
+toc_sticky: true
 ---
 
 这是一个来自stack overflow的问题。

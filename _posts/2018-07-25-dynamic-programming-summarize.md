@@ -12,7 +12,7 @@ header:
 last_modified_at: 2018-07-26T15:21:00
 toc: true
 toc_label: "Dynamic Programming"
-
+toc_sticky: true
 ---
 
 Dynamic programming algorithms is a way to break down the problem into smaller and simpler pieces, that is [we wish to find a solustion to given problem which optimizes some quantity Q of interest](http://www.cs.mun.ca/~kol/courses/2711-w08/dynprog-2711.pdf); like we like to maximize profit or minimize cost.

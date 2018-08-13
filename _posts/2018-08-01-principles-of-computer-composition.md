@@ -9,6 +9,7 @@ tags:
 author_profile: true
 toc: true
 toc_label: "Principles Of Computer Composition"
+toc_sticky: true
 ---
 
 **In computer major postgraduate entrance examination 408**, `Principles of computer composition` plays a decisive position and account 30% of total scores. So, I'd like to spend a little bit time to record some frequent used concepts.

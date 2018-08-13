@@ -12,6 +12,7 @@ lang: en
 author_profile: true
 toc: true
 toc_label: "Greedy and Dynamic Programming"
+toc_sticky: true
 ---
 
 This is a problem comes from stack overflow.

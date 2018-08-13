@@ -14,6 +14,7 @@ author_profile: true
 toc: true
 toc_label: "无限滚动"
 toc_sticky: true
+hidden: true
 ---
 
 `无限滚动在互联网中随处可见. Google music的艺术家列表算一种，Facebook的时间线算一种，Twitter的live feed也是一种. 在到达底部之前，可以一直滑动，然后新的内容就会很神奇的出现。看起来很吸引人，这是一种无缝的用户体验。`

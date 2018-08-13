@@ -193,6 +193,8 @@ hr {
 ul li,
 ol li {
   margin-bottom: 0.5em;
+  list-style: circle;
+  list-style-position: inside;
 }
 
 li ul,

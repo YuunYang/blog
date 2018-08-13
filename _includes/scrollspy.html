@@ -1,0 +1,28 @@
+<script>
+  addEvent(window, 'load', () =>{
+    var selectList = [];
+    $('.page__content h2').each(function () {
+      var self = $(this),
+        contents = self.nextUntil('h2', 'h3');
+      selectList.push(...self.get());
+      selectList.push(...contents.get());
+    });
+    var scroll_top = document.documentElement.scrollTop;
+    var sign = [];
+    addEvent(window, 'scroll',function(){
+      scroll_top = document.documentElement.scrollTop;
+      var preTitle, fall = Infinity;
+      selectList.forEach((e, i) => {
+        var title = e.getAttribute('id');
+        var title_top = $(`.page__content #${title}`).offset().top;
+        $(`li:has(a[href="#${sign.slice(-1)[0]}"])`).removeClass('active');
+        if(scroll_top + 25 >= title_top) {
+          sign[i] = title;
+        } else {
+          sign.splice(i, i+1);
+        }
+        $(`li:has(a[href="#${sign.slice(-1)[0]}"])`).addClass('active');         
+      })
+    })
+  })
+</script>

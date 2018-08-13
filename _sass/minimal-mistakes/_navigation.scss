@@ -515,6 +515,12 @@
   font-size: 0.8rem;
   max-height: 75vh;
   overflow-y: scroll;
+  .active{
+    background: #f4f4f2;
+    a{
+      color: #000;
+    }
+  }
   a {
     display: block;
     padding: 0.5rem 1rem;

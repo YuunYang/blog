@@ -76,6 +76,10 @@
   li,
   dl {
     font-size: 1em;
+    &:after {
+      content: "";
+    }
+    text-align: justify;
   }
 
   /* paragraph indents */
@@ -89,6 +93,10 @@
         margin-top: -($indent-var);
       }
     }
+  }
+
+  li > p{
+    display: inline;
   }
 
   a:not(.btn) {

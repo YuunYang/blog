@@ -195,6 +195,13 @@ ol li {
   margin-bottom: 0.5em;
   list-style: circle;
   list-style-position: inside;
+  &:after {
+    letter-spacing: -0.2em;
+    content: "\00a0"; /* non-breaking space*/
+  }
+}
+ul{
+  padding: 0;
 }
 
 li ul,

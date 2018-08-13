@@ -263,6 +263,10 @@
 
   li {
     white-space: nowrap;
+    list-style: none;
+    &:after {
+      content: "";
+    }
   }
 
   a {

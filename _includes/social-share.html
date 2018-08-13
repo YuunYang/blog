@@ -8,7 +8,7 @@
   {% if site.data.ui-text[site.locale].share_on_label %}
     <h4 class="page__share-title">{{ site.data.ui-text[site.locale].share_on_label | default: "Share on" }}</h4>
   {% endif %}
-  <a href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?title={{ page.title }}&url={{ page.url | absolute_url | url_encode }}&pics=%2Fasserts%2Fimages%2Fyyk.jpeg&desc=Share blog {{ page.title }}"
+  <a href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?title={{ page.title }}&url={{ page.url | absolute_url | url_encode }}&pics=http:%2F%2Fyukwan.cn%2Fasserts%2Fimages%2Fyyk.jpeg&desc=Share blog {{ page.title }}"
     class="btn btn--qzone" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
     title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} QQ">
     <i class="iconfont icon-qzone" aria-hidden="true"></i>

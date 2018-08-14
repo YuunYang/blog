@@ -40,8 +40,8 @@ comments:
 gitalk: 
   owner: YuunYang
   repo: myblog
-  clientID: b70d65e7cd565f78a900
-  clientSecret: 5502c8ebcf09db55996b87d67fa993f60829e1a2
+  clientID: 3795f4fd1c731f952053
+  clientSecret: 7e024ce2650391466a7f993cf814d29f95ce1ecf
   id: window.location.pathname
 staticman:
   allowedFields          : # ['name', 'email', 'url', 'message']

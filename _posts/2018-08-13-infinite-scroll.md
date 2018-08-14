@@ -34,17 +34,17 @@ The advantages are clear: data request dynamically, and it is sample to realize,
 
 ### The virtual scrollbar
 
-We will learn from below about this way
+There are three flavors of virtual scrollbar implementation
 
-- Object pool — based on “Object Pool” design pattern. A small subset of DOM elements are rendered and reused as the user scrolls down the page;
-- Use, drop and recreate — Recreates the DOM elements each time they are in the viewport, and releases them once they leave;
-- Just leave the elements — As in infinite scroll, creates the elements as they come into view.
+- **Object pool** —  based on “Object Pool” design pattern. A small subset of DOM elements are rendered and reused as the user scrolls down the page;
+- **Use, drop and recreate**  —  Recreates the DOM elements each time they are in the viewport, and releases them once they leave;
+- **Just add the elements**  —  As in infinite scroll, creates the elements as they come into view.
 
 {:refdef .codepen title="https://codepen.io/Kfir-Zuberi/pen/ddgoGV"}
 Set the pen
 {: refdef}
 
-In this way, we easy release the element when it out of viewpoint, it keeps the element as constant count. and (index-1)*height is made by multiplying item-height by item-count. ~~Each element gets an absolute position over the padding layer, and is offset from the top padding according to the element index~~. This solution is not very good, because we should add each element a padding attribute, and should change anytime, it is expensive, like that, we could use the blew way.
+Unlike with the infinite scrollbar, with the virtual scrollbar, the scroll’s size is calculated before appending the elements, it keeps the element as constant count. and (index-1)*height is made by multiplying item-height by item-count. ~~Each element gets an absolute position over the padding layer, and is offset from the top padding according to the element index~~. This solution is not very good, because we should add each element a padding attribute, and should change anytime, it is expensive, like that, we could use the `Object pool`.
 
 ## A example from [google][google team]
 

@@ -2,6 +2,7 @@
 title:  "Summary of Principles Of Computer Composition"
 categories:
   - summarize
+  - principles of computer composition 
 tags: 
   - principles of computer composition 
   - postgraduate
@@ -145,55 +146,6 @@ The capacity of a memory is limited, it's quilt different from the actual memory
 - **Bit extension**: bit extension refers to the expansion of word length with multiple memories. We connected each chips' **address lines** by parallel(A0-A0, A1-A1, ... A15-A15, ...), and then connected to the address bus; Each chip provides a data line that forms part of the data bus(`两芯片的地址线分别并接在一起(即A0与A0并接，A1与A1并接，A15与A15并接等等)，接至系统地址总线；两芯片的数据线各自提供数据总线的一部分(此例为高4位和低4位)，共同组成8位的数据总线`);
 - **Word extension**: word extension refers to the expansion of word count. We connected each chips' lower address line by parallel, and then connected to the lower address bus; Connected each **data line** by parallel, and then connected to the data bus; System higher address line, used for transcode, and the output connected to two chips' chip selection(CS) side.
 
-## Cache
-
-- **Cache operation principle**: Cache constituted by Translation Lookaside Buffer(TLB`快表`) and rapid memory(`快速存储器`). Processor accesses the memory at the main memory address, the high segment of memory determines wether the Cache is in by look up the table though the address mapping mechanism of Memory-Cache, if in, Cache hit and access Cache by Cache address. Or Cache not hit need to access main memory, and transfer the corresponding data block to the Cache, if Cache is full, we should replace a blog out of Cache by using an algorithm, and modify the relevant mapping relation.
-
-  According to the operation principle, it refer to two question: determine and then replace.
-
-  The existence of Cache is **transparent** for the programmer. `The algorithm about address mapping and replace are all realized by hardware`. Cache usually integrate to CPU for speed increasing.
-
-- **Mapping mode between Cache and Main memory**: because processor always accesses main memory by it's address, but the space of Cache much less than main memory, so need address mapping to recognize whether this access is in the Cache or in the main memory, and the `address mapping` is map the address which in main memory to the Cache. Make a memory block or space in Cache correspond to a number of blocks in main memory, hence when access a main memory address, can get the corresponding address in Cache. For the mapping mode ,there has three modes: Direct Mapping, Full Associative Mapping and Set Associative Mapping.
-
-### Direct mapping
-
-That direct mapping assigned each memory block to a specific line in cache. If a line is all already taken up by a memory block when a new memory needs to be loaded, the old trashed. `This line is the only line that each of these blocks can be sent to. In the case of this figure, there are 8 bits in the block identification portion of the memory address`.
-![direct map][direct map]{: .align-center}
-
-### Full associative mapping
-
-In full associative, any block can go into any line of the cache. This means that the word id bits are used to identify which word in the block is needed, but the tag becomes all of the remaining bits.
-
-### Set associative mapping
-
-Set associative mapping is divides the memory into some groups, and for each group, and direct mapping betweens groups, but full associative mapping in each group. It does this by saying that instead of having exactly one line that a block can map to in the cache, we will group a few lines together creating a `set`. Then a block in memory can map to any one of the lines of a specific set. There is still only one set that the block can map to.
-![set assoc map][set assoc map]{: .align-center}
-
-### The algorithms of mapping
-
-|  | Thinking | Advantage | Disadvantage |
-| ---------------- | ----------------- | ----------------- | --------------- |
-| RAND | random generate the page number which need to be replaced | easy | low hit rate |
-| FIFO | the first in page first out(replace)  | easy and utilized the historical information | can not reflect the principle of program locality |
-| LRU | select the least recently used page to replace | hight hit rate, utilized the historical information and reflect the principle of program locality | complex to realize |
-| OPT | select the page that will not use in future | the standard | ideal condition |
-
-### Cache write strategy
-
-Because when writing to the cache, there is no write to the cache, therefor, the cache and memory data is inconsistent.
-
-The solutions are called cache update strategies.
-
-| Update strategies | Thinking | Advantage | Disadvantage |
-| ---------------- | ----------------- | ----------------- | --------------- |
-| Write back | when CPU execute write operation, the message only write to the cache; the written cache block sent back to the memory only the replacement is needed, and set a `dirty bit` to indicate whether the cache line has been modified  | saves many unnecessary spending on writing intermediate result to memory | should make dirty bit which perplex the cache |
-| write through | when writing, write the data both to the cache and main memory | easy and coast less | lost lot of time on writing intermediate result |
-
-When there doesn't hit, we need to get this block back to cache, and there has two solutions:
-
-- Write allocate policy: updates the block in main memory and brings the block to the cache.
-- No write allocate policy: updates the block in main memory not bringing that block to the cache.
-
 ## References
 
 Some essay, blog or question referred above.
@@ -203,5 +155,3 @@ Some essay, blog or question referred above.
 
 [example]: https://en.wikipedia.org/wiki/Cycles_per_instruction#Definition
 [schematic diagram]: /assets/images/2018-08-01-principles-of-computer-composition/200947103528147.jpg
-[direct map]: /assets/images/2018-08-01-principles-of-computer-composition/direct.gif
-[set assoc map]: /assets/images/2018-08-01-principles-of-computer-composition/setassoc.gif

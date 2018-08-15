@@ -12,6 +12,7 @@ tags:
 toc: true
 toc_label: "Concrete Math"
 toc_sticky: true
+last_modified_at: 2018-08-15T11:19:00
 ---
 *`A Foundation for Computer Science`*
 
@@ -112,7 +113,87 @@ Z_{n} & = L_{2n}\text{ - 2n} = \frac{2n(2n + 1)}{2} + 1 − 2n  \\
 
 ## THE JOSEPHUS PROBLEM
 
+During the Jewish{Roman war, Josephus was among a band of 41 Jewish rebels trapped in a cave by the Romans. Preferring suicide to capture, the rebels decided to form a circle and, proceeding around it, to kill every third remaining person until no one was left.
+
+We can express this story as a concrete math problem, we start with n people numbered 1 to n around a circle, and we eliminate every **second** remaining person until only one survives. For example we have 10 people here, so the elimination order is 2, 4, 6, 8, 10, 3, 7, 1, 9; and 5 remains. We determine the survivor's number, $$J(n)$$.
+
+Is $$J(n) = \frac{n}{2}$$ when n is even? We can list a sample table:
+
+$$
+\begin{array}{c|lcr}
+n & 1 & 2 & 3 & 4 & 5 & 6 \\
+\hline
+J(n) & 1 & 1 & 3 & 1 & 3 & 5 \\
+\end{array}
+$$
+
+And we can obviously find that the conjecture fails when n=4 and n=6.
+
+Okay, we at least find that every J(n) seems to be odd, because every even number eliminated in the first loop... So we start with 2n people, because we can eliminate all `not even` number immediately.
+
+![05 pic][05 pic]{: .align-left}Yes, when the first loop ends, there remains n people, the circle looks like the circle of n people? the $$3, 7, 11 ...$$ are the next while in J(n) are $$2, 4, 6 ...$$, so there have an equation:
+ $$J(2n)=2J(n) - 1, \quad for n \geqslant 1.$$
+
+![06 pic][06 pic]{: .align-right}About the odd case. With 2n+1 people, we wiped the number 1 person after 2n, so that we got the formula: $$J(2n + 1)=2J(n) + 1, \quad for n \geqslant 1.$$
+
+Combining these equations with J(1) = 1 gives us a recurrence that denes J in all cases:
+
+$$\begin{cases}
+J(1) = 1;\\
+J(2n) = 2J(n) − 1, & \text{for $n\geqslant 1$;} \\
+J(2n + 1) = 2J(n) + 1, & \text{for $n\geqslant 1$.}
+\end{cases}$$
+
+Our recurrence makes it possible to build a table of small values very quickly. Perhaps we'll be able to spot a pattern and guess the answer.
+
+$$
+\begin{array}{c|c|cc|cccc|cccccccc|c}
+n & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 \\
+\hline
+J(n) & 1 & 1 & 3 & 1 & 3 & 5 & 7 & 1 & 3 & 5 & 7 & 9 & 11 & 13 & 15 & 1 \\
+\end{array}
+$$
+
+It seems we can group by powers of 2 (marked by vertical lines in the table); J(n) is always 1 at the beginning of a group and it increases by 2 within a group. So if we write n in the form n = 2m + l, where 2m is the largest power of 2 not exceeding n and where l is what's left, the solution to our recurrence seems to be:
+
+$$J(2^{m}+l)=2l+1, \quad \text{for $m\geqslant0 \&\& 0 \leqslant{l}<2^{m}$}$$
+
+It is true if we verify.but! Consider there have power operation, so we think about the **binary** way! Suppose n's binary expansion is:
+
+$$n = (1b_{m-1}\dots b_{1}b_{0})_{2}$$;
+
+Because $$n=2^{m}+l$$ so we can express $$L, 2L, 2L + 1, J(n)$$ as:
+
+$$
+\begin{align}
+l=(0b_{m-1}\dots b_{1}b_{0})_{2} \\
+2l=(b_{m-1}\dots b_{1}b_{0}0)_{2} \\
+2l + 1=(b_{m-1}\dots b_{1}b_{0}1)_{2} \\
+j(n)=(b_{m-1}\dots b_{1}b_{0}b{m})_{2}
+\end{align}
+$$
+
+Amazing! We got the binary expansion:
+
+$$J((b_{m}b_{m-1}\dots b_{1}b_{0})_{2})=(b_{m-1}\dots b_{1}b_{0}b_{m})_{2}$$.
+
+We understand the J function pretty well; the next step is to generalize it.With different constants we might not have been lucky enough to guess the solution, because the solution might have been really weird. Let's investigate this by introducing constants α, β, Looks like Greek and γ and trying to nd a closed form for the more general recurrence.
+
+$$\begin{cases}
+f(1) = \alpha;\\
+f(2n) = f(n) − \beta, & \text{for $n\geqslant 1$;} \\
+f(2n + 1) = f(n) + \gamma, & \text{for $n\geqslant 1$.}
+\end{cases}$$
+
+And the ...
+
+- - -
+
+我放弃一波。以后再填坑，看不太懂。。。
+
 [01 pic]: /assets/images/2018-08-02-ConcreteMath-reading-notes(01)/01.png
 [02 pic]: /assets/images/2018-08-02-ConcreteMath-reading-notes(01)/02.png
 [03 pic]: /assets/images/2018-08-02-ConcreteMath-reading-notes(01)/03.png
 [04 pic]: /assets/images/2018-08-02-ConcreteMath-reading-notes(01)/04.png
+[05 pic]: /assets/images/2018-08-02-ConcreteMath-reading-notes(01)/05.png
+[06 pic]: /assets/images/2018-08-02-ConcreteMath-reading-notes(01)/06.png

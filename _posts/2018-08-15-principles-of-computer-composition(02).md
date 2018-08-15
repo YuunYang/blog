@@ -1,5 +1,5 @@
 ---
-title: "Summary of Principles Of Computer Composition"
+title: "Summary of Principles Of Computer Composition(02)"
 categories:
   - summarize
   - principles of computer composition 

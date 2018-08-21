@@ -1,5 +1,5 @@
 ---
-title:  "贪心和动态规划算法"
+title:  "【译】贪心和动态规划算法"
 categories:
   - summarize
 tags: 

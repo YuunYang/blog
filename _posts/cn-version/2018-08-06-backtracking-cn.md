@@ -1,5 +1,5 @@
 ---
-title:  "回溯法"
+title:  "【译】回溯法"
 categories:
   - summarize
 tags: 

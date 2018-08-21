@@ -109,12 +109,12 @@
       "cn": "adj. 精髓的，精萃的；最典型的；最本质的"
     },
     {
-      "en": "factors of variation",
-      "cn": "n. 差别因子"
-    },
-    {
       "en": "obtain",
       "cn": "vi. 获得；流行"
+    },
+    {
+      "en": "factors of variation",
+      "cn": "n. 差别因子"
     },
     {
       "en": "feedforward",
@@ -190,7 +190,15 @@
     },
     {
       "en": "illustrate",
-      "cn": "vi. 举例"
+      "cn": "vi. 举例 vt. 阐明，举例说明；图解"
+    },
+    {
+      "en": "speculative",
+      "cn": "adj. 投机的；推测的；思索性的"
+    },
+    {
+      "en": "emerging",
+      "cn": "adj. 新兴的；出现的；形成的"
     }
   ]
 }

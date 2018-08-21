@@ -10,7 +10,6 @@ layout: archive
     $.getJSON("/assets/words.json", function (result) {
       console.log(result);
       result.words && result.words.forEach(word => {
-        console.log(word);
         $("#words").append(`
           <section class="word">
             <span class="en">${word.en}</span>
@@ -20,8 +19,11 @@ layout: archive
       });
       $('.en').click(function(){
         $(this).toggleClass("card-effect");
+        const $parent = $(this).closest(".word");
+        $parent.children(".cn").toggleClass("card-effect");
         setTimeout(()=>{
           $(this).toggleClass("card-effect");
+          $parent.children(".cn").toggleClass("card-effect");
         },2000);
       })
     });

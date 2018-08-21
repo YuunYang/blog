@@ -1,7 +1,29 @@
 {
   "words": [
-    {"en": "artificial intelligence", "cn": "人工智能"},
-    {"en": "intellectually", "cn": "智力上"},
-    {"en": "formally", "cn": "正式的"}
+    {"en": "artificial intelligence", "cn": "n. 人工智能"},
+    {"en": "intellectually", "cn": "adv. 智力上；理智地；知性上"},
+    {"en": "intuitively", "cn": "adv. 直观地；直觉地"},
+    {"en": "hierarchy", "cn": "n. 层级；等级制度"},
+    {"en": "gather", "cn": "n. 聚集；衣褶；收获量"},
+    {"en": "relatively", "cn": "adv. 相当地；相对地，比较地"},
+    {"en": "circumscribe", "cn": "vt. 外切，外接；限制；局限的"},
+    {"en": "tremendous", "cn": "adj. 极大的，巨大的；惊人的；极好的"}, 
+    {"en": "formally", "cn": "adv. 正式地；形式上"},
+    {"en": "ironically", "cn": "adv. 讽刺地；说反话地"},
+    {"en": "sought", "cn": "v. 寻找（seek的过去式和过去分词）"},
+    {"en": "inference", "cn": "n. 推理；推论；推断"},
+    {"en": "statement", "cn": "n. 声明；报告；陈述句；状态说明"},
+    {"en": "accurately", "cn": "adv. 精确地，准确地"},
+    {"en": "detect", "cn": "vt. 察觉；发现；探测"},
+    {"en": "extract", "cn": "vt. 提取；取出；摘录；榨取"},
+    {"en": "recommend", "cn": "vt. 推荐，介绍；劝告；使受欢迎；托付\nvi. 推荐；建议"},
+    {"en": "how .. correlates with ....", "cn": "... 与 ... 有怎样的联系"},
+    {"en": "negligible", "cn": "adj. 微不足道的，可以忽略的"},
+    {"en": "estimate", "cn": "vi. 估计，估价"},
+    {"en": "mental", "cn": "n. 金属；合金"},
+    {"en": "coordinate", "cn": "n. 坐标；同等的人或物"},
+    {"en": "rapidly", "cn": "adv. 迅速地；很快地；立即"},
+    {"en": "intervention", "cn": "n. 介入；调停；妨碍"}
+
   ]
 }

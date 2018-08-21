@@ -1,18 +1,17 @@
 #words{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  flex-wrap: wrap;
   .word{
     position: relative;
     background-color: #ffffff;
-    width: 100%;
-    overflow: hidden;
+    width: auto;
+    // overflow: hidden;
     .en,.cn{
       padding: 0 .2em;
       display: inline-block;
       margin-bottom: 0.25em;
       padding: 0.618em .5em;
-      font-size: .75em;
-      font-weight: bold;
       text-align: center;
       text-decoration: none;
       border-width: 0;
@@ -25,45 +24,53 @@
     }
     .en{
       z-index: 1;
+      font-size: .75em;
+      font-weight: bold;
     }
     .cn{
+      font-size: .6em;
+      width: 100%;
       background-color: #7dac49;
       z-index: 0;
       position: absolute;
       left: 0;
       top: 0;
     }
-    @keyframes slide-up {
-      0% {
-        transform: translate(0, 0);
-        opacity: 1,
-      }
-      90% {
-        transform: translate(0, -90%);
-        opacity: 1,
-      }
-      100% {
-        transform: translate(0, -100%);
-        opacity: 0,
-      }
-    }
     @keyframes slide-down {
       0% {
-        transform: translate(0, -100%);
+        top: 0;
       }
       90% {
-        transform: translate(0, -10%);
+        top: 90%;
       }
       100% {
-        transform: translate(0, 0);
+        top: 100%;
       }
     }
-    .en:not(.card-effect){
+    @keyframes slide-up {
+      0% {
+        top: 100%;
+      }
+      90% {
+        top: 10%;
+      }
+      100% {
+        top: 0;
+      }
+    }
+    .cn:not(.card-effect){
+      z-index:0;
+      opacity: 0;
+      animation: slide-up 500ms linear forwards;
+    }
+    .cn.card-effect{
       opacity: 1;
+      z-index:2;
       animation: slide-down 500ms linear forwards;
     }
-    .card-effect{
-      animation: slide-up 500ms linear forwards;
+    .en.card-effect{
+      z-index: 3;
+      animation: none;
     }
   }
 }

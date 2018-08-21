@@ -25,8 +25,8 @@ intervention/n. 介入；调停；妨碍
 manually/adv. 手动地；用手
 entire/adj. 全部的，整个的；全体的
 quintessential/adj. 精髓的，精萃的；最典型的；最本质的
-factors of variation/n. 差别因子
 obtain/vi. 获得；流行
+factors of variation/n. 差别因子
 feedforward/n. 前馈（控制）；正反馈
 mathematical/adj. 数学的，数学上的；精确的
 instructions/n. 指令；说明（instruction的复数形式）
@@ -40,3 +40,9 @@ contour/n. 轮廓；概要
 illustration/n. 说明；插图；例证；图解
 depict/vt. 描述；描画
 make sense of/搞清…的意思
+analogous/adj. 类似的；可比拟的
+measure/vt. 测量；估量；权衡
+equivalent/adj. 等价的，相等的；同意义的
+individual/adj. 个人的；个别的；独特的
+regard/v. 视为，注意
+illustrate/vi. 举例 vt. 阐明，举例说明；图解

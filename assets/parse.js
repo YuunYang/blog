@@ -23,3 +23,9 @@ fs.watchFile(textName, (curr, prev)=>{
     const opts = { stdio: 'inherit', cwd: path.join(__dirname, '../'), shell: true }
     require('child_process').spawn('git', args, opts)
 })
+process.on('SIGINT', () => {
+    const args = ["commit", "-m", "'add words'"]
+    const opts = { stdio: 'inherit', cwd: path.join(__dirname, '../'), shell: true }
+    require('child_process').spawn('git', args, opts)
+    process.exit()
+});

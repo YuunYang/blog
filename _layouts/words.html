@@ -1,0 +1,29 @@
+--- 
+layout: archive 
+--- 
+{{ content }}
+
+<div id="words"></div>
+
+<script>
+  window.onload = () => {
+    $.getJSON("/assets/words.json", function (result) {
+      console.log(result);
+      result.words && result.words.forEach(word => {
+        console.log(word);
+        $("#words").append(`
+          <section class="word">
+            <span class="en">${word.en}</span>
+            <span class="cn">${word.cn}</span>
+          </section>
+        `)
+      });
+      $('.en').click(function(){
+        $(this).toggleClass("card-effect");
+        setTimeout(()=>{
+          $(this).toggleClass("card-effect");
+        },2000);
+      })
+    });
+  }
+</script>

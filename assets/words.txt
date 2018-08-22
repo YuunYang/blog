@@ -50,3 +50,4 @@ speculative/adj. 投机的；推测的；思索性的
 emerging/adj. 新兴的；出现的；形成的
 thrive/vi. 繁荣，兴旺；茁壮成长
 in terms of/依据；按照；在…方面；以…措词
+accuracy/n. [数] 精确度，准确性

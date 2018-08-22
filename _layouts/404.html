@@ -1,0 +1,39 @@
+<p style="text-align: center">Sorry, but the page you were trying to view does not exist --- perhaps you can try searching for it below.</p>
+
+<div class="stars">
+</div>
+<style>
+  body {
+    background: radial-gradient(200% 100% at bottom center, #F7F7B6, #E96F92, #75517D, #1B2947);
+    background: radial-gradient(220% 105% at top center, #1B2947 10%, #75517D 40%, #E96F92 65%, #F7F7B6);
+    background-attachment: fixed;
+    overflow: hidden;
+  }
+</style>
+<!-- <img src="/assets/images/404.jpg" class="align-center" alt="404"> -->
+
+<script type="text/javascript">
+  window.onload = function () {
+    var stars = 800;
+    var $stars = $(".stars");
+    var r = 800;
+    for (var i = 0; i < stars; i++) {
+      var $star = $("<div/>").addClass("star");
+      $stars.append($star);
+    }
+    $(".star").each(function () {
+      var cur = $(this);
+      var s = 0.2 + (Math.random() * 1);
+      var curR = r + (Math.random() * 300);
+      cur.css({
+        transformOrigin: "0 0 " + curR + "px",
+        transform: " translate3d(0,0,-" + curR + "px) rotateY(" + (Math.random() * 360) + "deg) rotateX(" + (Math.random() * -50) + "deg) scale(" + s + "," + s + ")"
+
+      })
+    })
+  }
+  var GOOG_FIXURL_LANG = 'en';
+  var GOOG_FIXURL_SITE = '{{ site.url }}'
+</script>
+<script type="text/javascript" src="//linkhelp.clients.google.com/tbproxy/lh/wm/fixurl.js">
+</script>

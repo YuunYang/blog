@@ -28,7 +28,7 @@ And in this section, I read the chapter one of `Concrete Math`, and this chapter
 
 It is not easily obvious that this is a recurrent problem, if we didn't meet before. `The best way to tackle a question like this is to generalize it a bit`, we are not easy to find the regularity of this problem, but we can immediately see how to transfer the tower that contains only one or two disk, and then three. Using `look at small cases` strategy, we see $$T_{1}=1$$, $$T_{2}=3$$ and $$T_{3}=7$$
 
-`But now let's change our perspective and try to think big`, experiments with three disks, this gives us a clue for transferring n disks in general: We first transfer the n − 1 smallest to a different peg, then move the largest, and finally transfer the n−1 smallest back onto the largest. How we verify our answer? First we can analyze from the problem itself, because the largest disk must be move, so the n - 1 smallest disks must move to a single peg before this, which cost $$T_{n-1}$% moves, and then transfer the n−1 smallest disks back onto the largest, require $$T_{n-1}$% moves. so we can confirm the formula is that: 
+`But now let's change our perspective and try to think big`, experiments with three disks, this gives us a clue for transferring n disks in general: We first transfer the n − 1 smallest to a different peg, then move the largest, and finally transfer the n−1 smallest back onto the largest. How we verify our answer? First we can analyze from the problem itself, because the largest disk must be move, so the n - 1 smallest disks must move to a single peg before this, which cost $$T_{n-1}$% moves, and then transfer the n−1 smallest disks back onto the largest, require $$T_{n-1}$% moves. so we can confirm the formula is that:
 
 $$\begin{cases}
 T_{0} = 0 \\[2ex]
@@ -64,7 +64,7 @@ Usually it always not easy to find the recurrence formula of a recurrence proble
 
 ## LINES IN THE PLANE
 
-`How many slices of pizza can a person obtain by making n straight cuts with a pizza knife? Or, more academically: What is the maximum number Ln of regions dened by n lines in the plane`
+`How many slices of pizza can a person obtain by making n straight cuts with a pizza knife? Or, more academically: What is the maximum number Ln of regions defined by n lines in the plane`
 
 ### Thinking2
 
@@ -136,12 +136,12 @@ Okay, we at least find that every J(n) seems to be odd, because every even numbe
 
 ![06 pic][06 pic]{: .align-right}About the odd case. With 2n+1 people, we wiped the number 1 person after 2n, so that we got the formula: $$J(2n + 1)=2J(n) + 1, \quad for n \geqslant 1.$$
 
-Combining these equations with J(1) = 1 gives us a recurrence that denes J in all cases:
+Combining these equations with J(1) = 1 gives us a recurrence that defined J in all cases:
 
 $$\begin{cases}
 J(1) = 1;\\
 J(2n) = 2J(n) − 1, & \text{for $n\geqslant 1$;} \\
-J(2n + 1) = 2J(n) + 1, & \text{for $n\geqslant 1$.}
+J(2n + 1) = 2J(n) + 1, & \text{for $n\geqslant 1$.}
 \end{cases}$$
 
 Our recurrence makes it possible to build a table of small values very quickly. Perhaps we'll be able to spot a pattern and guess the answer.
@@ -177,12 +177,12 @@ Amazing! We got the binary expansion:
 
 $$J((b_{m}b_{m-1}\dots b_{1}b_{0})_{2})=(b_{m-1}\dots b_{1}b_{0}b_{m})_{2}$$.
 
-We understand the J function pretty well; the next step is to generalize it.With different constants we might not have been lucky enough to guess the solution, because the solution might have been really weird. Let's investigate this by introducing constants α, β, Looks like Greek and γ and trying to nd a closed form for the more general recurrence.
+We understand the J function pretty well; the next step is to generalize it.With different constants we might not have been lucky enough to guess the solution, because the solution might have been really weird. Let's investigate this by introducing constants α, β and γ and trying to find a closed form for the more general recurrence.
 
 $$\begin{cases}
 f(1) = \alpha;\\
 f(2n) = f(n) − \beta, & \text{for $n\geqslant 1$;} \\
-f(2n + 1) = f(n) + \gamma, & \text{for $n\geqslant 1$.}
+f(2n + 1) = f(n) + \gamma, & \text{for $n\geqslant 1$.}
 \end{cases}$$
 
 And the ...

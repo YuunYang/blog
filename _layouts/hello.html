@@ -1,0 +1,57 @@
+--- 
+layout: archive
+--- 
+{{ content }}
+
+<div class="type-js headline">
+    <h1 class="text-js">Look mum, I'm typing!</h1>
+</div>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        boz-sizing: border-box;
+        font-family: "Open Sans", sans-serif
+    }
+    body{
+        background: linear-gradient(135deg,#00C4FF,#9D1BB2);
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+<script>
+    addEvent('window',()=>{
+        function autoType(elementClass, typingSpeed) {
+            var thhis = $(elementClass);
+            thhis.css({
+                "position": "relative",
+                "display": "inline-block"
+            });
+            thhis.prepend('<div class="cursor" style="right: initial; left:0;"></div>');
+            thhis = thhis.find(".text-js");
+            var text = thhis.text().trim().split('');
+            var amntOfChars = text.length;
+            var newString = "";
+            thhis.text("|");
+            setTimeout(function () {
+                thhis.css("opacity", 1);
+                thhis.prev().removeAttr("style");
+                thhis.text("");
+                for (var i = 0; i < amntOfChars; i++) {
+                    (function (i, char) {
+                        setTimeout(function () {
+                            newString += char;
+                            thhis.text(newString);
+                        }, i * typingSpeed);
+                    })(i + 1, text[i]);
+                }
+            }, 1500);
+        }
+
+        $(document).ready(function () {
+            autoType(".type-js", 200);
+        });
+    })
+</script>

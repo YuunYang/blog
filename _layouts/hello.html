@@ -5,7 +5,7 @@ layout: archive
 {{ content }}
 <div class="outer">
     <div class="type-js headline">
-        <p class="text-js">你好啊，好奇怪这样的方式，不过我好像就会这个了</p>
+        <p class="text-js">你好啊.好奇怪这样的方式，不过我好像就会这个了</p>
     </div>
 </div>
 <style>
@@ -24,7 +24,8 @@ layout: archive
                 "position": "relative",
                 "display": "inline-block"
             });
-            thhis.prepend('<div class="cursor" style="right: initial; left:0;"></div>');
+            var p_height = $('p.text-js').css('height')
+            thhis.prepend(`<div class="cursor" style="right: initial; left:0; height:${p_height};"></div>`);
             thhis = thhis.find(".text-js");
             var text = thhis.text().trim().split('');
             var amntOfChars = text.length;

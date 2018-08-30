@@ -3,51 +3,64 @@ layout: archive
 --- 
 
 {{ content }}
-<div class="outer">
-    <div class="type-js headline">
-        <p class="text-js">你好啊.好奇怪这样的方式，不过我好像就会这个了</p>
-    </div>
-</div>
-<style>
-    *{
-        margin: 0;
-        padding: 0;
-        boz-sizing: border-box;
-        font-family: "Open Sans", sans-serif
-    }
-</style>
-<script>
-    addEvent(window, 'load',()=>{
-        function autoType(elementClass, typingSpeed) {
-            var thhis = $(elementClass);
-            thhis.css({
-                "position": "relative",
-                "display": "inline-block"
-            });
-            var p_height = $('p.text-js').css('height')
-            thhis.prepend(`<div class="cursor" style="right: initial; left:0; height:${p_height};"></div>`);
-            thhis = thhis.find(".text-js");
-            var text = thhis.text().trim().split('');
-            var amntOfChars = text.length;
-            var newString = "";
-            thhis.text("|");
-            setTimeout(function () {
-                thhis.css("opacity", 1);
-                thhis.prev().removeAttr("style");
-                thhis.text("");
-                for (var i = 0; i < amntOfChars; i++) {
-                    (function (i, char) {
-                        setTimeout(function () {
-                            newString += char;
-                            thhis.text(newString);
-                        }, i * typingSpeed);
-                    })(i + 1, text[i]);
-                }
-            }, 1500);
-        }
+<p class="type-it"></p>
 
-        $(document).ready(function () {
-            autoType(".type-js", 200);
-        });
+<script src="https://cdn.bootcss.com/typeit/5.10.1/typeit.min.js"></script>
+<script>
+    new TypeIt('.type-it', {
+        speed: 50,
+        autoStart: false
     })
+        .type('你好啊')
+        .pause(1000)
+        .delete(3)
+        .type('肯定很好啊')
+        .break()
+        .pause(1000)
+        .type('不知道这样不知道会不会很尴尬')
+        .break()
+        .pause(750)
+        .type('我好像不知道该说什么')
+        .options({ speed: 700 })
+        .type('啊:(')
+        .pause(750)
+        .options({ speed: 50 })
+        .delete()
+        .type('好吧，我叫 <strong>杨宇坤</strong>')
+        .break()
+        .pause(750)
+        .type('来自 <strong>计算机学院</strong>')
+        .break()
+        .pause(750)
+        .type('我也没有什么特长啊')
+        .break()
+        .pause(750)
+        .type('写写代码跑跑步啥的')
+        .break()
+        .pause(750)
+        .type('跑步又不敢讲，我就写在我的网站上发给你啦')
+        .break()
+        .pause(750)
+        .type('不知道这样的介绍方式会不会很蠢')
+        .pause(750)
+        .delete(15)
+        .break()
+        .type('没关系，反正你都看到了')
+        .pause(750)
+        .break()
+        .type('那，不知道可不可以认识一下嘛')
+        .break()
+        .pause(750)
+        .type('我的<a href="mailto:ylcj1314@gmail.com">邮箱</a>☝️')
+        .break()
+        .pause(750)
+        .type('或者可以留电话嘛')
+        .pause(750)
+        .delete(4)
+        .pause(750)
+        .delete(4)
+        .break()
+        .type('偷偷的留一个吧，13098878963')
+        .break()
+        .type('😅')
 </script>

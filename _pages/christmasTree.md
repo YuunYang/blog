@@ -1,6 +1,6 @@
 --- 
 layout: christmasTree
-permalink: /tree/
+permalink: /behappyzf/
 title: "Christmas Tree"
 author_profile: true
 ---

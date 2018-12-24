@@ -1,0 +1,363 @@
+<div class="bg">
+    <div id="snowflakeContainer">
+        <span class='snowflake'></span>
+    </div>
+
+    <div class='text-wrap'>
+        <h1 class='text'>Merry Christmas</h1>
+        <h3 class="text">to</h3>
+        <h1 class='text'>ZhaoFang:)</h1>
+    </div>
+
+    <div class='tree-wrap'>
+
+        <div class="tree">
+            <div class='star-wrap'>
+                <div class="star">
+                </div>
+            </div>
+            <div class="darkside tree-layer"></div>
+            <div class="lightside tree-layer"></div>
+            <div class="darkerside tree-layer"></div>
+            <div class="lighterside tree-layer"></div>
+            <div class='decorations-wrap'>
+                <div class="decoration"></div>
+                <div class="decoration"></div>
+                <div class="decoration"></div>
+                <div class="decoration"></div>
+                <div class="decoration"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<style style="text/css">
+html,
+body {
+	margin: 0;
+	/* 	overflow: hidden; */
+}
+
+
+
+.text-wrap {
+	/* 	border: 40px solid #2ECC71; */
+	/* 	padding: 80px;
+	border-radius: 50%;
+	box-shadow: 0 0 0 50px #26A65B, 
+		0 0 0 70px #2ECC71; */
+	top: 38.2vw;
+	position: absolute;
+	left: 0;
+	right: 0;
+}
+
+.text {
+	color: #ffffff;
+/* 	text-shadow: 0px 1px 0px #1e3850; */
+	font-family: monospace;
+	text-align: center;
+	font-size: 2.9rem;
+	margin: 0;
+}
+
+.bg {
+	width: 100%;
+	height: 100%;
+	min-height: 650px;
+	position: absolute;
+	background: linear-gradient(to bottom, #22313F 30%, #2C3E50);
+	overflow: hidden;
+	/* 	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center; */
+}
+
+.bg::after {
+	content: "";
+	width: 100%;
+	height: 20px;
+	background: #ffffff;
+	position: absolute;
+	bottom: 0;
+}
+
+.snowflake {
+	width: 5px;
+	height: 5px;
+	background: #ffffff;
+	border-radius: 50%;
+	display: block;
+	position: relative;
+	z-index: 9999;
+}
+
+.tree {
+	position: absolute;
+	margin: auto;
+	bottom: 20px;
+	left: 50%;
+	margin-left: -100px;
+	width: 200px;
+	height: 450px;
+}
+
+.tree-layer {
+	width: 0px;
+	height: 0px;
+	border: 100px solid transparent;
+	margin: auto;
+	position: absolute;
+	bottom: 0;
+}
+
+.darkside {
+	border-bottom: 350px solid #26A65B;
+}
+
+.lightside {
+	border-bottom: 250px solid #2ECC71;
+}
+
+.lighterside {
+	border-bottom: 115px solid #2ECC71;
+}
+
+.darkerside {
+	border-bottom: 180px solid #26A65B;
+}
+
+.decoration {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	z-index: 99;
+	position: absolute;
+
+}
+
+.decoration:nth-child(1) {
+	transform: scale(1.5);
+	top: 420px;
+	left: 30px;
+	background: #F64747;
+	animation: blink 2s infinite;
+		box-shadow: 2px 3px 0px 7px #d83c3c inset;
+}
+
+.decoration:nth-of-type(2) {
+	transform: scale(1.3);
+	top: 380px;
+	left: 140px;
+	background: #F7CA18;
+	box-shadow: 2px 3px 0px 7px #d9b62e inset;
+}
+
+.decoration:nth-child(3) {
+	transform: scale(1.2);
+	top: 320px;
+	left: 60px;
+	background: #4183D7;
+	box-shadow: 2px 3px 0px 7px #3776c6 inset;
+}
+
+.decoration:nth-child(4) {
+	transform: scale(1.1);
+	top: 250px;
+	left: 110px;
+	background: #F64747;
+	box-shadow: 2px 3px 0px 7px #d83c3c inset;
+}
+
+.decoration:nth-child(5) {
+	transform: scale(0.8);
+	top: 150px;
+	left: 90px;
+	background: #F7CA18;
+	box-shadow: 2px 3px 0px 7px #d9b62e inset;
+}
+
+.star {
+/* 	display: none; */
+	width: 0px;
+	height: 0px;
+  border-right:  50px solid transparent;
+   border-bottom: 35px  solid #F7CA18;
+   border-left:   50px solid transparent;
+	   -moz-transform:    rotate(35deg);
+   -webkit-transform: rotate(35deg);
+   -ms-transform:     rotate(35deg);
+   -o-transform:      rotate(35deg);
+}
+
+.star::before {
+	   border-bottom: 40px solid #F7CA18;
+   border-left: 15px solid transparent;
+   border-right: 15px solid transparent;
+   position: absolute;
+   height: 0;
+   width: 0;
+   top: -25px;
+   left: -35px;
+   display: block;
+   content: '';
+   -webkit-transform: rotate(-35deg);
+   -moz-transform:    rotate(-35deg);
+   -ms-transform:     rotate(-35deg);
+   -o-transform:      rotate(-35deg);
+}
+
+.star::after {
+	   position: absolute;
+   display: block;
+   color: red;
+   top: 3px;
+   left: -55px;
+   width: 0px;
+   height: 0px;
+   border-right: 50px solid transparent;
+   border-bottom: 35px solid #F7CA18;
+   border-left: 50px solid transparent;
+   -webkit-transform: rotate(-70deg);
+   -moz-transform:    rotate(-70deg);
+   -ms-transform:     rotate(-70deg);
+   -o-transform:      rotate(-70deg);
+   content: '';
+}
+
+.star-wrap {
+	position: absolute;
+	top: 65px;
+	left: 53px;
+	z-index: 99;
+	box-sh
+}
+</style>
+
+<script type="text/javascript">
+var requestAnimationFrame = window.requestAnimationFrame || 
+window.mozRequestAnimationFrame || 
+window.webkitRequestAnimationFrame ||
+window.msRequestAnimationFrame;
+
+var transforms = ["transform", 
+"msTransform", 
+"webkitTransform", 
+"mozTransform", 
+"oTransform"];
+
+var transformProperty = getSupportedPropertyName(transforms);
+
+var snowflakes = [];
+
+var browserWidth;
+var browserHeight;
+
+var numberOfSnowflakes = 60;
+
+var resetPosition = false;
+
+function setup() {
+	window.addEventListener("DOMContentLoaded", generateSnowflakes, false);
+}
+setup();
+
+function getSupportedPropertyName(properties) {
+	for (var i = 0; i < properties.length; i++) {
+		if (typeof document.body.style[properties[i]] != "undefined") {
+			return properties[i];
+		}
+	}
+	return null;
+}
+
+function Snowflake(element, speed, xPos, yPos) {
+
+	// set initial snowflake properties
+	this.element = element;
+	this.speed = speed;
+	this.xPos = xPos;
+	this.yPos = yPos;
+
+	this.counter = 0;
+	this.sign = Math.random() < 0.5 ? 1 : -1;
+	
+	this.element.style.opacity = .1 + Math.random();
+	this.element.style.fontSize = 12 + Math.random() * 50 + "px";
+}
+
+Snowflake.prototype.update = function () {
+
+	this.counter += this.speed / 5000;
+	this.xPos += this.sign * this.speed * Math.cos(this.counter) / 40;
+	this.yPos += Math.sin(this.counter) / 40 + this.speed / 30;
+	
+	setTranslate3DTransform(this.element, Math.round(this.xPos), Math.round(this.yPos));
+
+    if (this.yPos > browserHeight) {
+    	this.yPos = -50;
+    }
+  }
+
+function setTranslate3DTransform(element, xPosition, yPosition) {
+	var val = "translate3d(" + xPosition + "px, " + yPosition + "px" + ", 0)";
+	element.style[transformProperty] = val;
+}
+
+function generateSnowflakes() {
+	var originalSnowflake = document.querySelector(".snowflake");
+	var snowflakeContainer = originalSnowflake.parentNode;
+    browserWidth = document.documentElement.clientWidth;
+    browserHeight = document.documentElement.clientHeight;
+    for (var i = 0; i < numberOfSnowflakes; i++) {
+
+		var snowflakeClone = originalSnowflake.cloneNode(true);
+		snowflakeContainer.appendChild(snowflakeClone);
+
+		var initialXPos = getPosition(50, browserWidth);
+		var initialYPos = getPosition(50, browserHeight);
+		var speed = 5+Math.random()*40;
+
+	    var snowflakeObject = new Snowflake(snowflakeClone, 
+	    	speed, 
+	    	initialXPos, 
+	    	initialYPos);
+	    snowflakes.push(snowflakeObject);
+	  }
+    snowflakeContainer.removeChild(originalSnowflake);
+
+	moveSnowflakes();
+}
+
+function moveSnowflakes() {
+	for (var i = 0; i < snowflakes.length; i++) {
+		var snowflake = snowflakes[i];
+		snowflake.update();
+	}
+
+	if (resetPosition) {
+		browserWidth = document.documentElement.clientWidth;
+		browserHeight = document.documentElement.clientHeight; 
+		
+		for (var i = 0; i < snowflakes.length; i++) {
+			var snowflake = snowflakes[i];
+			
+			snowflake.xPos = getPosition(50, browserWidth);
+			snowflake.yPos = getPosition(50, browserHeight);
+		}
+		
+		resetPosition = false;
+	}
+
+	requestAnimationFrame(moveSnowflakes);
+}
+
+
+function getPosition(offset, size) {
+	return Math.round(-1*offset + Math.random() * (size+2*offset));
+}
+
+function setResetFlag(e) {
+	resetPosition = true;
+}
+</script>

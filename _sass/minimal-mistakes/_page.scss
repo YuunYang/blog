@@ -97,6 +97,7 @@
 
   li > p{
     display: inline;
+    word-wrap: break-word;
   }
 
   a:not(.btn) {

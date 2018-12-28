@@ -60,13 +60,11 @@
         let name = md5(document.getElementById('name').value);
         if (name == cookieName) {
             $(".outer").css({"opacity": 0, background: '#f2f2f2'});
-            $("body").css("background", '#f2f2f2');
             setCookie("name", name, 1);
         }
     }  
     if(user == cookieName){
         $(".outer").css({ "opacity": 0, background: '#f2f2f2' });
-        $("body").css("background", '#f2f2f2');
     }
     document.getElementById('btn').addEventListener('click', onClick ,false);
 </script>
@@ -174,6 +172,9 @@
         z-index: 1;
     }
     .words{
+        background: #f2f2f2;
+        position: absolute;
+        height: 100%;
         margin: 0;
         padding: 1em 1em 0 1em;
         text-align: justify;

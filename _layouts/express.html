@@ -21,9 +21,11 @@
             </div>
         </div>
     </div>
+    <p>我知道</p>
 </body>
 </html>
 <script type="text/javascript">
+    let cookieName = "74e022759e267f014fd74e7c43011894";
     function setCookie(cname, cvalue, exdays) {
         let d = new Date();
         d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -39,18 +41,20 @@
         }
         return "";
     }
-    let cookieName = "74e022759e267f014fd74e7c43011894";
-    let user = getCookie("name");    
-    if(md5(user) == cookieName){
-        document.getElementsByClassName("outer").setAttribute('opacity', 0);
-    }
-    document.getElementById('btn').onclick = () => {
+    let user = getCookie("name");
+    function onClick(){
         let name = document.getElementById('name').value;
-        if(name == cookieName){
+        if (name == cookieName) {
             document.getElementsByClassName("outer").setAttribute('opacity', 0);
+            document.getElementsByClassName("body").setAttribute('background', '#f2f2f2 !important;');
             setCookie("name", name, 1);
         }
+    }  
+    if(md5(user) == cookieName){
+        document.getElementsByClassName("outer").setAttribute('opacity', 0);
+        document.getElementsByClassName("body").setAttribute('background', '#f2f2f2 !important;');
     }
+    document.getElementById('btn').addEventListener('click', onClick ,false);
 </script>
 <style>
     .login-page {

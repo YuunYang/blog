@@ -13,11 +13,11 @@
     <div class="outer">
         <div class="login-page">
             <div class="form">
-                <form class="login-form">
+                <div class="login-form">
                     <input id="name" type="text" placeholder="你的名字" />
                     <button id="btn">确认</button>
                     <p class="message">输入你的中文名就可以看到了</p>
-                </form>
+                </div>
             </div>
         </div>
     </div>
@@ -43,13 +43,12 @@
     let user = getCookie("name");    
     if(md5(user) == cookieName){
         document.getElementsByClassName("outer").setAttribute('opacity', 0);
-    }else{
-        document.getElementById('btn').onclick = () => {
-            let name = document.getElementById('name').value;
-            if(name == cookieName){
-                document.getElementsByClassName("outer").setAttribute('opacity', 0);
-                setCookie("name", name, 1);
-            }
+    }
+    document.getElementById('btn').onclick = () => {
+        let name = document.getElementById('name').value;
+        if(name == cookieName){
+            document.getElementsByClassName("outer").setAttribute('opacity', 0);
+            setCookie("name", name, 1);
         }
     }
 </script>
@@ -156,6 +155,7 @@
     .outer{
         position: absolute;
         width: 100%;
+        height: 100%;
         z-index: 1;
     }
 </style>

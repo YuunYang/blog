@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
     <title>Document</title>
     {% include head.html %}
@@ -51,14 +52,14 @@
     function onClick(){
         let name = md5(document.getElementById('name').value);
         if (name == cookieName) {
-            document.getElementsByClassName("outer").style.opacity = 0;
-            document.getElementsByClassName("body").style.background = '#f2f2f2 !important';
+            $(".outer").css("opacity", 0);
+            $("body").css("background", '#f2f2f2 !important');
             setCookie("name", name, 1);
         }
     }  
     if(user == cookieName){
-        document.getElementsByClassName("outer").setAttribute('opacity', 0);
-        document.getElementsByClassName("body").setAttribute('background', '#f2f2f2 !important;');
+        $(".outer").css("opacity", 0);
+        $("body").css("background", '#f2f2f2 !important');
     }
     document.getElementById('btn').addEventListener('click', onClick ,false);
 </script>

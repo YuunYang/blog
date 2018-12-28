@@ -24,6 +24,9 @@
     <div class="words">
         <p>本来有很多话我想在今天吃完饭的时候跟你讲的，但现在看，我应该没机会了吧</p>
         <p>我也知道我说完就真的再也不会再联系了，但就好像开始认识你的时候那样，不说，我肯定会很后悔</p>
+        <br/>
+        <p>我喜欢你，我也不知道什么时候开始，抬头看你就觉得这个女生好可爱啊，一举一动都好可爱^_^</p>
+        <p></p>
     </div>
 </body>
 </html>
@@ -48,8 +51,8 @@
     function onClick(){
         let name = md5(document.getElementById('name').value);
         if (name == cookieName) {
-            document.getElementsByClassName("outer").setAttribute('opacity', 0);
-            document.getElementsByClassName("body").setAttribute('background', '#f2f2f2 !important;');
+            document.getElementsByClassName("outer").style.opacity = 0;
+            document.getElementsByClassName("body").style.background = '#f2f2f2 !important';
             setCookie("name", name, 1);
         }
     }  

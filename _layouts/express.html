@@ -72,7 +72,7 @@
     }  
     if(user == cookieName){
         $(".outer").css({ "opacity": 0, 'background': '#f2f2f2', 'z-index': 0 });
-        $(".words").css('z-index', 1);
+        $(".words").css({ 'z-index': 1, 'min-height': '100%', 'overflow': '', 'height': '' });
     }
     document.getElementById('btn').addEventListener('click', onClick ,false);
 </script>

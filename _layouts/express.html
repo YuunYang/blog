@@ -65,7 +65,7 @@
         let name = md5(document.getElementById('name').value);
         if (name == cookieName) {
             $(".outer").css({"opacity": 0, 'background': '#f2f2f2', 'z-index': 0});
-            $(".words").css('z-index', 1);
+            $(".words").css({'z-index': 1, 'min-height': '100%', 'overflow': 'auto', 'height':''});
 
             setCookie("name", name, 1);
         }
@@ -182,11 +182,12 @@
     .words{
         background: #f2f2f2;
         position: absolute;
-        min-height: 100%;
+        height: 100%;
         margin: 0;
         padding: 1em;
         text-align: justify;
         z-index: 0;
+        overflow: hidden;
     }
     .words p{
         margin: 1em 0 0 0;

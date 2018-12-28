@@ -65,14 +65,14 @@
         let name = md5(document.getElementById('name').value);
         if (name == cookieName) {
             $(".outer").css({"opacity": 0, 'background': '#f2f2f2', 'z-index': 0});
-            $(".words").css({'z-index': 1, 'min-height': '100%', 'overflow': 'initial', 'height':'xx'});
+            $(".words").css({'z-index': 1, 'min-height': '100%', 'overflow': 'initial', 'height':'auto'});
 
             setCookie("name", name, 1);
         }
     }  
     if(user == cookieName){
         $(".outer").css({ "opacity": 0, 'background': '#f2f2f2', 'z-index': 0 });
-        $(".words").css({ 'z-index': 1, 'min-height': '100%', 'overflow': 'initial', 'height': 'xx' });
+        $(".words").css({ 'z-index': 1, 'min-height': '100%', 'overflow': 'initial', 'height': 'auto' });
     }
     document.getElementById('btn').addEventListener('click', onClick ,false);
 </script>

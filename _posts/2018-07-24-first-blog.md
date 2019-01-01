@@ -14,5 +14,9 @@ I always have many things wanna to record, I use WeChat Moments or Qzone, but it
 ## Add one ...
 ![Sun Yate-Sen University]({{ '/assets/images/2018-07-24-first-blog/sysu.jpeg' }}){: .align-center} Althouth I am at an internship in Beijing now,  I am still preparing for postgraduate examination now, and SYSU is my target school, wise me luck!
 
+2019-01-01
+
+Dont be down
+
 - - -
 $$\mathcal{Yukun Yang}$$ at Beijing.

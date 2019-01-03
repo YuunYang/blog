@@ -14,10 +14,9 @@ $indent-var: 1.3em !default;
 
 /* system typefaces */
 $serif: Georgia, Times, serif !default;
-$sans-serif: -apple-system, BlinkMacSystemFont, cursive, "Roboto", "Segoe UI",
-  "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
+$sans-serif: -apple-system, BlinkMacSystemFont,'comic sans ms', sans-serif, cursive, "Roboto", "Segoe UI",
+  "Helvetica Neue", "Lucida Grande", Arial;
 $monospace: Monaco, Consolas, "Lucida Console", monospace !default;
-$comic: 'comic sans ms', sans-serif, !default;
 
 /* sans serif typefaces */
 $sans-serif-narrow: $sans-serif !default;
@@ -30,7 +29,7 @@ $bodoni: "Bodoni MT", serif !default;
 $calisto: "Calisto MT", serif !default;
 $garamond: Garamond, serif !default;
 
-$global-font-family: $comic $sans-serif !default;
+$global-font-family: $sans-serif !default;
 $header-font-family: $sans-serif !default;
 $caption-font-family: $serif !default;
 

@@ -68,33 +68,33 @@ $(document).ready(function() {
     return false;
   });
 
-  $("article img").addClass("image-popup");
-  // add lightbox class to all image links
-  $(
-    "a[href$='.jpg'],a[href$='.jpeg'],a[href$='.JPG'],a[href$='.png'],a[href$='.gif']"
-  ).addClass("image-popup");
+  // $("article img").addClass("image-popup");
+  // // add lightbox class to all image links
+  // $(
+  //   "a[href$='.jpg'],a[href$='.jpeg'],a[href$='.JPG'],a[href$='.png'],a[href$='.gif']"
+  // ).addClass("image-popup");
 
-  // Magnific-Popup options
-  $(".image-popup").magnificPopup({
-    type: 'image',
-    closeOnContentClick: false,
-    closeBtnInside: false,
-    mainClass: 'mfp-with-zoom mfp-img-mobile',
-    image: {
-      verticalFit: true,
-      titleSrc: function (item) {
-        return item.el.attr('title');
-      }
-    },
-    gallery: {
-      enabled: true
-    },
-    zoom: {
-      enabled: true,
-      duration: 300, // don't foget to change the duration also in CSS
-      opener: function (element) {
-        return element.find('img');
-      }
-    }
-  });
+  // // Magnific-Popup options
+  // $(".image-popup").magnificPopup({
+  //   type: 'image',
+  //   closeOnContentClick: false,
+  //   closeBtnInside: false,
+  //   mainClass: 'mfp-with-zoom mfp-img-mobile',
+  //   image: {
+  //     verticalFit: true,
+  //     titleSrc: function (item) {
+  //       return item.el.attr('title');
+  //     }
+  //   },
+  //   gallery: {
+  //     enabled: true
+  //   },
+  //   zoom: {
+  //     enabled: true,
+  //     duration: 300, // don't foget to change the duration also in CSS
+  //     opener: function (element) {
+  //       return element.find('img');
+  //     }
+  //   }
+  // });
 });

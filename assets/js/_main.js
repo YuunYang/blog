@@ -3,6 +3,7 @@
    ========================================================================== */
 
 $(document).ready(function() {
+  $('.page__content a').attr('target', '_blank');
   // Sticky footer
   var bumpIt = function() {
       $("body").css("margin-bottom", $(".page__footer").outerHeight(true));

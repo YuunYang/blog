@@ -1,7 +1,7 @@
 ---
 title:  "Hello world"
 categories:
-  - record
+  - life
 tags: 
   - hello world
   - startup

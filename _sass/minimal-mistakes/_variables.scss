@@ -14,9 +14,8 @@ $indent-var: 1.3em !default;
 
 /* system typefaces */
 $serif: Georgia, Times, serif !default;
-$sans-serif: -apple-system, BlinkMacSystemFont,"Hiragino Sans GB", "Microsoft YaHei",
-             "WenQuanYi Micro Hei", sans-serif, cursive, "Roboto", "Segoe UI",
-  "Helvetica Neue", "Lucida Grande", Arial;
+$sans-serif: -apple-system, BlinkMacSystemFont,Helvetica, Tahoma, Arial, "Microsoft YaHei", 
+   "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
 $monospace: Monaco, Consolas, "Lucida Console", monospace !default;
 
 /* sans serif typefaces */

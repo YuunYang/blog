@@ -14,9 +14,9 @@ toc_sticky: true
 ---
 
 ## Flip String to Monotone Increasing
-[85. Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/)
+[926. Flip String to Monotone Increasing](https://leetcode.com/problems/flip-string-to-monotone-increasing/)
 ### description
-degree of difficulty: $$\color{yellow}{medium}$$
+degree of difficulty: $$\color{#ef6c00}{medium}$$
 
 *A string of '0's and '1's is monotone increasing if it consists of some number of '0's (possibly 0), followed by some number of'1's (also possibly 0.)*
 
@@ -85,6 +85,55 @@ public:
             }
         }
         return minFlips;
+    }
+};
+```
+
+## Palindromic Substrings
+[647. Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/)
+### description
+degree of difficulty: $$\color{#ef6c00}{medium}$$
+
+*Given a string, your task is to count how many palindromic substrings in this string.*
+
+*The substrings with different start indexes or end indexes are counted as different substrings even they consist of same characters.*
+
+Example 1:
+
+    Input: "abc"
+    Output: 3
+    Explanation: Three palindromic strings: "a", "b", "c".
+Example 2:
+
+    Input: "aaa"
+    Output: 6
+    Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa", "aaa".
+
+### solution
+Solution is from [@AES256](https://leetcode.com/problems/palindromic-substrings/discuss/105707/Java-DP-solution-based-on-longest-palindromic-substring)
+
+It is a DP problem first, so the core of this problem is to find the formal.
+
+See the substring, if the left most equal to right most, remove them, the rest substring should still a palindrome string, so, it become a DP problem, we can use a 2d bool vector to store if the substring from i -> j is a palindrome string.
+
+So, first we compare the left most and right most char at substring, if it is true, then compare dp[i + 1][j - 1] which i represent the start index from right to left, and j represent the end index.
+
+The code; there has a trick, when j - i < 3, like 'aba' or 'aa', whatever the middle one is, it must be a palindorem string.
+
+```cpp
+class Solution {
+public:
+    int countSubstrings(string s) {
+        int n = s.size();
+        int res = 0;
+        vector<vector<bool>> dp(n, vector<bool>(n));
+        for (int i = n - 1; i >= 0; i--) {
+            for (int j = i; j < n; j++) {
+                dp[i][j] = s[i] == s[j] && (j - i < 3 || dp[i + 1][j - 1]);
+                if(dp[i][j]) ++res;
+            }
+        }
+        return res;
     }
 };
 ```

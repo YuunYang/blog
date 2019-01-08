@@ -201,13 +201,13 @@ ol li {
   // }
 }
 ul li{
-  list-style-type: upper-roman;
+  list-style-type: lower-roman;
 }
 ol li{
-  list-style-type: decimal;
+  list-style-type: initial;
 }
 ul, ol{
-  padding: 0;
+  padding: .37;
 }
 
 li ul,

@@ -206,8 +206,11 @@ ul li{
 ol li{
   list-style-type: initial;
 }
-ul, ol{
-  padding: .37;
+ul{
+  padding: 0;
+}
+ol{
+  padding-left: .67em;
 }
 
 li ul,

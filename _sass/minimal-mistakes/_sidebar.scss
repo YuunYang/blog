@@ -70,9 +70,8 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: $right-sidebar-width-narrow;
+    width: calc(#{$right-sidebar-width-narrow} - 1em);
     margin-right: -1 * $right-sidebar-width-narrow;
-    padding-right: 1.5em;
     z-index: 10;
 
     &.sticky {

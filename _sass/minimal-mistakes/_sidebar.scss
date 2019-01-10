@@ -70,7 +70,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: calc(#{$right-sidebar-width-narrow} - 1em);
+    width: $right-sidebar-width;
     margin-right: -1 * $right-sidebar-width-narrow;
     z-index: 10;
 
@@ -84,7 +84,7 @@
   }
 
   @include breakpoint($x-large) {
-    width: $right-sidebar-width;
+    width: calc(#{$right-sidebar-width} - 1em);
     margin-right: -1 * $right-sidebar-width;
   }
 }

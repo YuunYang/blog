@@ -114,7 +114,8 @@ $$F_\beta=\frac{(1+\beta^2)\times P\times R}{(\beta^2\times P)+R}$$
 - 代价敏感错误率与代价曲线
 
 ### 比较检验
-
+针对实验评估方法和性能度量，下一步就需要对学习器的性能进行评估比较了，机器学习中的性能比较比较复杂，涉及多方面的因素
+- 泛化性能，我们所得到的的性能度量是在测试ji
 ### 偏差与方差
 
 [table-01]: /assets/images/2019-01-11-machine-learning-readingnotes/01.jpg

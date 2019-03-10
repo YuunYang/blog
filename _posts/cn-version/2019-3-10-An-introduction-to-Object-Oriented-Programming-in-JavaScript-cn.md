@@ -34,11 +34,11 @@ header:
 面向对象编程（OOP），是现代应用开发的范例，受到很多主要语言像Java、c#、JavaScript的支持。
 
 ## 面向对象范型
-From the OOP perspective, an application is a collection of “objects” that communicate with each other. We base these objects on things in the real world, like products in inventory or employee records. Objects contain data and perform some logic based on their data. As a result, OOP code is very easy to understand. What is not so easy is deciding how to break an application into these small objects in the first place.
+从面向对象的角度来看，一个应用程序是众多相互通信的“对象”集合。我们将这些对象建立在现实世界的基础之上，比如库存和员工记录的产品。对象包含数据，并根据数据执行一些逻辑。因此，OOP是很容易理解的，难的是如何首相将应用分解成小的对象。
 
-If you were like me when I heard it the first time, you have no clue what this actually means — it all sounds very abstract. Feeling that way is absolutely fine. It’s more important that you’ve heard the idea, remember it, and try to apply OOP in your code. Over time, you will gain experience and align more of your code with this theoretical concept.
+如果你像我第一次听说它，你根本不知道这是个什么意思 —— 这些听起来就很抽象。有这种感觉完全没什么问题。更重要的是你曾经听过这种说法，记住它，并且尝试在你的代码中应用OOP。随着时间的推移，并从中汲取经验，可以使自己的代码更多地符合这个理论概念。
 
-Lesson: OOP based on real-world objects lets anyone read your code and understand what’s going on.
+**Lesson**: OOP based on real-world objects lets anyone read your code and understand what’s going on.
 
 ## Object as Centerpiece
 
@@ -283,12 +283,13 @@ As a new programmer learning JavaScript, it will take time to appreciate Object-
 - Inheritance is a powerful tool for avoiding redundancy.
 - OOP is more verbose but easier to read than other coding paradigms.
 - Since OOP came later in JavaScript’s development, you may come across older code that uses prototype or functional programming techniques.
+
 ## Further reading
 - [https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_JS](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_JS)
 - [http://voidcanvas.com/es6-private-variables/](http://voidcanvas.com/es6-private-variables/)
 - [https://medium.com/@rajaraodv/is-class-in-es6-the-new-bad-part-6c4e6fe1ee65](https://medium.com/@rajaraodv/is-class-in-es6-the-new-bad-part-6c4e6fe1ee65)
 - [https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance)
-- https://en.wikipedia.org/wiki/Object-oriented_programming
+- [https://en.wikipedia.org/wiki/Object-oriented_programming](https://en.wikipedia.org/wiki/Object-oriented_programming)
 
 [02]: /assets/images/2019-3-10-An-introduction-to-Object-Oriented-Programming-in-JavaScript/02.png
 [03]: /assets/images/2019-3-10-An-introduction-to-Object-Oriented-Programming-in-JavaScript/03.png

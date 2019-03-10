@@ -282,12 +282,13 @@ As a new programmer learning JavaScript, it will take time to appreciate Object-
 - Inheritance is a powerful tool for avoiding redundancy.
 - OOP is more verbose but easier to read than other coding paradigms.
 - Since OOP came later in JavaScript’s development, you may come across older code that uses prototype or functional programming techniques.
+
 ## Further reading
 - [https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_JS](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_JS)
 - [http://voidcanvas.com/es6-private-variables/](http://voidcanvas.com/es6-private-variables/)
 - [https://medium.com/@rajaraodv/is-class-in-es6-the-new-bad-part-6c4e6fe1ee65](https://medium.com/@rajaraodv/is-class-in-es6-the-new-bad-part-6c4e6fe1ee65)
 - [https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance)
-- https://en.wikipedia.org/wiki/Object-oriented_programming
+- [https://en.wikipedia.org/wiki/Object-oriented_programming](https://en.wikipedia.org/wiki/Object-oriented_programming)
 
 [02]: /assets/images/2019-3-10-An-introduction-to-Object-Oriented-Programming-in-JavaScript/02.png
 [03]: /assets/images/2019-3-10-An-introduction-to-Object-Oriented-Programming-in-JavaScript/03.png

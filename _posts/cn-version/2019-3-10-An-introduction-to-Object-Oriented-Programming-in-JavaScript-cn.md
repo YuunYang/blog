@@ -21,7 +21,7 @@ header:
 
 *这篇文章是为那些之前没有任何面向对象编程知识的学习JavaScript的学生准备的。本文聚焦的仅仅只是与JavaScript相关的OOP知识，而不是通常意义上的OOP；我跳过了多态因为这样更适合静态类型语言。*
 
-## 为什么你需要知道这戏
+## 为什么你需要知道这些
 是否选用JavaScript作为首选语言？想成为一个在系统跨越十几万行代码或者更多的大型企业中工作的主力开发人员吗？
 
 除非你学习完全接收面向对象编程，不然便没有机会。
@@ -40,11 +40,11 @@ header:
 
 **Lesson**: OOP based on real-world objects lets anyone read your code and understand what’s going on.
 
-## Object as Centerpiece
+## 对象作为核心
 
 ![img][02]{: .align-center}
 
-A simple example will help you see how JavaScript implements the fundamental principles of OOP. Consider a shopping use case in which you put products into your basket and then calculate the total price you must pay. If you take your JavaScript knowledge and code the use case without OOP, it would look like this:
+一个简单的例子将帮助你了解JavaScript如何实现OOP的基本原则。思考一个超市购物用例，在这个用例中，你将商品放入篮子中，然后计算你将支付价格的总和。如果使用JavaScript的知识但不考虑OOP，代码将会是以下：
 
 ```javascript
 const bread = {name: 'Bread', price: 1};
@@ -61,9 +61,9 @@ const total = basket
 console.log('one has to pay in total: ' + total);
 ```
 
-The OOP perspective makes writing better code easier because we think of objects as we would encounter them in the real world. As our use case contains a basket of products, we already have two kinds of objects — the basket object and the product objects.
+从从OOP的观点来看问题，可以使我们更容易的编写好的代码，因为我们可以将对象类比成我们在现实世界里会偶遇的东西。因为我们的用例包含一个购物车产品，所以我们已经有两种对象——购物车对象和产品对象。
 
-The OOP version of the shopping use case could be written like:
+OOP版本的购物用例可以这样写：
 
 ```javascript
 const bread = new Product('bread', 1);
@@ -73,13 +73,14 @@ basket.addProduct(2, bread);
 basket.addProduct(3, water);
 basket.printShoppingInfo();
 ```
-As you can see in the first line, we create a new object by using the keyword `new` followed by the name of what’s called a class (described below). This returns an object that we store to the variable bread. We repeat that for the variable water and take a similar path to create a variable basket. After you have added these products to your basket, you finally print out the total amount you have to pay.
 
-The difference between the two code snippets is obvious. The OOP version almost reads like real English sentences and you can easily tell what’s going on.
+正如你在第一行中所看到的，我们使用关键字`new`后跟一个类的名称来创建一个新对象(如下所述)。其将返回一个对象，我们将该对象存储到变量bread中。我们对变量water重复这个步骤，并采用类似的路径创建一个变量basket。当你将这些产品添加到您的购物篮后，最终打印出你需要支付的总额。
+
+这两个代码片段的差别是显而易见的。OOP的版本读起来几乎像真正的英语句子，你可以很容易地知道发生了什么。
 
 **Lesson**: An object modeled on real-world things consists of data and functions.
 
-## Class as Template
+## 类模板
 
 ![img][03]{: .align-center}
 
@@ -273,7 +274,7 @@ Basket.prototype.printShoppingInfo = function() {
 ```
 **Lesson**: OOP was added to JavaScript later in its development.
 
-Summary
+## Summary
 As a new programmer learning JavaScript, it will take time to appreciate Object-Oriented Programming fully. The important things to understand at this early stage are the principles the OOP paradigm is based on and the benefits they provide:
 
 - Objects modeled on real-world things are the centerpiece of any OOP-based application.

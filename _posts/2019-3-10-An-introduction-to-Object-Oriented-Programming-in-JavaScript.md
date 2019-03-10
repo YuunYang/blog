@@ -272,7 +272,7 @@ Basket.prototype.printShoppingInfo = function() {
 ```
 **Lesson**: OOP was added to JavaScript later in its development.
 
-Summary
+## Summary
 As a new programmer learning JavaScript, it will take time to appreciate Object-Oriented Programming fully. The important things to understand at this early stage are the principles the OOP paradigm is based on and the benefits they provide:
 
 - Objects modeled on real-world things are the centerpiece of any OOP-based application.

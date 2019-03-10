@@ -5,7 +5,6 @@ categories:
 tags: 
   - Frontend
   - medium
-  - 每周两篇译文
 entries_layout: grid
 lang_change: true
 lang: cn
@@ -13,6 +12,10 @@ author_profile: true
 toc: true
 toc_label: "JavaScript中的面向对象的介绍"
 toc_sticky: true
+hidden: true
+header:
+  image: /assets/images/2019-3-10-An-introduction-to-Object-Oriented-Programming-in-JavaScript/01.png
+  caption: "JavaScript and Object-Oriented Programming"
 ---
 [Rainer Hahnekamp于2018年11月16日](https://medium.freecodecamp.org/an-introduction-to-object-oriented-programming-in-javascript-8900124e316a)
 

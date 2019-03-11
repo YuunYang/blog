@@ -84,11 +84,11 @@ basket.printShoppingInfo();
 
 ![img][03]{: .align-center}
 
-We use classes in OOP as templates for creating objects. An object is an “instance of a class” and “instantiation” is the creation of an object based on a class. The code is defined in the class but can’t execute unless it is in a live object.
+我们使用OOP中的类作为创建对象的模板。对象是“类的实例”，“实例化”是基于类创建对象。代码是在类中定义的，但除非在活动对象中，否则无法执行。
 
-You can look at classes like the blueprints for a car. They define the car’s properties like torque and horsepower, internal functions such as air-to-fuel ratios and publicly accessible methods like the ignition. It is only when a factory instantiates the car, however, that you can turn the key and drive.
+查看类似汽车蓝图这样的类。它们定义了汽车的扭矩和马力等性能，内部功能如空气与燃料的比例，以及点火等公众可以使用的方法。然而，只有当工厂实例化汽车时，你才能转动钥匙并开车。
 
-In our use case, we use the Product class to instantiate two objects, bread and water. Of course, those objects need code which you have to provide in the classes. It goes like this:
+在我们的用例中，我们使用Product类实例化两个对象，bread 和 water。当然，这些对象需要在类中提供的代码。它是这样的:
 
 ```javascript
 function Product(_name, _price) {
@@ -117,21 +117,21 @@ this.printShoppingInfo = function() {
 }
 ```
 
-A class in JavaScript looks like a function, but you use it differently. The name of the function is the class’s name and is capitalized. Since it doesn’t return anything, we don’t call the function in the usual way like `const basket = Product('bread', 1);`. Instead, we add the keyword new like `const basket = new Product('bread', 1);`.
+JavaScript中的类看起来像函数，但使用起来是不一样的。函数的名称是类的名称并且是大写的。因为它不反悔任何东西，我们不会用通常的方法像`const basket = Product('bread', 1);`来调用函数。事实上，我们会添加new关键字`const basket = new Product('bread', 1);`。
 
-The code inside the function is the constructor. This code executes each time an object is instantiated. Product has the parameters `_name` and `_price`. Each new object stores these values inside it.
+函数内部的代码称为构造函数（constructor）。每次实例化的时候都会执行代码。Product有参数_name和_price。每个新对象都将这些值存储在其中。
 
-Furthermore, we can define functions that the object will provide. We define these function by prepending the this keyword which makes them accessible from the outside (see Encapsulation). Notice that the functions have full access to the properties.
+此外，我们可以定义对象将提供的函数。我们通过前缀this关键字来定义这些函数，这使得它们可以从外部访问(参见封装)。注意，函数具有对属性的完全访问权。
 
-Class Basket doesn’t require any arguments to create a new object. Instantiating a new Basket object simply generates an empty list of products that the program can fill afterwards.
+Basket类创建一个新对象不需要任何参数。实例化一个新的Basket对象就是简单的生成一个空的列表，然后程序可以填充这些产品。
 
 **Lesson**: A class is a template for generating objects during runtime.
 
-## Encapsulation
+## 封装
 
 ![img][04]{: .align-center}
 
-You may encounter another version of how to declare a class:
+可能会遇到另一种声明类的方法：
 
 ```javascript
 function Product(name, price) {
@@ -140,33 +140,34 @@ function Product(name, price) {
 }
 ```
 
-Mind the assignment of the properties to the variable this. At first sight, it seems to be a better version because it doesn’t require the getter (getName & getPrice) methods anymore and is therefore shorter.
+注意this变量的属性赋值。第一眼看，这似乎是一个更好的版本，因为它不再需要getter方法（getName & getPrice）因此也会更短。
 
-Unfortunately, you have now given full access to the properties from the outside. So everybody could access and modify it:
+然而，现在却已经从外部完全访问了这些属性。所以每个人都可以访问和修改它:
 
 ```javascript
 const bread = new Product('bread', 1);
 bread.price = -10;
 ```
-This is something you don’t want as it makes the application more difficult to maintain. What would happen if you added validation code to prevent, for example, prices less than zero? Any code that accesses the price property directly would bypass the validation. This could introduce errors that would be difficult to trace. Code that uses the object’s getter methods, on the other hand, is guaranteed to go through the object’s price validation.
 
-Objects should have exclusive control over their data. In other words, the objects “encapsulate” their data and prevent other objects from accessing the data directly. The only way to access the data is indirect via the functions written into the objects.
+这是你不想看到的事情，它使得你的应用更难的维护。如果添加验证代码，比如判断价格是否小于0，将会如何？任何直接访问价格（price）属性的代码都会跳过验证。这将会导致错误更难被追踪、定位。另一方面，使用对象getter方法的代码保证会通过对象的价格验证。
 
-Data and processing (aka logic) belong together. This is especially true when it comes to larger applications where it is very important that processing data is restricted to specifically-defined places.
+对象应该有掌控其代码的专属权。换句话说，对象“封装”它们的数据并且防止其他对象直接访问数据。访问数据的唯一方法是间接的通过写在对象中的函数（getter、setter之类的）。
 
-Done right, OOP produces modularity by design, the holy grail in software development. It keeps away the feared spaghetti-code where everything is tightly coupled and you don’t know what happens when you change a small piece of code.
+数据和处理(又名逻辑)属于同一类。对于较大的应用程序尤其如此，在这些应用程序中，将数据处理限制在特定定义的位置非常重要。
 
-In our case, objects of class Product don’t let you change the price or the name after their initialization. The instances of Product are read-only.
+如果处理得当，OOP通过设计产生模块化，这是代码开发中的圣杯🍸。这样的方式远离了令人生畏的意大利面式代码，这样的代码中的所有的东西都紧紧的耦合在一起，就是改一小段的代码都不知道会发生什么。
+
+在我们的例子中，类Product的对象不允许在初始化后更改价格或名称。Product的实例是只读的。
 
 `Lesson`: Encapsulation prevents access to data except through the object’s functions.
 
-## Inheritance
+## 继承
 
 ![img][05]{: .align-center}
 
-Inheritance lets you create a new class by extending an existing class with additional properties and functions. The new class “inherits” all of the features of its parent, avoiding the creation of new code from scratch. Furthermore, any changes made to the parent class will automatically be available to the child class. This makes updates much easier.
+继承允许你通过使用附加属性和函数扩展现有类来创建新类。这个新类“继承”它的父类的所有特性，避免从头开始创建新代码。此外，对父类所做的任何更改都将自动对子类可用。这使得更新更加容易。
 
-Let’s say we have a new class called Book that has a name, a price and an author. With inheritance, you can say that a Book is the same as a Product but with the additional author property. We say that Product is the superclass of Book and Book is a subclass of Product:
+假设我们有一个叫Book的新类，这个类有姓名、价格和作者属性。使用继承，你可以说一本书与产品相同，但是带有附加的author属性。我们说 Product 是 Book 的超类，Book 是 Product 的子类:
 
 ```javascript
 function Book(_name, _price, _author) {
@@ -179,16 +180,16 @@ function Book(_name, _price, _author) {
 }
 ```
 
-Note the additional `Product.call` along the `this` as the first argument. Please be aware: Although book provides the getter methods, it still doesn’t have direct access to the properties name and price. Book must call that data from the Product class.
+注意第一个参数是 `this` 中的附加 `Product.call` 。请注意:虽然 book 提供了 getter 方法，但它仍然不能直接访问属性名和价格。Book 必须从 Product 类调用该数据。
 
-You can now add a book object to the basket without any issues:
+你现在可以添加一个 book 对象到 basket 没有任何问题:
 
 ```javascript
 const faust = new Book('faust', 12.5, 'Goethe');
 basket.addProduct(1, faust);
 ```
 
-Basket expects an object of type Product. Since book inherits from Product through Book, it is also a Product.
+Basket 期望对象类型为 Product。由于书籍是通过书籍从产品中继承而来的，所以它也是一种产品。
 
 **Lesson**: Subclasses can inherit properties and functions from superclasses while adding properties and functions of their own.
 

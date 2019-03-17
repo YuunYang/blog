@@ -16,7 +16,7 @@ toc_sticky: true
 ## Minimum Window Substring
 [76. Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/)
 ### description
-degree of difficulty: $$\color{#e91e63}{medium}$$
+degree of difficulty: $$\color{#e91e63}{hard}$$
 
 `Given a string S and a string T, find the minimum window in S which will contain all the characters in T in complexity O(n).`
 

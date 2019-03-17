@@ -193,18 +193,18 @@ Basket 期望对象类型为 Product。由于书籍是通过书籍从产品中�
 
 **Lesson**: Subclasses can inherit properties and functions from superclasses while adding properties and functions of their own.
 
-## JavaScript and OOP
-You will find three different programming paradigms used to create JavaScript applications. They are Prototype-Based Programming, Object-Oriented Programming and Functional-Oriented Programming.
+## JavaScript 和 OOP
+你将找到三种不同的用于生成JavaScript应用的编程范例，分别是基于原型编程，面向对象的程序设计和面向函数编程。
 
-The reason for this lies in JavaScript’s history. Originally, it was prototype-based. JavaScript was not intended as a language for large applications.
+原因是JavaScript的历史遗留，最初它是基于原型的。JavaScript并不打算作为一门面向大型应用的语言。
 
-Against the plan of its founders, developers increasingly used JavaScript for bigger applications. OOP was grafted on top of the original prototype-based technique.
+为反对其创始人的计划，开发人员越来越多的使用JavaScript来构建大型应用，OOP是在原有原型技术的基础上移植的。
 
-The prototype-based approach is shown below. It is seen as the “classical and default way” to construct classes. Unfortunately it does not support encapsulation.
+基于原型的方法如下所示它。它被视为构造类的“经典和默认方法”。遗憾的是他并不支持封装。
 
-Even though JavaScript’s support for OOP is not at the same level as other languages like Java, it is still evolving. The release of version ES6 added a dedicated `class` keyword we could use. Internally, it serves the same purpose as the prototype property, but it reduces the size of the code. However, ES6 classes still lack private properties, which is why I stuck to the “old way”.
+即时JavaScript支持OOP的程度并没有达到其他语言向Java的水平，但它始终是在进化。发行的ES6版本添加了一个专有的`class`关键字以供我们使用。在内部，它的作用和prototype属性相同，但是它减少的代码的大小。然而，ES6类仍然缺少私有属性，这就是为什么我坚持使用“旧方法”。
 
-For the sake of completeness, this is how we would write the Product, Basket and Book with ES6 classes and also with the prototype (classical and default) approach. Please note that these versions don’t provide encapsulation:
+基于完整性的考量，我们将使用ES6类以及原型(经典和默认)方法编写Product、Basket和 Book。请注意这些版本不提供封装：
 
 ```javascript
 // ES6 version
@@ -275,17 +275,16 @@ Basket.prototype.printShoppingInfo = function() {
 ```
 **Lesson**: OOP was added to JavaScript later in its development.
 
-## Summary
-As a new programmer learning JavaScript, it will take time to appreciate Object-Oriented Programming fully. The important things to understand at this early stage are the principles the OOP paradigm is based on and the benefits they provide:
+## 总结
+作为一名学习JavaScript的新程序员，完全理解面向对象编程需要花费一些时间。在这个早期阶段，重要的是理解OOP范例所基于的原则以及其提供的便利：
 
-- Objects modeled on real-world things are the centerpiece of any OOP-based application.
-- Encapsulation protects data from uncontrolled access.
-- Objects have functions that operate on the data the objects contain.
-- Classes are the templates used to instantiate objects.
-- Inheritance is a powerful tool for avoiding redundancy.
-- OOP is more verbose but easier to read than other coding paradigms.
-- Since OOP came later in JavaScript’s development, you may come across older code that uses prototype or functional programming techniques.
-
+- 对象基于现实世界建模是任何基于OOP的应用程序的核心。
+- 封装保护数据不受非受控访问。
+- 对象具有对对象包含的数据进行操作的函数。
+- 类是用于实例化对象的模板。
+- 继承是避免冗长的有利手段。
+- OOP看起来啰嗦，但是其会比其他编码范例更易读。
+- 由于OOP在JavaScript开发中后来出现，你可能会遇到使用原型或函数式编程技术的旧代码。
 ## Further reading
 - [https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_JS](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_JS)
 - [http://voidcanvas.com/es6-private-variables/](http://voidcanvas.com/es6-private-variables/)

@@ -130,6 +130,24 @@
     margin-top: -1.5em;
     padding-left: 1.25rem;
   }
+  .cite{
+    background-color: #dcdde0;
+    border-radius: .2em;
+    padding: .5em;
+    font-style: italic;
+    &:before{
+      content: '" ';
+      font-size: 2.2rem;
+      line-height: 0px;
+    }
+    .cite-name{
+      font-style: normal;
+      display: block;
+      text-align: right;
+      font-weight: bolder;
+      text-transform: uppercase;
+    }
+  }
 }
 
 .page__hero {

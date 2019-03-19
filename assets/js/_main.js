@@ -6,10 +6,10 @@ $(document).ready(function() {
 
   // cite
   var cite = $('.cite');
-  if (cite[0].dataset.url){
+  if (cite[0] && cite[0].dataset.url){
     cite.append('<a class="cite-name" href= "' + cite[0].dataset.url + '">— ' + cite[0].dataset.title + '</a>');
   }else{
-    cite.append('<i class="cite-name">— ' + cite[0].dataset.title + '</i>');    
+    cite[0] && cite.append('<i class="cite-name">— ' + cite[0].dataset.title + '</i>');    
   }
 
   $('.page__content a').attr('target', '_blank');

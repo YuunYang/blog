@@ -52,15 +52,15 @@ makeRequest()
 这里有一些不同点
 1. 我们的函数前有一个`async`关键字。`await`关键字只能在有`async`定义的函数中使用。**任何一个`async`函数都隐式的返回一个promise，并且由promise resolve的值是你从该函数`return`的任何值（我们这个例子里是返回`"done"`）**
 2. 上面这一点意味着我们不能在代码的顶层使用await，因为它不在`async`函数中。
-```javascript
-// this will not work in top level
-// await makeRequest()
+    ```javascript
+    // this will not work in top level
+    // await makeRequest()
 
-// this will work
-makeRequest().then((result) => {
-  // do something
-})
-```
+    // this will work
+    makeRequest().then((result) => {
+      // do something
+    })
+    ```
 3. `await getJSON()`意味着`console.log`调用会等待`getJSON()`promise resolves并打印值。
 ## 为什么会更好？
 ### 1. 简洁

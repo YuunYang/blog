@@ -292,7 +292,7 @@ Basket.prototype.printShoppingInfo = function() {
 - [https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance)
 - [https://en.wikipedia.org/wiki/Object-oriented_programming](https://en.wikipedia.org/wiki/Object-oriented_programming)
 
-[02]: /assets/images/2019-3-10-An-introduction-to-Object-Oriented-Programming-in-JavaScript/02.png
-[03]: /assets/images/2019-3-10-An-introduction-to-Object-Oriented-Programming-in-JavaScript/03.png
-[04]: /assets/images/2019-3-10-An-introduction-to-Object-Oriented-Programming-in-JavaScript/04.png
-[05]: /assets/images/2019-3-10-An-introduction-to-Object-Oriented-Programming-in-JavaScript/05.png
+[02]: /assets/images/2019-03-10-An-introduction-to-Object-Oriented-Programming-in-JavaScript/02.png
+[03]: /assets/images/2019-03-10-An-introduction-to-Object-Oriented-Programming-in-JavaScript/03.png
+[04]: /assets/images/2019-03-10-An-introduction-to-Object-Oriented-Programming-in-JavaScript/04.png
+[05]: /assets/images/2019-03-10-An-introduction-to-Object-Oriented-Programming-in-JavaScript/05.png

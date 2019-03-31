@@ -1,7 +1,7 @@
 ---
 title:  "《机器学习》读书笔记01"
 categories:
-  - machine learning
+  - Machine Learning
 tags: 
   - 机器学习
   - 毕业设计

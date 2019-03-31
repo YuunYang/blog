@@ -205,7 +205,6 @@ const makeRequest = async () => {
   await callAPromise()
   throw new Error("oops");
 }
-
 makeRequest()
   .catch(err => {
     console.log(err);

@@ -68,8 +68,6 @@ songs.to_csv(filename, sep=',', encoding='utf-8')
 存储所有歌曲歌词的DataFrame
 ![img01][01]{: .align-center}
 运行了scrapper之后，我将所有的歌词都以正确的格式保存在.csv文件中，并准备开始预处理数据和构建模型。
-
-[01]: /assets/images/2019-03-31-Generating-Drake-Rap-Lyrics/02.png
 ## 关于模型
 ### 字符级模型
 ### 单词级模型
@@ -80,3 +78,5 @@ songs.to_csv(filename, sep=',', encoding='utf-8')
 ### 实际的构建
 ## 生成歌词
 ## 其他应用
+
+[01]: /assets/images/2019-03-31-Generating-Drake-Rap-Lyrics/02.png

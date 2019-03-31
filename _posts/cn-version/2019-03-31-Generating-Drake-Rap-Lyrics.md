@@ -79,4 +79,4 @@ songs.to_csv(filename, sep=',', encoding='utf-8')
 ## 生成歌词
 ## 其他应用
 
-[01]: /assets/images/2019-03-31-Generating-Drake-Rap-Lyrics/02.png
+[01]: /assets/images/2019-03-31-Generating-Drake-Rap-Lyrics/01.png

@@ -83,7 +83,7 @@ songs.to_csv(filename, sep=',', encoding='utf-8')
 ### 单词级模型
 单词级模型几乎和字符级是差不多的，但是它是生成下一个单词而不是下一个字符。下面是一个简单的例子：
 
-![Sliding window on the dataset with input/output generation][03]{: .align-center}
+![Iterative process of word generation with Word-level Language Model][03]{: .align-center}
 
 现在，在这个模型中，我们向前看一个单位，但这个时候我们的一个单位是一个单词，而不是一个字符。所以，我们寻求的是`P(new_word|seed)`，其中`new_word`则是来自我们词表的任意单词。
 
@@ -95,7 +95,7 @@ songs.to_csv(filename, sep=',', encoding='utf-8')
 1. **标记数据集** ——当我们将输入输入到模型中时，我们不想只输入字符串，而是要处理字符，因为这是一个字符级模型。所以我们要把所有的歌词分成字符列表。
 2. **设计单词表**——现在，我们知道每一个每一个单独的字符都有可能出现在歌词中（从前面的标记阶段可知），我们想要找到所有不同的字符。为了简单和整个数据集不那么大(我只使用了140首歌)，我将坚持使用英文字母和一些特殊字符(比如空格)，并忽略所有的数字和其他东西(由于数据集很小，所以我希望模型只预测更少的字符)。
 3. **创建训练序列**——我们将使用一个滑动窗口的概念，并通过在一个句子上滑动一个固定大小的窗口来创建一组训练示例。下面是一个很好的方法来将其形象化：
-![Iterative process of word generation with Word-level Language Model][03]{: .align-center}
+![ Sliding window on the dataset with input/output generation][04]{: .align-center}
 通过每一次移动一个字符，我们生成一个长度为20的字符串和一个单独字符的输出。此外，一个额外的好处是，由于我们每次移动一个字符，实际上我们正在有效地扩展数据集的大小。
 4. **标签编码训练序列**——最后，由于我们不希望模型处理原始字符串（尽管从理论上来讲是可能的，因为一个字符从技术的角度来看只是数字，所以你可以说ASCII为我们编码了所有字符串）。我们要把一个唯一的整数和字母表中的每个字符联系起来——你们可能听说过标签编码（Label Encoding）。这也是我们创建两个非常重要的映射`character-to-index`和`index-to-character`的时候。通过这两个映射，我们可以将任何字符串编码成为它特有的数字并且还能将模型的输出从索引解码为原始的字符。
 5. **一位有效编码（One-Hot-Encode）数据集**——由于我们处理的是分类数据，其中所有字符都属于某种类别，所以我们必须对输入列进行编码。下面是由[Rakshith Vasudev](https://medium.com/@rakshithvasudev)编写的关于One-Hot-Encoding的[详细描述](https://hackernoon.com/what-is-one-hot-encoding-why-and-when-do-you-have-to-use-it-e3c6186d008f)。
@@ -145,11 +145,15 @@ for i, sentence in enumerate(sentences):
 为了使用一组先前的字符来预测下一个字符，我们将使用循环神经网络(RNN)，或者具体地说是长短时记忆网络(LSTM)。如果你对这两个概念都不熟悉，我建议你仔细阅读。[Pranoy Radhakrishnan](https://medium.com/@pranoyradhakrishnan)的[RNNs](https://towardsdatascience.com/introduction-to-recurrent-neural-network-27202c3945f3)和[Eugine Kang](https://medium.com/@kangeugine)的[LSMTs](https://medium.com/@kangeugine/long-short-term-memory-lstm-concept-cb3283934359)。如果你只是需要复习一下或感觉自己很了解，这里有一个快速纲要：
 ### RNN复习
 通常，你看到的网络看起来像一个网，从多个节点聚合到一个输出。就像这样:
-![Image of a Neural Network. credit][04]{: .align-center}
+
+![Image of a Neural Network. credit][05]{: .align-left}
+
 这里我们有一个输入点和一个输出点。这对于非连续的输入非常有用，因为输入的顺序不会影响输出。但在我们的例子中，字符的顺序实际上非常重要，因为字符的特定顺序是创建独特单词的关键。
 
 RNNs通过创建一个接受连续输入的网络来解决这个问题，该网络还使用前一个节点的激活作为下一个节点的参数。
-![Overview of a simple RNN][05]{: .align-left}
+
+![Overview of a simple RNN][06]{: .align-center}
+
 ### LSTM复习
 ### 实际的构建
 ## 生成歌词

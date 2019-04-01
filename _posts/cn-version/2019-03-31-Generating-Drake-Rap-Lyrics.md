@@ -159,7 +159,7 @@ RNNs通过创建一个接受连续输入的网络来解决这个问题，该网�
 简单的RNN有一个问题，它们不擅长将信息从非常早期的单元传递到后面的单元。例如，如果你观察这个句子`Tryna keep it simple is a struggle for me`，如果不回头看看之前出现了什么词，那么预测最后一个单词`me`（可以是任何人、任何事比如Baka，猫，土豆）是很困难的。
 
 LSTMs解决这个问题的方法是为每个存储之前发生的事情（之前出现了哪些单词）的信息的单元中添加一点内存，这就是LSTMs看起来像下面这样的原因：
-![LSTM visualization, taken from Andrew Ng’s Deep Learning specialization][06]{: .align-center}
+![LSTM visualization, taken from Andrew Ng’s Deep Learning specialization][07]{: .align-center}
 
 除了传递`a<n>`激活，同时也传递了`c<n>`，这其中就包含先前节点发生的信息。这就是为什么LSTMs更善于保存上下文，并且通常可以为语言建模等目的做出更好的预测。
 ### 实际的构建
@@ -190,11 +190,11 @@ model.fit(x, y, batch_size=128, epochs=30)
 
 注：歌词不经过审查，所以你可以随意查看
 
-![ ][07]{: .align-center}
 ![ ][08]{: .align-center}
 ![ ][09]{: .align-center}
 ![ ][10]{: .align-center}
 ![ ][11]{: .align-center}
+![ ][12]{: .align-center}
 
 你可能注意到单词有时候没有发挥作用，这是单词级模型的通病，由于输入数据常常被单词分割，这使得网络学习并生成一些能在某种情况下也能满足条件奇怪的单词。
 
@@ -204,7 +204,7 @@ model.fit(x, y, batch_size=128, epochs=30)
 
 例如，iPhone键盘上的下一个单词推荐便是如此。
 
-![Keyboard next word prediction][11]{: .align-center}
+![Keyboard next word prediction][13]{: .align-center}
 
 想象一下，如果你构建一个足够精确的Python语言模型，你不仅可以实现关键字或变量名的自动补全，还可以自动完成大量代码，从而为程序员节省大量时间。
 
@@ -225,3 +225,4 @@ model.fit(x, y, batch_size=128, epochs=30)
 [10]: /assets/images/2019-03-31-Generating-Drake-Rap-Lyrics/10.png
 [11]: /assets/images/2019-03-31-Generating-Drake-Rap-Lyrics/11.png
 [12]: /assets/images/2019-03-31-Generating-Drake-Rap-Lyrics/12.png
+[13]: /assets/images/2019-03-31-Generating-Drake-Rap-Lyrics/13.png

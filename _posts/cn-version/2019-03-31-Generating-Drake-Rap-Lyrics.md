@@ -65,8 +65,8 @@ songs.to_csv(filename, sep=',', encoding='utf-8')
 ```
 这个爬虫使用了一个很有名的python库叫BeautifulSoup，5分钟简单教程来自[Justin Yek](https://medium.com/@jyek)所写的[awesome tutorial](https://medium.freecodecamp.org/how-to-scrape-websites-with-python-and-beautifulsoup-5946935d93fe)。注意，我实际上预定义了我想从*metrolyrics*上获取的歌曲，这就是为什么你可能会注意到我在上面代码中迭代`songs`数据帧（dataframe）。
 
-存储所有歌曲歌词的DataFrame
 ![Iterative process of word generation with Character-level Language Model][01]{: .align-center}
+
 运行了scrapper之后，我将所有的歌词都以正确的格式保存在.csv文件中，并准备开始预处理数据和构建模型。
 ## 关于模型
 现在，我们来谈谈文本生成模型，这也是你点进来的目的，这是最重要的点，也是很有趣的一部分。我将从谈论模型设计和一些使歌词生成成为可能的重要元素开始谈起，我们将直接进入它的实现。
@@ -76,11 +76,15 @@ songs.to_csv(filename, sep=',', encoding='utf-8')
 两种模型的主要区别在于输入和输出是什么，我将在这里详细讨论它们是如何工作的。
 ### 字符级模型
 在字符级模型的情况下，您的输入是一串字符`seed`，模型则负责预测下一个字符`new_char`。然后使用`seed + new_char`一起来生成下一个字符串，并依次类推。注意，由于模型网络输入必须始终保持相同的形状，因此在这个过程的每次迭代中，我们实际上都会损失seed中的一个字符。下面是一个简单的可视化：
+
 ![Iterative process of word generation with Word-level Language Model][02]{: .align-center}
+
 在每次迭代中，模型基本上都在预测给定seed字符的下一个最可能的字符是什么，或者使用条件概率，这个过程可以被描述为查找`P(new_char|seed)`的最大值，其中`new_char`可能是字母表中的任何字符。在我们的示例中，字母表是由所有英文字母和空格字符组成的。（注意，你的字母表可能与此差别很大，取决于你所构建模型的语言，它可以包含任何你想要的字符）
 ### 单词级模型
 单词级模型几乎和字符级是差不多的，但是它是生成下一个单词而不是下一个字符。下面是一个简单的例子：
-![Sliding window on the dataset with input/output generation][03]{: .align-left}
+
+![Sliding window on the dataset with input/output generation][03]{: .align-center}
+
 现在，在这个模型中，我们向前看一个单位，但这个时候我们的一个单位是一个单词，而不是一个字符。所以，我们寻求的是`P(new_word|seed)`，其中`new_word`则是来自我们词表的任意单词。
 
 注意，现在我们搜索的集合比以前大得多。使用字母表时，我们搜索大约30个条目，现在我们在每次迭代中都要搜索更多的条目，因此单词级模型算法在每次迭代中都要慢一些，但是由于我们生成的是一个完整的单词而不是单个字符，所以实际上它并没有那么糟糕。作为单词级模型的最后一点说明，我们可以有一个非常多样化的词汇表，我们通常通过从数据集(通常在数据预处理阶段完成)中找到的所有不同的单词来扩展它。由于词汇表可以变得无穷大，所以有许多技术可以提高算法的效率，比如单词嵌入（Word-Embedding），但这些都是后话。
@@ -91,7 +95,7 @@ songs.to_csv(filename, sep=',', encoding='utf-8')
 1. **标记数据集** ——当我们将输入输入到模型中时，我们不想只输入字符串，而是要处理字符，因为这是一个字符级模型。所以我们要把所有的歌词分成字符列表。
 2. **设计单词表**——现在，我们知道每一个每一个单独的字符都有可能出现在歌词中（从前面的标记阶段可知），我们想要找到所有不同的字符。为了简单和整个数据集不那么大(我只使用了140首歌)，我将坚持使用英文字母和一些特殊字符(比如空格)，并忽略所有的数字和其他东西(由于数据集很小，所以我希望模型只预测更少的字符)。
 3. **创建训练序列**——我们将使用一个滑动窗口的概念，并通过在一个句子上滑动一个固定大小的窗口来创建一组训练示例。下面是一个很好的方法来将其形象化：
-![Iterative process of word generation with Word-level Language Model][03]{: .align-right}
+![Iterative process of word generation with Word-level Language Model][03]{: .align-center}
 通过每一次移动一个字符，我们生成一个长度为20的字符串和一个单独字符的输出。此外，一个额外的好处是，由于我们每次移动一个字符，实际上我们正在有效地扩展数据集的大小。
 4. **标签编码训练序列**——最后，由于我们不希望模型处理原始字符串（尽管从理论上来讲是可能的，因为一个字符从技术的角度来看只是数字，所以你可以说ASCII为我们编码了所有字符串）。我们要把一个唯一的整数和字母表中的每个字符联系起来——你们可能听说过标签编码（Label Encoding）。这也是我们创建两个非常重要的映射`character-to-index`和`index-to-character`的时候。通过这两个映射，我们可以将任何字符串编码成为它特有的数字并且还能将模型的输出从索引解码为原始的字符。
 5. **一位有效编码（One-Hot-Encode）数据集**——由于我们处理的是分类数据，其中所有字符都属于某种类别，所以我们必须对输入列进行编码。下面是由[Rakshith Vasudev](https://medium.com/@rakshithvasudev)编写的关于One-Hot-Encoding的[详细描述](https://hackernoon.com/what-is-one-hot-encoding-why-and-when-do-you-have-to-use-it-e3c6186d008f)。
@@ -141,11 +145,11 @@ for i, sentence in enumerate(sentences):
 为了使用一组先前的字符来预测下一个字符，我们将使用循环神经网络(RNN)，或者具体地说是长短时记忆网络(LSTM)。如果你对这两个概念都不熟悉，我建议你仔细阅读。[Pranoy Radhakrishnan](https://medium.com/@pranoyradhakrishnan)的[RNNs](https://towardsdatascience.com/introduction-to-recurrent-neural-network-27202c3945f3)和[Eugine Kang](https://medium.com/@kangeugine)的[LSMTs](https://medium.com/@kangeugine/long-short-term-memory-lstm-concept-cb3283934359)。如果你只是需要复习一下或感觉自己很了解，这里有一个快速纲要：
 ### RNN复习
 通常，你看到的网络看起来像一个网，从多个节点聚合到一个输出。就像这样:
-![Image of a Neural Network. credit][04]{: .align-left}
+![Image of a Neural Network. credit][04]{: .align-center}
 这里我们有一个输入点和一个输出点。这对于非连续的输入非常有用，因为输入的顺序不会影响输出。但在我们的例子中，字符的顺序实际上非常重要，因为字符的特定顺序是创建独特单词的关键。
 
 RNNs通过创建一个接受连续输入的网络来解决这个问题，该网络还使用前一个节点的激活作为下一个节点的参数。
-![Overview of a simple RNN][05]{: .align-center}
+![Overview of a simple RNN][05]{: .align-left}
 ### LSTM复习
 ### 实际的构建
 ## 生成歌词

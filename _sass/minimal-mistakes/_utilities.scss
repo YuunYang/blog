@@ -135,7 +135,6 @@ body:hover .visually-hidden button {
     margin-right: 1em;
   }
 }
-
 /* image align right */
 
 .align-right {
@@ -148,13 +147,19 @@ body:hover .visually-hidden button {
     margin-left: 1em;
   }
 }
-
 /* image align center */
 
 .align-center {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* image tips*/
+.img-tips{
+  display: block;
+  text-align: center;
+  font-size: .75em;
 }
 
 /* file page content container */

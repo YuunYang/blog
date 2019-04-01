@@ -217,9 +217,9 @@ makeRequest()
 Last but not least，使用async/await的一个致命优势是它更容易调试。调试Promise一直以来都是痛苦的，原因有二
 
 1. 无法在返回表达式（没有正文）的箭头函数中设置断点。
-![img1][/assets/images/2019-03-28-Why-JS’s-AsyncAwait-Blows-Promises-Away/01.png]{: .align-center}
+![img1](/assets/images/2019-03-28-Why-JS’s-AsyncAwait-Blows-Promises-Away/01.png){: .align-center}
 2. 如果您在`.then`块中设置断点并使用诸如step-over之类的调试快捷方式，调试器将不会移动到下面的`.then`，因为它只“逐步”通过同步代码。
-![img2][/assets/images/2019-03-28-Why-JS’s-AsyncAwait-Blows-Promises-Away/02.png]{: .align-center}
+![img2](/assets/images/2019-03-28-Why-JS’s-AsyncAwait-Blows-Promises-Away/02.png){: .align-center}
 ## 总结
 Async/await是JavaScript近几年添加的最具革命性的特性之一。它让你意识到语法混乱的promise是怎样的，并且提供一个更加直观的替代。
 ## 关注点

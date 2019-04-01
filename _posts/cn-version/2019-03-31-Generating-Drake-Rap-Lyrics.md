@@ -154,10 +154,64 @@ RNNs通过创建一个接受连续输入的网络来解决这个问题，该网�
 
 ![Overview of a simple RNN][06]{: .align-center}
 
+还记得我们例子中的序列`Tryna_keep_it_simple`，我们提取了下一个字符应该是`_`。这也正是我们希望我们的网络去做的。我们将输入字符串序列，其中每一个字符`T — > s<1>, r -> x<2>, n -> x<3>... e-> x<n>`，网络则会预测一个输出`y->_`，这是一个空格，也就是我们的下一个字符。
 ### LSTM复习
+简单的RNN有一个问题，它们不擅长将信息从非常早期的单元传递到后面的单元。例如，如果你观察这个句子`Tryna keep it simple is a struggle for me`，如果不回头看看之前出现了什么词，那么预测最后一个单词`me`（可以是任何人、任何事比如Baka，猫，土豆）是很困难的。
+
+LSTMs解决这个问题的方法是为每个存储之前发生的事情（之前出现了哪些单词）的信息的单元中添加一点内存，这就是LSTMs看起来像下面这样的原因：
+![LSTM visualization, taken from Andrew Ng’s Deep Learning specialization][06]{: .align-center}
+
+除了传递`a<n>`激活，同时也传递了`c<n>`，这其中就包含先前节点发生的信息。这就是为什么LSTMs更善于保存上下文，并且通常可以为语言建模等目的做出更好的预测。
 ### 实际的构建
+作者之前学过一点Keras，所以下面的代码是使用它作为框架来构建网络的，但实际上，这个网络可以手动完成，唯一的不同点就是可能会长一点。
+```python
+# create sequential network, because we are passing activations
+# down the network
+model = Sequential()
+
+# add LSTM layer
+model.add(LSTM(128, input_shape=(maxlen, len(chars))))
+
+# add Softmax layer to output one character 
+model.add(Dense(len(chars)))
+model.add(Activation('softmax'))
+
+# compile the model and pick the loss and optimizer
+model.compile(loss='categorical_crossentropy', optimizer=RMSprop(lr=0.01))
+
+# train the model
+model.fit(x, y, batch_size=128, epochs=30)
+```
+正如你所看到的，我们使用的是LSTM模型，我们还使用了批处理，这意味着我们对数据子集进行训练，而不是一次对所有数据进行训练，以略微加快训练过程。
 ## 生成歌词
+在我们的网络训练之后，下面则是我们如何搜寻下一个字符。我们将会得到一些随机的seed，这将是一个用户输入的简单字符串。然后我们将用这个seed作为网络的输入来验证下一个字符，并且一直重复这个过程直到我们生成新行；类似于上面所示的图2。
+
+下面是一些生成歌词的例子
+
+注：歌词不经过审查，所以你可以随意查看
+
+![ ][07]{: .align-center}
+![ ][08]{: .align-center}
+![ ][09]{: .align-center}
+![ ][10]{: .align-center}
+![ ][11]{: .align-center}
+
+你可能注意到单词有时候没有发挥作用，这是单词级模型的通病，由于输入数据常常被单词分割，这使得网络学习并生成一些能在某种情况下也能满足条件奇怪的单词。
+
+这是单词级模型解决的问题，但是对于少于200行代码，字符级模型仍然没有太大问题。
 ## 其他应用
+在这个字符级网络中描述的思想可以扩展到许多比歌词生成更有用的其他应用程序。
+
+例如，iPhone键盘上的下一个单词推荐便是如此。
+
+![Keyboard next word prediction][11]{: .align-center}
+
+想象一下，如果你构建一个足够精确的Python语言模型，你不仅可以实现关键字或变量名的自动补全，还可以自动完成大量代码，从而为程序员节省大量时间。
+
+## 总结
+你可能注意到这里的代码并不完整，有一些部分是没有的，这里是作者的[GitHub仓库](https://github.com/nikolaevra/drake-lyric-generator)，你可以自己构建类似项目来更深入地了解细节。
+
+感谢Keras的例子来自[github](https://github.com/keras-team/keras/blob/master/examples/lstm_text_generation.py)
 
 [01]: /assets/images/2019-03-31-Generating-Drake-Rap-Lyrics/01.png
 [02]: /assets/images/2019-03-31-Generating-Drake-Rap-Lyrics/02.png

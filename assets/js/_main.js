@@ -18,9 +18,11 @@ $(document).ready(function() {
   $('.page__content a').attr('target', '_blank');
 
   // img tips
-  var imgs = $('.page__content .align-center');
+  var imgs = $('.page__content img');
   imgs.each(function() {
     var alt = $(this).attr('alt');
+    var ex_class = $(this).hasClass("align-right") ? "align-right" : $(this).hasClass("align-left") ? "align-left" : "";
+    $(this).wrapAll('<div class = "img-outer ' + ex_class + '"></div>');
     $(this).after('<em class = "img-tips">' + alt + '</em>');
   });
   // Sticky footer

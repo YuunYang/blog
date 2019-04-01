@@ -156,6 +156,9 @@ body:hover .visually-hidden button {
 }
 
 /* image tips*/
+img-outer{
+  overflow: hidden;
+}
 .img-tips{
   display: block;
   text-align: center;

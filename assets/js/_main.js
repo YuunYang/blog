@@ -15,7 +15,7 @@ $(document).ready(function() {
     }
   })
 
-  $('.page__content a').attr('target', '_blank');
+  $('.page__content a:not([href*="#"])').attr('target', '_blank');
 
   // img tips
   var imgs = $('.page__content img');

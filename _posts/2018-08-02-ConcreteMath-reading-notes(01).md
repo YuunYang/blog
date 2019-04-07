@@ -1,14 +1,14 @@
 ---
 title:  "Concrete Math Reading Notes(01)"
 categories:
-  - reading-notes
-  - ConcreteMath
+  - ReadingNotes
 tags: 
   - math
   - recurrent problems
   - the tower of hanoi
   - lines in the plane
   - the josephus problem
+  - concrete math
 toc: true
 toc_label: "Concrete Math"
 toc_sticky: true

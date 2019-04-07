@@ -1,7 +1,7 @@
 ---
 title:  "【译】深度学习数学基础"
 categories:
-  - machine learning
+  - MachineLearning
 tags: 
   - machine learning
   - deep learning

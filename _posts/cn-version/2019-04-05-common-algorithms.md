@@ -388,6 +388,20 @@ console.log(unique(array)); // [1, 2, "1"]
 ### 把一串数字表示成千位分隔
 
 `/(?=(\B\d{3})+$)/g;`；‘?=’表示前瞻，`exp1(?=exp2)`查找exp2前面的exp1（因此在这里就是查找三个数字前面的空白）；`\B`是非单词边界，表示所匹配的这个空后面不能是一个单词边界
+
+### 驼峰与下划线命名互转
+```JavaScript
+// 下划线转换驼峰
+function toHump(name) {
+    return name.replace(/\_(\w)/g, function(all, letter){
+        return letter.toUpperCase();
+    });
+}
+// 驼峰转换下划线
+function toLine(name) {
+  return name.replace(/([A-Z])/g,"_$1").toLowerCase();
+}
+```
 ## 传统/常见算法
 ### 大数相加
 

@@ -74,7 +74,7 @@
   p,
   li,
   dl {
-    font-size: 0.87em;
+    font-size: 0.87rem;
     &:after {
       content: "";
     }
@@ -94,7 +94,7 @@
     }
   }
 
-  li > p{
+  li > p:first-child{
     display: inline;
     word-wrap: break-word;
   }
@@ -283,6 +283,10 @@
 
   a {
     color: inherit;
+    &:hover {
+      color: $link-color-hover;
+      outline: 0;
+    }
   }
 }
 
@@ -358,7 +362,7 @@
   grid-template-columns: repeat(2, 1fr);
   margin: 1.414em 0;
   padding: 0;
-  font-size: 0.75em;
+  font-size: 0.75rem;
   list-style: none;
 
   @include breakpoint($large) {
@@ -383,7 +387,7 @@
   display: block;
   clear: both;
   color: lighten($text-color, 50%);
-  font-size: 0.6em;
+  font-size: 0.6rem;
   text-transform: uppercase;
   text-align: right;
   text-decoration: none;

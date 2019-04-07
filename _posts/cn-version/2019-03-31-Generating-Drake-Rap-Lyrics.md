@@ -1,7 +1,7 @@
 ---
 title:  "使用语言模型和LSTMs生成Drake的Rap歌词"
 categories:
-  - Machine Learning
+  - MachineLearning
 tags: 
   - Machine Learning
   - Lstm

@@ -390,7 +390,7 @@ console.log(unique(array)); // [1, 2, "1"]
 `/(?=(\B\d{3})+$)/g;`；‘?=’表示前瞻，`exp1(?=exp2)`查找exp2前面的exp1（因此在这里就是查找三个数字前面的空白）；`\B`是非单词边界，表示所匹配的这个空后面不能是一个单词边界
 
 ### 驼峰与下划线命名互转
-```JavaScript
+```javascript
 // 下划线转换驼峰
 function toHump(name) {
     return name.replace(/\_(\w)/g, function(all, letter){

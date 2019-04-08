@@ -347,6 +347,72 @@ class EventEmitter{
 }
 ```
 ## 前端算法
+### 函数柯里化
+
+```javascript
+function add() {
+    // 第一次执行时，定义一个数组专门用来存储所有的参数
+    var _args = [].slice.call(arguments);
+    // 在内部声明一个函数，利用闭包的特性保存_args并收集所有的参数值
+    var adder = function () {
+        var _adder = function() {
+            [].push.apply(_args, [].slice.call(arguments));
+            return _adder; // 在这里递归，用到了闭包的特性
+        };
+        // 利用隐式转换的特性，当最后执行时隐式转换，并计算最终的值返回
+        _adder.toString = function () {
+            return _args.reduce(function (a, b) {
+                return a + b;
+            });
+        }
+        return _adder;
+    }
+    return adder.apply(null, [].slice.call(arguments));
+}
+// 输出结果，可自由组合的参数
+console.log(add(1, 2, 3, 4, 5));  // 15
+console.log(add(1, 2, 3, 4)(5));  // 15
+console.log(add(1)(2)(3)(4)(5));  // 15
+```
+还有一个版本
+```javascript
+function curry(fn, args) {
+    var length = fn.length;
+
+    args = args || [];
+
+    return function() {
+
+        var _args = args.slice(0),
+
+            arg, i;
+
+        for (i = 0; i < arguments.length; i++) {
+
+            arg = arguments[i];
+
+            _args.push(arg);
+
+        }
+        if (_args.length < length) {
+            return curry.call(this, fn, _args);
+        }
+        else {
+            return fn.apply(this, _args);
+        }
+    }
+}
+
+
+var fn = curry(function(a, b, c) {
+    console.log([a, b, c]);
+});
+fn("a", "b", "c") // ["a", "b", "c"]
+fn("a", "b")("c") // ["a", "b", "c"]
+fn("a")("b")("c") // ["a", "b", "c"]
+fn("a")("b", "c") // ["a", "b", "c"]
+```
+
 ### 数组扁平化
 ```javascript
 var arr = [1, [2, [3, 4, [5, 6]]]];

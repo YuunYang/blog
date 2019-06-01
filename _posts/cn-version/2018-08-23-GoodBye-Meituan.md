@@ -1,7 +1,7 @@
 ---
 title:  "再见，美团"
 categories:
-  - life
+  - report
 tags: 
   - 工作
   - 实习

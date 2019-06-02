@@ -55,7 +55,7 @@ const Pi float32 = 3.1415926
     }
     ```
 - Go数据底层的存储；基础类型底层都是分配了一块内存，然后存储了相应的值。
-    ![Go底层存储结构][01]
+    ![Go底层存储结构][01]{:. align-center}
 - 枚举`iota`，这个关键字用来声明枚举类型，开始默认为0，const声明中每一行增加1
 
 ### 数组
@@ -81,11 +81,14 @@ Array_a := [10]byte{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'}
 Slice_a := Array_a[2:5]
 ```
 上面代码的结构为：
-![slice对应数组的结构][02]
+
+![slice对应数组的结构][02]{:. align-center}
+
 对于`slice`有几个重要的点：
 - `len`表示长度、`cap`表示最大容量
 - `copy`函数从源`slice`的`src`中复制元素到目标`dst`，并且返回复制的元素的个数
 - `append`操作会向`slice`中追加一个或多个元素，然后返回一个同样类型的`slice`。需要注意的是，`append`操作在`slice`还有剩余空间（即`(cap-len) != 0`）时，会修改引用的数组的内容。也就是说其他引用此数组的`slice`也会被修改。否则，将动态分配新的数组空间，返回的slice数组指针将指向这个空间，而原数组的内容将保持不变；其它引用此数组的`slice`则不受影响。
+
 ### map
 `map`可以理解为python中字典的概念，它的格式为`map[keyType]valueType`，中间没有空格分离。使用无差，主要注意几点：
 - 无序
@@ -101,7 +104,35 @@ Slice_a := Array_a[2:5]
 make只能创建slice、map和channel，并且返回一个**有初值（非零）的T类型**，而不是`*T`，原因是因为这三种类型在指向数据结构的引用在使用之前必须初始化。
 
 下面这个图详细的解释了new和make之间的区别。
-![make和new对应底层的内存分配][03]
+![make和new对应底层的内存分配][03]{:. align-center}
+
+### struct类型
+struct可以理解为结构体，声明方式和使用方式：
+```go
+type person struct {
+	name string
+	age int
+}
+var P person
+```
+- 当使用匿名字段时，也就是不声明变量名，而只声明变量类型时，默认这个类型的struct都被隐式地引入了到了当前定义的这个struct。
+    ```go
+    type Human struct {
+        xx string
+        yy string
+    }
+    type Student struct {
+        Human  // 匿名字段，那么默认Student就包含了Human的所有字段
+        yy string
+    }
+    ```
+    在上面的例子中，可以使用`Student`中的`Human`字段如`s.xx`。甚至可以直接访问`Human`例如`s.Human.xx`
+- 当遇到匿名字段与现有字段重名时，最外层的优先访问，也就是当你通过`student.yy`访问的时候，是访问`student`里面的字段，而不是`Human`里面的字段。要修改或访问里层的数据，使用`s.Human.yy`就好了
+
+struct只是自定义类型里面一种比较特殊的类型而已，还有其他自定义类型申明，可以通过如下这样的申明来实现：
+```go
+type typeName typeLiteral
+```
 
 ## 函数
 函数的结构：
@@ -149,7 +180,7 @@ Recover
 init函数（能够应用于所有的package）和main函数（只能应用于package main）。Go程序会自动调用init()和main()，所以你不需要在任何地方调用这两个函数。每个package中的init函数都是可选的，但package main就必须包含一个main函数。
 
 程序的初始化和执行都起始于`main`包。如果`main`包还导入了其它的包，那么就会在编译时将它们依次导入。有时一个包会被多个包同时导入，那么它只会被导入一次（例如很多包可能都会用到`fmt`包，但它只会被导入一次，因为没有必要导入多次）。当一个包被导入时，如果该包还导入了其它的包，那么会先将其它包导入进来，然后再对这些包中的包级常量和变量进行初始化，接着执行`init()`函数（如果有的话），依次类推。等所有被导入的包都加载完毕了，就会开始对`main`包中的包级常量和变量进行初始化，然后执行`main`包中的`init()`函数（如果存在的话），最后执行`main()`函数。下图详细地解释了整个执行过程：
-![main函数引入包初始化流程图][04]
+![main函数引入包初始化流程图][04]{:. align-center}
 注意区分`main`包和`main()`函数
 ### import
 - 点操作
@@ -178,7 +209,65 @@ import (
 ```
 _操作其实是引入该包，而不直接使用包里面的函数，而是调用了该包里面的init函数。
 
-## struct
+### 面向对象
+go面向对象的要点是`method`方法，声明一个方法：
+```go
+func (r ReceiverType) funcName(parameters) (results)
+```
+这样声明一个方法的好处或者说与一般函数不同的点就是：
+- 可以声明多个同名的方法，用于不同接收者计算（这样就算不同的`method`），这样代码的语义性会更好。
+- `method`里面可以访问接收者的字段
+- 调用`method`通过.访问，就像`struct`里面访问字段一样
+- `method`同样可以继承和重写
+
+### interface
+interface类型定义了一组方法，如果某个对象实现了某个接口的所有方法，则此对象就实现了此接口。简单的说，interface是一组method签名的组合，我们通过interface来定义对象的一组行为。看下面的例子：
+```go
+type Human struct {
+	name string
+	age int
+	phone string
+}
+type Student struct {
+	Human //匿名字段
+	school string
+	loan float32
+}
+//Human实现SayHi方法
+func (h Human) SayHi() {
+}
+//Human实现Sing方法
+func (h Human) Sing(lyrics string) {
+}
+
+// Interface Men被Human,Student实现
+// 因为这两个类型都实现了这两个方法
+type Men interface {
+	SayHi()
+	Sing(lyrics string)
+}
+func main() {
+	mike := Student{Human{"Mike", 25, "222-222-XXX"}, "MIT", 0.00}
+	//定义Men类型的变量i
+	var i Men
+	//i能存储Student
+	i = mike
+	i.SayHi()
+	i.Sing("November rain")
+}
+```
+还有几个需要注意的点：
+- 空interface(interface{})，不包含任何的method，所以所有的类型都实现了空interface。空interface在我们需要存储任意类型的数值的时候相当有用
+
+- 由于interface的变量可以持有任意实现该interface类型的对象（例如上面的例子中`i`能持有实现了interface中所有方法的`mike`），所以我们可以通过定义interface参数，让函数接受各种类型的参数。以`fmt.Println`为例，打开fmt的源码文件，你会看到这样一个定义:：
+    ```go
+    type Stringer interface {
+        String() string
+    }
+    ```
+    也就是说，任何实现了String方法的类型都能作为参数被`fmt.Println`调用
+- 要知道interface变量存储的类型，可以使用Go语言里面有一个语法：value, ok = element.(T)，这里value就是变量的值，ok是一个bool类型，element是interface变量，T是断言的类型。
+- interface同样可以嵌入
 
 
 [01]: /assets/images/2019-06-02-Golang-report/01.png

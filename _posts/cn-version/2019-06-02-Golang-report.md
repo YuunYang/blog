@@ -209,7 +209,9 @@ import (
 ```
 _操作其实是引入该包，而不直接使用包里面的函数，而是调用了该包里面的init函数。
 
-### 面向对象
+## 面向对象
+
+### method
 go面向对象的要点是`method`方法，声明一个方法：
 ```go
 func (r ReceiverType) funcName(parameters) (results)
@@ -269,6 +271,91 @@ func main() {
 - 要知道interface变量存储的类型，可以使用Go语言里面有一个语法：value, ok = element.(T)，这里value就是变量的值，ok是一个bool类型，element是interface变量，T是断言的类型。
 - interface同样可以嵌入
 
+## 并发
+Go语言从语言层面支持了并行
+
+### goroutine
+goroutine说到底其实就是协程，但是它比线程更小，十几个goroutine可能体现在底层就是五六个线程，Go语言内部实现了这些goroutine之间的内存共享。
+
+goroutine是通过Go的runtime管理的一个线程管理器。goroutine通过go关键字实现了，其实就是一个普通的函数。通过`go`关键字就启动了一个goroutine。
+```go
+func say(s string) {
+	for i := 0; i < 3; i++ {
+		runtime.Gosched()
+		fmt.Println(s)
+	}
+}
+func main() {
+	go say("world") //开一个新的Goroutines执行
+	say("hello") //当前Goroutines执行
+}
+// 以上程序执行后将输出：
+// hello
+// world
+// hello
+// world
+// hello
+```
+> runtime.Gosched()表示让CPU把时间片让给别人,下次某个时候继续恢复执行该goroutine。
+
+上面的多个goroutine运行在同一个进程里面，共享内存数据，不过设计上我们要遵循：不要通过共享来通信，而要通过通信来共享。
+
+### channels
+channel可以与Unix shell 中的双向管道做类比：可以通过它发送或者接收值。这些值只能是特定的类型：channel类型。定义一个channel时，也需要定义发送到channel的值的类型。注意，必须使用make 创建channel：
+```go
+ch := make(chan int)
+ch <- v    // 发送v到channel ch.
+v := <-ch  // 从ch中接收数据，并赋值给v
+```
+默认情况下，channel接收和发送数据都是阻塞的，除非另一端已经准备好，这样就使得Goroutines同步变的更加的简单，而不需要显式的lock。所谓阻塞，也就是如果读取（value := <-ch）它将会被阻塞，直到有数据接收。其次，任何发送（ch<-5）将会被阻塞，直到数据被读出。
+
+### Range和Close
+channel也可以使用range操作来遍历。下面的例子：
+```go
+func fibonacci(n int, c chan int) {
+	x, y := 1, 1
+	for i := 0; i < n; i++ {
+		c <- x
+		x, y = y, x + y
+	}
+	close(c)
+}
+func main() {
+	c := make(chan int, 10)
+	go fibonacci(cap(c), c)
+	for i := range c {
+		fmt.Println(i)
+	}
+}
+```
+for i := range c能够不断的读取channel里面的数据，直到该channel被显式的关闭。生产者通过内置函数close关闭channel。
+> close函数是一个内建函数， 用来关闭channel，这个channel要么是双向的， 要么是只写的（chan<- Type）。这个方法应该只由发送者调用， 而不是接收者。当最后一个发送的值都被接收者从关闭的channel(下简称为c)中接收时, 接下来所有接收的值都会非阻塞直接成功，返回channel元素的零值。 
+
+### Select
+通过select可以监听channel上的数据流动，select默认是阻塞的，只有当监听的channel中有发送或接收可以进行时才会运行，当多个channel都准备好的时候，select是随机的选择一个执行的。
+```go
+func fibonacci(c, quit chan int) {
+	x, y := 1, 1
+	for {
+		select {
+		case c <- x:
+			x, y = y, x + y
+		case <-quit:
+			fmt.Println("quit")
+			return
+		}
+	}
+}
+func main() {
+	c := make(chan int)
+	quit := make(chan int)
+    go fibonacci(c, quit)
+    for i := 0; i < 10; i++ {
+        fmt.Println(<-c)
+    }
+    quit <- 0
+}
+```
 
 [01]: /assets/images/2019-06-02-Golang-report/01.png
 [02]: /assets/images/2019-06-02-Golang-report/02.png

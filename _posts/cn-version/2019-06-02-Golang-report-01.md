@@ -1,7 +1,7 @@
 ---
 title: "Golang第一次学习报告"
 categories:
-  - report
+  - golang
 tags: 
   - Golang
   - Backend

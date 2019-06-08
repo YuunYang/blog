@@ -1,7 +1,7 @@
 ---
 title: "Golang第二次学习报告"
 categories:
-  - report
+  - golang
 tags: 
   - Golang
   - Backend
@@ -118,6 +118,18 @@ func login(w http.ResponseWriter, r *http.Request) {
 ```
 
 ## 预防跨站脚本
+预防xss有两种方式
+
+转义，使用Go中`html/template`中带有的几个函数：
+- func HTMLEscape(w io.Writer, b []byte) //把b进行转义之后写到w
+- func HTMLEscapeString(s string) string //转义s之后返回结果字符串
+- func HTMLEscaper(args ...interface{}) string //支持多个参数一起转义，返回结果字符串
+
+或者说，就是想输出正常的带有script标签的文本信息：
+```go
+t, err := template.New("foo").Parse(`{{define "T"}}Hello, {{.}}!{{end}}`)
+err = t.ExecuteTemplate(out, "T", template.HTML("<script>alert('you have been pwned')</script>"))
+```
 
 [01]: /assets/images/2019-06-04-Golang-report/01.png
 [02]: /assets/images/2019-06-04-Golang-report/02.png

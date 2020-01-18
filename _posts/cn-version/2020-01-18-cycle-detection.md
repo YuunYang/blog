@@ -30,7 +30,7 @@ $$x_0,x_1=f(x_0),x_2=f(x_1),\dots,x_i=f(x_\text{i-1}),\dots$$
 
 手写解释：
 
-![手写解释](/assets/2020-01-18-cycle-detection/01.png){: .align-center}
+![手写解释](/assets/images/2020-01-18-cycle-detection/01.png){: .align-center}
 
 ## Kth Largest Element in an Array
 [287. Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/)

@@ -458,6 +458,54 @@ function toLine(name) {
   return name.replace(/([A-Z])/g,"_$1").toLowerCase();
 }
 ```
+
+### 根据 parent_id 生成层级树
+类似
+```javascript
+var data = [
+    {id: 1, parent_id: 0, name: "A"},
+    {id: 2, parent_id: 1, name: "AA"},
+    {id: 3, parent_id: 1, name: "AB"},
+    {id: 4, parent_id: 3, name: "ABA"},
+    {id: 5, parent_id: 3, name: "ABB"},
+    {id: 6, parent_id: 3, name: "ABC"},
+    {id: 7, parent_id: 1, name: "AC"},
+    {id: 8, parent_id: 7, name: "ACA"},
+    {id: 9, parent_id: 8, name: "ACAA"},
+    {id: 10, parent_id: 8, name: "ACAB"},
+]
+```
+转化为一种层级关系：
+```javascript
+function list_to_tree(data) {
+  let res = {};
+  // res 存放结果
+  for(let i = 0; i < data.length; i++) {
+    let row = data[i];
+    row.parent = row.parent ? row.parent : 0;
+    if(res[row.name]) { // 多层层级时，因为 object 的引用关系，所以还是可以构建成多层层级。
+      Object.assign(res[row.name], { // 在 children 出现在 parent 之前时，res[row.name] 为children
+        name: row.name, 
+        attributes: row.attributes
+      });
+    } else {
+      res[row.name] = {
+        name: row.name, 
+        attributes: row.attributes,
+        children: []
+      };
+    }
+    if(res[row.parent]) {
+      res[row.parent].children.push(res[row.name]);
+    } else {
+      res[row.parent] = {children: [res[row.name]]};
+    }
+  }
+  return res[0].children;
+}
+```
+
+
 ## 传统/常见算法
 ### 大数相加
 

@@ -154,10 +154,13 @@ This is a tricky one on two sides:
 1. how to find the length of the lonest string
 2. how to compare the string of the same length
 
-For the first point, we can use binary search for answer since if a string of length n is invalid then for all k > n, there's definetly no solution because length n strings would become a substring of the length k string. Similarly if a string of length n is valid, we have no use of checking strings with length less than n. Due to these properties we can use binary search for final answer.
-
-For the second point, we are actually trying to compare a sliding window of string, and Rabin Karp algorithm is perfect for doing so. The algorithm basically computes the hash value of all the string and start a character by character comparison only if the two strings have the same hash value. In order to avoid collision we can use a large prime number. 
-
+For the first point, we can use binary search for answer since if a string of length n is invalid then for all k > n,
+there's definetly no solution because length n strings would become a substring of the length k string. 
+Similarly if a string of length n is valid, we have no use of checking strings with length less than n.
+Due to these properties we can use binary search for final answer.
+For the second point, we are actually trying to compare a sliding window of string, and Rabin Karp algorithm is perfect for doing so.
+The algorithm basically computes the hash value of all the string and start a character by character comparison only if the two strings have the same hash value.
+In order to avoid collision we can use a large prime number.
 Such as 1e9 + 7, 19260817, 99999989, etc.
 
 The implementation looks as follows:

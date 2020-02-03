@@ -1,9 +1,7 @@
 ---
 title: "代码自动生成"
 categories:
-  - FrontTech
-tags:
-  - algorithm
+  - summarize
 entries_layout: grid
 author_profile: true
 toc: true
@@ -96,6 +94,5 @@ function list_to_tree(data) {
 > 统计 components
 
 统计 component 是最麻烦的一种，因为对于 component 来讲，每个 component 都有很多属性，对于这些属性的处理，我们需要将其合入到一起，同时前面提到的 parent 属性，对于很多 component 来讲，它的 parent 肯定不止出现一类，我们同样需要统统统计起来，但是因为我们统计的是出现次数最多的 component 所以，又要剔除掉不在其中的 parent。
-
 
 [01]:/assets/images/2020-01-17-code-generation/structure.png

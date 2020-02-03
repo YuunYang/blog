@@ -105,6 +105,58 @@ function runWhileLoopForNSeconds(sec){
 - 函数runwhile eloopfornseconds()的作用与它的名称完全相同。它不断地检查调用它所消耗的时间是否等于作为函数参数提供的秒数。要记住的要点是，while循环(像许多其他语句一样)是一个阻塞语句，这意味着它的执行发生在调用堆栈上，并且不使用浏览器api。因此，它会阻塞所有后续语句，直到执行完毕。
 - 因此，在上面的代码中，即使setTimeout的延迟为0,while循环运行了3秒，exec()回调仍然会卡在消息队列中。while循环在调用堆栈(单线程)上继续运行，直到3s结束。当调用堆栈变为空后，回调exec()被移动到调用堆栈并执行。
 - 因此setTimeout()中的延迟参数并不保证计时器完成延迟后执行的开始。它作为延迟部分的最小时间。
+
+## 🌰
+下面这一系列 JavaScript 代码的输出
+```javascript
+async function a1 () {
+    console.log('a1 start')
+    await a2()
+    console.log('a1 end')
+}
+async function a2 () {
+    console.log('a2')
+}
+
+console.log('script start')
+
+setTimeout(() => {
+    console.log('setTimeout')
+}, 0)
+
+Promise.resolve().then(() => {
+    console.log('promise1')
+})
+
+a1()
+
+let promise2 = new Promise((resolve) => {
+    resolve('promise2.then')
+    console.log('promise2')
+})
+
+promise2.then((res) => {
+    console.log(res)
+    Promise.resolve().then(() => {
+        console.log('promise3')
+    })
+})
+console.log('script end')
+```
+其实很好理解，async/await可以理解为 promise 的语法糖，async 函数返回一个promise，而await后面的操作相当于 promise的then调用的操作。同时记住在promise中无论是在resolve前面或者后面的代码都是同步执行的。
+```
+script start
+a1 start
+a2
+promise2
+script end
+promise1
+a1 end
+promise2.then
+promise3
+setTimeout
+```
+
 ## 总结
 最后简单的讲述一下什么是事件循环？就是由于JavaScript是单线程非阻塞的，所以当有异步事件来到时，JavaScript会将其放到一边，继续监听后续的事件，当异步回调后，再转去执行回调函数中的内容，如此反复，直到事件队列为空，这就是事件循环。
 

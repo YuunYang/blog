@@ -2,7 +2,7 @@
 title: "常见JS代码题"
 categories:
   - FrontTech
-tags: 
+tags:
   - 工作
   - 前端
   - 算法
@@ -97,7 +97,7 @@ function getCookie(name)
                 obj.style.top = cy - sy + dy + 'px';
                 if(event.preventDefault) { // 可加可不加
                     document.addEventListener("mousemove", function(){
-                        event.preventDefault(); // 默认动作不要做                 
+                        event.preventDefault(); // 默认动作不要做
                     }, false); // false代表事件冒泡，true代表事件捕获
                 } else {
                     document.attachEvent("onmousemove", function(){
@@ -279,7 +279,7 @@ function deepClone(source){
          }else{
            targetObj[keys] = source[keys];
          }
-      } 
+      }
    }
    return targetObj;
 }
@@ -314,36 +314,40 @@ var __const = function __const (data, value) {
 - emit(event,arg1,arg2,arg3...)：触发event事件，并把参数arg1,arg2,arg3....传给事件处理函数；
 - off(event,fn)：停止监听某个事件（就是把event队列里，叫fn的方法移除）。
 ```javascript
-class EventEmitter{
-    constructor(){
-        this._events = {}
-    }
-    on(event,callback){  //监听event事件，触发时调用callback函数
-        let callbacks = this._events[event] || []
-        callbacks.push(callback)
-        this._events[event] = callbacks
-        return this
-    }
-    off(event,callback){  //停止监听event事件
-        let callbacks = this._events[event]
-        this._events[event] = callbacks && callbacks.filter(fn => fn !== callback)
-        return this
-    }
-    emit(...args){ //触发事件，并把参数传给事件的处理函数
-        const event = args[0]
-        const params = [].slice.call(args,1)
-        const callbacks = this._events[event]
-        callbacks.forEach(fn => fn.apply(this.params))
-        return this
-    }
-    once(event,callback){ //为事件注册单次监听器
-        let wrapFanc = (...args) => {
-            callback.apply(this.args)
-            this.off(event,wrapFanc)
-        }
-        this.on(event,wrapFanc)
-        return this
-    }
+class EventEmitter {
+  constructor () {
+    this._events = {};
+  }
+  on (event, callback) {
+    //监听event事件，触发时调用callback函数
+    let callbacks = this._events[event] || [];
+    callbacks.push (callback);
+    this._events[event] = callbacks;
+    return this;
+  }
+  off (event, callback) {
+    //停止监听event事件
+    let callbacks = this._events[event];
+    this._events[event] = callbacks && callbacks.filter (fn => fn !== callback);
+    return this;
+  }
+  emit (...args) {
+    //触发事件，并把参数传给事件的处理函数
+    const event = args[0];
+    const params = [].slice.call (args, 1);
+    const callbacks = this._events[event];
+    callbacks.forEach (fn => fn.apply (this, params));
+    return this;
+  }
+  once (event, callback) {
+    //为事件注册单次监听器
+    let wrapFanc = (...args) => {
+      callback.apply (this, args);
+      this.off (event, wrapFanc);
+    };
+    this.on (event, wrapFanc);
+    return this;
+  }
 }
 ```
 ## 前端算法
@@ -443,7 +447,7 @@ console.log(unique(array)); // [1, 2, "1"]
 
 ### 把一串数字表示成千位分隔
 
-`/(?=(\B\d{3})+$)/g;`；‘?=’表示前瞻，`exp1(?=exp2)`查找exp2前面的exp1（因此在这里就是查找三个数字前面的空白）；`\B`是非单词边界，表示所匹配的这个空后面不能是一个单词边界
+`/(\d)(?=(\d{3})+(?!\d))/g`；‘?=’表示前瞻，`exp1(?=exp2)`查找exp2前面的exp1（因此在这里就是查找三个数字前面的空白）；?! 表示负前瞻，`exp1(?!exp2)`查找后面不是exp2的exp。例如`12355.6789`，在匹配到`.`之前，都会忽略之后的内容。
 
 ### 驼峰与下划线命名互转
 ```javascript
@@ -485,12 +489,12 @@ function list_to_tree(data) {
     row.parent = row.parent ? row.parent : 0;
     if(res[row.name]) { // 多层层级时，因为 object 的引用关系，所以还是可以构建成多层层级。
       Object.assign(res[row.name], { // 在 children 出现在 parent 之前时，res[row.name] 为children
-        name: row.name, 
+        name: row.name,
         attributes: row.attributes
       });
     } else {
       res[row.name] = {
-        name: row.name, 
+        name: row.name,
         attributes: row.attributes,
         children: []
       };
@@ -587,7 +591,7 @@ function permute(nums){
 function backtrack(nums, begin, result) {
     if(begin >= nums.length){
         return result.push(nums.slice());
-    } 
+    }
     for(let i = begin; i < nums.length; i++){
         var temp;
         temp = nums[begin];

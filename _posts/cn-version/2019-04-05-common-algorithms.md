@@ -283,6 +283,40 @@ function deepClone(source){
    }
    return targetObj;
 }
+// 非递归广度优先
+function getEmpty(o){
+    if(Object.prototype.toString().call(0) === '[object Object]'){
+        return {};
+    }
+    if(Object.prototype.toString().call(0) === '[object Array]'){
+        return [];
+    }
+    return o;
+}
+function deepCopyBFS(origin){
+    let queue = [];
+    let map = new Map();
+    let target = getEmpty(origin);
+    if(target !== origin){
+        queue.push([origin, target]);
+        map.set(origin, target);
+    }q
+    while(queue.length > 0){
+        let [ori, tar] = queue.shift();
+        for(let key in ori){
+            if(map.get(ori[key])){
+                tar[key] = map.get(ori[key]);
+                continue;
+            }
+            tar[key] = getEmpty(ori[key]);
+            if(tar[key] !== ori[key]){
+                queue.push([ori[key], tar[key]]);
+                map.set(ori[key], tar[key]);
+            }
+        }
+    }
+    return target;
+}
 ```
 
 ### es5实现es6相关特性

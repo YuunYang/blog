@@ -21,8 +21,8 @@ title_separator          : "-"
 name                     : &name "Yukwan Yeung"
 description              : "Try"
 url                      : "https://yuunyang.github.io"
-baseurl                  : /blog
-repository               : "Yuunyang/yuunyang.github.io"
+baseurl                  : "/blog"
+repository               : "YuunYang/blog"
 teaser                   : # path of fallback teaser image, e.g. "/assets/assets/images/500x300.png"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 400

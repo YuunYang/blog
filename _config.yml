@@ -20,9 +20,9 @@ title                    : "Yukwan Yeung"
 title_separator          : "-"
 name                     : &name "Yukwan Yeung"
 description              : "Try"
-url                      : "https://yuunyang.github.io"
+url                      : "https://yuunyang.github.io/blog"
 baseurl                  : /
-repository               : "Yuunyang/yuunyang.github.io"
+repository               : "Yuunyang/yuunyang.github.io/blog"
 teaser                   : # path of fallback teaser image, e.g. "/assets/assets/images/500x300.png"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 400
@@ -108,7 +108,7 @@ analytics:
 author:
   name             : *name
   avatar           : "/assets/images/yyk.jpeg"
-  bio              : "Most like the brilliant azaleas, please the spring breeze don't blow it off"
+  bio              : "碧煙中 明月下 小艇垂綸初罷"
   location         : "Wuhan"
   email            : "ylcj1314@gmail.com"
   uri              : "/"
@@ -133,7 +133,7 @@ author:
   tumblr           :
   twitter          :
   vine             :
-  bilibili         : "26132842"
+  bilibili         : # "26132842"
   xing             :
   youtube          : # "https://youtube.com/c/MichaelRoseDesign"
 
